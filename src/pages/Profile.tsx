@@ -1,4 +1,3 @@
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { Button } from "@/components/ui/button";
@@ -24,7 +23,7 @@ const Profile = () => {
           <CardHeader className="text-center">
             <div className="flex justify-center mb-4">
               <Avatar className="h-24 w-24">
-                <AvatarImage src="https://api.dicebear.com/7.x/avataaars/svg?seed=demo" />
+                <AvatarImage src="https://api.dicebear.com/6.x/initials/svg?seed=demo" />
                 <AvatarFallback>
                   <User className="h-12 w-12" />
                 </AvatarFallback>
@@ -58,7 +57,7 @@ const Profile = () => {
             <Button 
               onClick={() => {
                 logout();
-                navigate('/login');
+                navigate('/');
               }}
               variant="outline"
               className="w-full"
