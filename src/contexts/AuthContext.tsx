@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react';
 import { toast } from "sonner";
 
 interface User {
@@ -17,13 +17,25 @@ interface AuthContextType {
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export function AuthProvider({ children }: { children: ReactNode }) {
-  const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<User | null>(() => {
+    const savedUser = localStorage.getItem('user');
+    return savedUser ? JSON.parse(savedUser) : null;
+  });
+
+  useEffect(() => {
+    if (user) {
+      localStorage.setItem('user', JSON.stringify(user));
+    } else {
+      localStorage.removeItem('user');
+    }
+  }, [user]);
 
   const login = (email: string, password: string) => {
     console.log('Login attempt:', { email, password });
     
     if (email === 'demo' && password === 'demo') {
-      setUser({ email: 'demo', name: 'Demo User' });
+      const newUser = { email: 'demo', name: 'Demo User' };
+      setUser(newUser);
       toast.success('Successfully logged in!');
     } else {
       toast.error('Invalid credentials. Use demo/demo');
@@ -34,7 +46,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     console.log('Signup attempt:', { email, password, name });
     
     if (email === 'demo' && password === 'demo') {
-      setUser({ email, name });
+      const newUser = { email, name };
+      setUser(newUser);
       toast.success('Account created successfully!');
     } else {
       toast.error('Please use demo/demo credentials');
