@@ -1,12 +1,12 @@
 import { ChevronRight } from "lucide-react";
 
 const categories = [
-  { name: "Mobile phone", icon: "📱" },
-  { name: "Laptop", icon: "💻" },
-  { name: "Gadget", icon: "⌚" },
-  { name: "TV", icon: "📺" },
-  { name: "Tablet", icon: "📱" },
-  { name: "Headphone", icon: "🎧" },
+  { name: "Wireless Headphones", icon: "🎧" },
+  { name: "Over-Ear Headphones", icon: "🎧" },
+  { name: "Portable Speakers", icon: "🔊" },
+  { name: "Home Speakers", icon: "📢" },
+  { name: "Studio Monitors", icon: "🎵" },
+  { name: "Accessories", icon: "🎮" },
 ];
 
 const CategoryNav = () => {
