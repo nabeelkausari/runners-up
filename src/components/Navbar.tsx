@@ -1,9 +1,11 @@
 import { Search, User, ShoppingCart } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useCart } from "../contexts/CartContext";
+import { useAuth } from "../contexts/AuthContext";
 
 const Navbar = () => {
   const { items } = useCart();
+  const { isAuthenticated } = useAuth();
   const itemCount = items.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
@@ -21,9 +23,12 @@ const Navbar = () => {
           <button className="p-2 hover:text-accent transition-colors">
             <Search size={20} />
           </button>
-          <button className="p-2 hover:text-accent transition-colors">
+          <Link 
+            to={isAuthenticated ? "/profile" : "/login"} 
+            className="p-2 hover:text-accent transition-colors"
+          >
             <User size={20} />
-          </button>
+          </Link>
           <Link to="/cart" className="p-2 hover:text-accent transition-colors relative">
             <ShoppingCart size={20} />
             {itemCount > 0 && (
