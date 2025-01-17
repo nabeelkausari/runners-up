@@ -15,6 +15,10 @@ const Profile = () => {
     return null;
   }
 
+  // Create a proper DiceBear URL using the user's name
+  const avatarUrl = `https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent(user.name)}`;
+  console.log('Avatar URL:', avatarUrl);
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -23,7 +27,14 @@ const Profile = () => {
           <CardHeader className="text-center">
             <div className="flex justify-center mb-4">
               <Avatar className="h-24 w-24">
-                <AvatarImage src="https://api.dicebear.com/6.x/initials/svg?seed=demo" />
+                <AvatarImage 
+                  src={avatarUrl} 
+                  alt={user.name}
+                  onError={(e) => {
+                    console.log('Avatar image failed to load, using fallback');
+                    e.currentTarget.style.display = 'none';
+                  }}
+                />
                 <AvatarFallback>
                   <User className="h-12 w-12" />
                 </AvatarFallback>
