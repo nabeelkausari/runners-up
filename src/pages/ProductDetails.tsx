@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import Navbar from "../components/Navbar";
 import { Star } from "lucide-react";
+import { useCart } from "../contexts/CartContext";
 import {
   Accordion,
   AccordionContent,
@@ -12,10 +13,13 @@ import { Button } from "@/components/ui/button";
 
 const ProductDetails = () => {
   const { id } = useParams();
+  const { addToCart } = useCart();
+  
   // In a real app, you would fetch the product details using the id
   const product = {
+    id: parseInt(id || "1"),
     name: "Test Item",
-    price: "$1,232",
+    price: "₹1,232",
     rating: 0,
     reviews: 0,
     images: [
@@ -24,6 +28,15 @@ const ProductDetails = () => {
       "https://images.unsplash.com/photo-1518770660439-4636190af475",
     ],
     description: "This is a detailed description of the product...",
+  };
+
+  const handleAddToCart = () => {
+    addToCart({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      image: product.images[0],
+    });
   };
 
   return (
@@ -74,7 +87,9 @@ const ProductDetails = () => {
               </div>
             </div>
 
-            <Button className="w-full lg:w-auto">Add to Cart</Button>
+            <Button className="w-full lg:w-auto" onClick={handleAddToCart}>
+              Add to Cart
+            </Button>
 
             <Accordion type="single" collapsible className="w-full">
               <AccordionItem value="description">
@@ -103,7 +118,7 @@ const ProductDetails = () => {
             <div className="grid grid-cols-2 gap-4 pt-8">
               <div className="bg-muted p-4 rounded-lg">
                 <h3 className="font-semibold mb-2">Free shipping</h3>
-                <p className="text-sm text-accent">On orders over $50.00</p>
+                <p className="text-sm text-accent">On orders over ₹5,000</p>
               </div>
               <div className="bg-muted p-4 rounded-lg">
                 <h3 className="font-semibold mb-2">Very easy to return</h3>

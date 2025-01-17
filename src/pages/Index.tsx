@@ -51,28 +51,28 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-4">
             <ProductCard
               name="MacBook Pro"
-              price="$1,299"
+              price="₹129,999"
               image="https://images.unsplash.com/photo-1483058712412-4245e9b90334"
               rating={5}
               reviews={12}
             />
             <ProductCard
               name="iPhone 13"
-              price="$799"
+              price="₹79,999"
               image="https://images.unsplash.com/photo-1434494878577-86c23bcb06b9"
               rating={4}
               reviews={8}
             />
             <ProductCard
               name="iPad Pro"
-              price="$999"
+              price="₹99,999"
               image="https://images.unsplash.com/photo-1485827404703-89b55fcc595e"
               rating={5}
               reviews={15}
             />
             <ProductCard
               name="AirPods Pro"
-              price="$249"
+              price="₹24,999"
               image="https://images.unsplash.com/photo-1498050108023-c5249f4df085"
               rating={4}
               reviews={10}
