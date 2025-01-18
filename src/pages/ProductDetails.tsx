@@ -1,88 +1,81 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
-import Navbar from "../components/Navbar";
-import { Star } from "lucide-react";
-import { useCart } from "../contexts/CartContext";
+import React, { useMemo } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import Navbar from '../components/Navbar';
+import { Star } from 'lucide-react';
+import { useCart } from '../contexts/CartContext';
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion";
-import { Button } from "@/components/ui/button";
+} from '@/components/ui/accordion';
+import { Button } from '@/components/ui/button';
+import productsData from '../data/products.json';
 
 const ProductDetails = () => {
   const { id } = useParams();
   const { addToCart } = useCart();
-  
-  // In a real app, you would fetch the product details using the id
-  const product = {
-    id: parseInt(id || "1"),
-    name: "Test Item",
-    price: "₹1,232",
-    rating: 0,
-    reviews: 0,
-    images: [
-      "https://images.unsplash.com/photo-1649972904349-6e44c42644a7",
-      "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b",
-      "https://images.unsplash.com/photo-1518770660439-4636190af475",
-    ],
-    description: "This is a detailed description of the product...",
-  };
+  const navigate = useNavigate();
+
+  const product = useMemo(() => {
+    const foundProduct = productsData.products.find(
+      (p) => p.id === parseInt(id || '1')
+    );
+    if (!foundProduct) {
+      navigate('/marketplace');
+      return null;
+    }
+    return foundProduct;
+  }, [id, navigate]);
+
+  if (!product) {
+    return null;
+  }
 
   const handleAddToCart = () => {
     addToCart({
       id: product.id,
-      name: product.name,
-      price: product.price,
-      image: product.images[0],
+      name: product.title,
+      price: product.currentPrice.toString(),
+      image: `https://shop.forerunnercoltd.com/${product.image}`,
     });
   };
 
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      
-      <main className="container mx-auto px-4 pt-32 pb-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+
+      <main className="container mx-auto px-6 pt-24 pb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* Product Images */}
           <div className="space-y-4">
-            <div className="aspect-square overflow-hidden rounded-lg">
+            <div className="overflow-hidden rounded-lg bg-white p-8">
               <img
-                src={product.images[0]}
-                alt={product.name}
-                className="w-full h-full object-cover"
+                src={`https://shop.forerunnercoltd.com/${product.image}`}
+                alt={product.title}
+                className="w-full max-w-[400px] mx-auto h-auto object-contain"
               />
-            </div>
-            <div className="grid grid-cols-6 gap-2">
-              {product.images.map((image, index) => (
-                <div key={index} className="aspect-square rounded-md overflow-hidden">
-                  <img
-                    src={image}
-                    alt={`${product.name} ${index + 1}`}
-                    className="w-full h-full object-cover cursor-pointer hover:opacity-75"
-                  />
-                </div>
-              ))}
             </div>
           </div>
 
           {/* Product Info */}
-          <div className="space-y-6">
-            <h1 className="text-4xl font-bold">{product.name}</h1>
+          <div className="space-y-8 p-4">
+            <div className="space-y-2">
+              <h1 className="text-4xl font-bold">{product.title}</h1>
+              {product.discount && (
+                <span className="inline-block bg-red-500 text-white px-3 py-1 rounded-md text-sm">
+                  {product.discount}
+                </span>
+              )}
+            </div>
+
             <div className="flex items-center gap-4">
-              <span className="text-2xl font-semibold text-primary">{product.price}</span>
-              <div className="flex items-center gap-1">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star
-                    key={i}
-                    className={`w-4 h-4 ${
-                      i < product.rating ? "fill-[#ffd700] text-[#ffd700]" : "text-gray-300"
-                    }`}
-                  />
-                ))}
-                <span className="text-sm text-accent ml-2">
-                  ({product.reviews} reviews)
+              <div className="space-y-1">
+                <span className="text-2xl font-semibold text-primary">
+                  ₹{product.currentPrice}
+                </span>
+                <span className="block text-sm text-gray-500 line-through">
+                  ₹{product.oldPrice}
                 </span>
               </div>
             </div>
@@ -95,21 +88,30 @@ const ProductDetails = () => {
               <AccordionItem value="description">
                 <AccordionTrigger>Description</AccordionTrigger>
                 <AccordionContent>
-                  {product.description}
+                  <p className="text-accent">{product.title}</p>
                 </AccordionContent>
               </AccordionItem>
 
               <AccordionItem value="short-info">
-                <AccordionTrigger>Short Info</AccordionTrigger>
+                <AccordionTrigger>Specifications</AccordionTrigger>
                 <AccordionContent>
-                  Additional product information and specifications...
+                  <ul className="list-disc list-inside space-y-2 text-accent">
+                    <li>High-quality audio performance</li>
+                    <li>Comfortable fit for extended use</li>
+                    <li>Durable build quality</li>
+                    <li>Advanced features for enhanced experience</li>
+                  </ul>
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem value="faq">
-                <AccordionTrigger>FAQ</AccordionTrigger>
+              <AccordionItem value="shipping">
+                <AccordionTrigger>Shipping Information</AccordionTrigger>
                 <AccordionContent>
-                  Frequently asked questions about the product...
+                  <ul className="list-disc list-inside space-y-2 text-accent">
+                    <li>Free shipping on orders over ₹5,000</li>
+                    <li>Delivery within 3-5 business days</li>
+                    <li>Easy 30-day returns</li>
+                  </ul>
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
@@ -126,11 +128,15 @@ const ProductDetails = () => {
               </div>
               <div className="bg-muted p-4 rounded-lg">
                 <h3 className="font-semibold mb-2">Nationwide delivery</h3>
-                <p className="text-sm text-accent">Fast and reliable shipping</p>
+                <p className="text-sm text-accent">
+                  Fast and reliable shipping
+                </p>
               </div>
               <div className="bg-muted p-4 rounded-lg">
                 <h3 className="font-semibold mb-2">Refunds policy</h3>
-                <p className="text-sm text-accent">Easy returns within 30 days</p>
+                <p className="text-sm text-accent">
+                  Easy returns within 30 days
+                </p>
               </div>
             </div>
           </div>

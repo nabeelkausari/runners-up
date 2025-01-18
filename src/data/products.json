@@ -1,0 +1,694 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "title": "REDMI 5A Earbuds, ANC ,upto 30 hrs of Battery life with...",
+      "currentPrice": 1199,
+      "oldPrice": 2999,
+      "discount": "60% OFF",
+      "image": "assets/images/product/electric/product-01.webp",
+      "category": "earbuds",
+      "ratings": 3
+    },
+    {
+      "id": 2,
+      "title": "boAt Rockerz 450 Pro with Upto 70 Hours Playback Blueto...",
+      "currentPrice": 1999,
+      "oldPrice": 3990,
+      "discount": "50% OFF",
+      "image": "assets/images/product/electric/product-02.webp",
+      "category": "headphones",
+      "ratings": 4
+    },
+    {
+      "id": 3,
+      "title": "Apple AirPods Pro (2nd generation) with MagSafe Case (U...",
+      "currentPrice": 17999,
+      "oldPrice": 24900,
+      "discount": "28% OFF",
+      "image": "assets/images/product/electric/product-03.webp",
+      "category": "earbuds",
+      "ratings": 5
+    },
+    {
+      "id": 4,
+      "title": "OnePlus Bullets Wireless Z2 Bluetooth",
+      "currentPrice": 1399,
+      "oldPrice": 2299,
+      "discount": "39% OFF",
+      "image": "assets/images/product/electric/product-04.webp",
+      "category": "earphones",
+      "ratings": 2
+    },
+    {
+      "id": 5,
+      "title": "Noise Buds VS102 with 50 Hrs Playtime, 11mm Driver, IPX5 and Unique Flybird Design Bluetooth",
+      "currentPrice": 899,
+      "oldPrice": 2999,
+      "discount": "70% OFF",
+      "image": "assets/images/product/electric/product-05.webp",
+      "category": "earbuds",
+      "ratings": 4
+    },
+    {
+      "id": 6,
+      "title": "boAt Rockerz 450 w/ 40mm Drivers, 15 HRS Playback, Soft Padded Earcups Bluetooth",
+      "currentPrice": 1499,
+      "oldPrice": 3990,
+      "discount": "62% OFF",
+      "image": "assets/images/product/electric/product-06.webp",
+      "category": "headphones",
+      "ratings": 3
+    },
+    {
+      "id": 7,
+      "title": "boAt Rockerz 255 Pro+ with ASAP Charge and upto 60 Hours Playback Bluetooth",
+      "currentPrice": 1049,
+      "oldPrice": 3990,
+      "discount": "74% OFF",
+      "image": "assets/images/product/electric/product-07.webp",
+      "category": "earphones",
+      "ratings": 5
+    },
+    {
+      "id": 9,
+      "title": "Noise Buds VS102 with 50 Hrs Playtime, 11mm Driver, IPX5 and Unique Flybird Design Bluetooth",
+      "currentPrice": 899,
+      "oldPrice": 2999,
+      "discount": "70% OFF",
+      "image": "assets/images/product/electric/product-09.webp",
+      "category": "earbuds",
+      "ratings": 4
+    },
+    {
+      "id": 10,
+      "title": "Noise Buds VS102 with 50 Hrs Playtime, 11mm Driver, IPX5 and Unique Flybird Design Bluetooth",
+      "currentPrice": 999,
+      "oldPrice": 3499,
+      "discount": "71% OFF",
+      "image": "assets/images/product/electric/product-10.webp",
+      "category": "earbuds",
+      "ratings": 2
+    },
+    {
+      "id": 11,
+      "title": "TRIGGR Trinity 1 with 40mm Drivers, Fast Charging, 50H Battery, Rubber Finish, v5.4 Bluetooth",
+      "currentPrice": 799,
+      "oldPrice": 2999,
+      "discount": "73% OFF",
+      "image": "assets/images/product/electric/product-11.webp",
+      "category": "headphones",
+      "ratings": 3
+    },
+    {
+      "id": 12,
+      "title": "REDMI 5A Earbuds, ANC ,upto 30 hrs of Battery life with Google Fast pair TWS Bluetooth",
+      "currentPrice": 1199,
+      "oldPrice": 2999,
+      "discount": "60% OFF",
+      "image": "assets/images/product/electric/product-12.webp",
+      "category": "earbuds",
+      "ratings": 4
+    },
+    {
+      "id": 13,
+      "title": "OnePlus Bullets Wireless Z2 Bluetooth",
+      "currentPrice": 1399,
+      "oldPrice": 2299,
+      "discount": "39% OFF",
+      "image": "assets/images/product/electric/product-13.webp",
+      "category": "earphones",
+      "ratings": 5
+    },
+    {
+      "id": 14,
+      "title": "Sagaft A299 (Wireless Headphone) Magnetic Neckband 250h standby 200mAh Bluetooth Bluetooth",
+      "currentPrice": 369,
+      "oldPrice": 1299,
+      "discount": "72% OFF",
+      "image": "assets/images/product/electric/product-14.webp",
+      "category": "earphones",
+      "ratings": 1
+    },
+    {
+      "id": 15,
+      "title": "boAt Rockerz 235 Pro with upto 20 Hours Playback & ASAP Charge Bluetooth",
+      "currentPrice": 899,
+      "oldPrice": 2490,
+      "discount": "64% OFF",
+      "image": "assets/images/product/electric/product-15.webp",
+      "category": "earphones",
+      "ratings": 3
+    },
+    {
+      "id": 16,
+      "title": "boAt Airdopes 161/163 with ASAP Charge & 40 HRS Playback Bluetooth",
+      "currentPrice": 899,
+      "oldPrice": 2499,
+      "discount": "64% OFF",
+      "image": "assets/images/product/electric/product-16.webp",
+      "category": "earbuds",
+      "ratings": 4
+    },
+    {
+      "id": 17,
+      "title": "Aroma NB120 Amaze Upto 50 Hours* Playtime, Fast Charging, Dual Pairing Neckband Bluetooth",
+      "currentPrice": 399,
+      "oldPrice": 2999,
+      "discount": "87% OFF",
+      "image": "assets/images/product/electric/product-17.webp",
+      "category": "earphones",
+      "ratings": 2
+    },
+    {
+      "id": 18,
+      "title": "Boult Flex 80Hrs Battery, ENC Mic, 40mm Boosted Drivers, 4EQ Modes, Supreme Bass, 5.4v Bluetooth & Wired",
+      "currentPrice": 1899,
+      "oldPrice": 5499,
+      "discount": "65% OFF",
+      "image": "assets/images/product/electric/product-18.webp",
+      "category": "headphones",
+      "ratings": 5
+    },
+    {
+      "id": 19,
+      "title": "Sagaft A304 (Wireless Headphone) Magnetic Neckband 250h standby 200mAh Bluetooth Bluetooth",
+      "currentPrice": 369,
+      "oldPrice": 1299,
+      "discount": "72% OFF",
+      "image": "assets/images/product/electric/product-19.webp",
+      "category": "earphones",
+      "ratings": 3
+    },
+    {
+      "id": 20,
+      "title": "Apple AirPods(2nd gen) with Charging Case Bluetooth Headset with Mic",
+      "currentPrice": 7499,
+      "oldPrice": 12999,
+      "discount": "42% OFF",
+      "image": "assets/images/product/electric/product-20.webp",
+      "category": "earbuds",
+      "ratings": 4
+    },
+    {
+      "id": 21,
+      "title": "TRIGGR Kraken X1 with Battery Display, 40ms Latency, Quad Mic ENC, 40 Hr, v5.3 Bluetooth",
+      "currentPrice": 899,
+      "oldPrice": 3999,
+      "discount": "78% OFF",
+      "image": "assets/images/product/electric/product-21.webp",
+      "category": "headphones",
+      "ratings": 5
+    },
+    {
+      "id": 22,
+      "title": "Aroma NB140 Superstar Upto 55 Hours* Playtime Deep Bass Fast Charging Earbuds Bluetooth",
+      "currentPrice": 493,
+      "oldPrice": 2499,
+      "discount": "80% OFF",
+      "image": "assets/images/product/electric/product-22.webp",
+      "category": "earphones",
+      "ratings": 2
+    },
+    {
+      "id": 23,
+      "title": "realme Buds T110 (RMA2306) with AI ENC for calls, 38 hours of Playback and Deep Bass Bluetooth",
+      "currentPrice": 1299,
+      "oldPrice": 2999,
+      "discount": "57% OFF",
+      "image": "assets/images/product/electric/product-23.webp",
+      "category": "earbuds",
+      "ratings": 3
+    },
+    {
+      "id": 24,
+      "title": "Mivi DuoPods i6 TWS, Engineered for Athletes, IPX 4.0,13mm Bass,55+H Playtime Bluetooth",
+      "currentPrice": 699,
+      "oldPrice": 3499,
+      "discount": "80% OFF",
+      "image": "assets/images/product/electric/product-24.webp",
+      "category": "earbuds",
+      "ratings": 4
+    },
+    {
+      "id": 25,
+      "title": "OPPO Enco Buds 2 with 28 hours Battery life & Deep Noise Cancellation Bluetooth",
+      "currentPrice": 1399,
+      "oldPrice": 3999,
+      "discount": "65% OFF",
+      "image": "assets/images/product/electric/product-25.webp",
+      "category": "earbuds",
+      "ratings": 5
+    },
+    {
+      "id": 26,
+      "title": "Boult W20 with Zen ENC Mic, 35H Battery Life, Low Latency Gaming, Made in India, 5.3v Bluetooth",
+      "currentPrice": 899,
+      "oldPrice": 2499,
+      "discount": "64% OFF",
+      "image": "assets/images/product/electric/product-26.webp",
+      "category": "earbuds",
+      "ratings": 1
+    },
+    {
+      "id": 27,
+      "title": "Aroma NB119 Care 48 Hours Playing Time Fast Charging Bluetooth Neckband Earphone Bluetooth Gaming",
+      "currentPrice": 300,
+      "oldPrice": 1999,
+      "discount": "85% OFF",
+      "image": "assets/images/product/electric/product-27.webp",
+      "category": "earphones",
+      "ratings": 3
+    },
+    {
+      "id": 28,
+      "title": "Aroma NB119 Titanium - 48 Hours Playtime Neckband Bluetooth",
+      "currentPrice": 450,
+      "oldPrice": 2499,
+      "discount": "82% OFF",
+      "image": "assets/images/product/electric/product-28.webp",
+      "category": "earphones",
+      "ratings": 4
+    },
+    {
+      "id": 29,
+      "title": "Stybits A153 (Wireless Headphone) Magnetic Neckband 250h standby 200mAh Bluetooth Bluetooth",
+      "currentPrice": 369,
+      "oldPrice": 1299,
+      "discount": "72% OFF",
+      "image": "assets/images/product/electric/product-29.webp",
+      "category": "earphones",
+      "ratings": 2
+    },
+    {
+      "id": 30,
+      "title": "boAt Airdopes Alpha with 35 HRS Playback, 13mm Drivers, Dual Mics ENx & Beast Mode Bluetooth",
+      "currentPrice": 799,
+      "oldPrice": 3490,
+      "discount": "77% OFF",
+      "image": "assets/images/product/electric/product-30.webp",
+      "category": "earbuds",
+      "ratings": 5
+    },
+    {
+      "id": 31,
+      "title": "Aroma NB140 Superstar Upto 55 Hours* Playtime Deep Bass Fast Charging Earbuds Bluetooth",
+      "currentPrice": 493,
+      "oldPrice": 2490,
+      "discount": "80% OFF",
+      "image": "assets/images/product/electric/product-31.webp",
+      "category": "earphones",
+      "ratings": 1
+    },
+    {
+      "id": 32,
+      "title": "Aroma NB128 Happy 24 Hours Playting Time Deep Bass Made In India Bluetooth Neckband Bluetooth",
+      "currentPrice": 267,
+      "oldPrice": 1499,
+      "discount": "82% OFF",
+      "image": "assets/images/product/electric/product-32.webp",
+      "category": "earphones",
+      "ratings": 3
+    },
+    {
+      "id": 33,
+      "title": "Boult ProBass EQCharge with ZEN Mode ENC, 32hrs Playtime, Ultra-Fast Charging Bluetooth",
+      "currentPrice": 799,
+      "oldPrice": 4490,
+      "discount": "82% OFF",
+      "image": "assets/images/product/electric/product-33.webp",
+      "category": "earphones",
+      "ratings": 4
+    },
+    {
+      "id": 34,
+      "title": "realme Buds Wireless 3 Neo with 13.4mm Driver, 32 hrs Playback, Dual Device Connection Bluetooth",
+      "currentPrice": 1299,
+      "oldPrice": 2499,
+      "discount": "48% OFF",
+      "image": "assets/images/product/electric/product-34.webp",
+      "category": "earphones",
+      "ratings": 2
+    },
+    {
+      "id": 35,
+      "title": "Brolan Blue Wireless Ear Buds witth multiple features Bluetooth",
+      "currentPrice": 629,
+      "oldPrice": 2299,
+      "discount": "73% OFF",
+      "image": "assets/images/product/electric/product-35.webp",
+      "category": "earbuds",
+      "ratings": 5
+    },
+    {
+      "id": 36,
+      "title": "ZEBRONICS Zeb- Thunder, With 60H Backup, BT v5.3, Gaming Mode, ENC, AUX, mSD, Dual Pairing Bluetooth",
+      "currentPrice": 799,
+      "oldPrice": 1199,
+      "discount": "33% OFF",
+      "image": "assets/images/product/electric/product-36.webp",
+      "category": "headphones",
+      "ratings": 4
+    },
+    {
+      "id": 37,
+      "title": "Boult Y1 Pro with Zen Quad Mic ENC, 60Hrs Battery, Fast Charging, Knurled Design, 5.3v Bluetooth",
+      "currentPrice": 999,
+      "oldPrice": 5999,
+      "discount": "83% OFF",
+      "image": "assets/images/product/electric/product-37.webp",
+      "category": "earphones",
+      "ratings": 3
+    },
+    {
+      "id": 38,
+      "title": "TRIGGR Ultrabuds N1 Neo with ENC, 40Hr Playback, 13mm Drivers, Rich Bass, Fast Charging Bluetooth",
+      "currentPrice": 599,
+      "oldPrice": 2999,
+      "discount": "80% OFF",
+      "image": "assets/images/product/electric/product-38.webp",
+      "category": "earbuds",
+      "ratings": 5
+    },
+    {
+      "id": 39,
+      "title": "Boult W20 with Zen ENC Mic, 35H Battery Life, Low Latency Gaming, Made in India, 5.3v Bluetooth",
+      "currentPrice": 899,
+      "oldPrice": 2499,
+      "discount": "64% OFF",
+      "image": "assets/images/product/electric/product-39.webp",
+      "category": "earbuds",
+      "ratings": 2
+    },
+    {
+      "id": 40,
+      "title": "OnePlus Bullets Wireless Z2 ANC Earphones with 45dB Hybrid ANC Bluetooth",
+      "currentPrice": 1899,
+      "oldPrice": 2499,
+      "discount": "24% OFF",
+      "image": "assets/images/product/electric/product-40.webp",
+      "category": "earphones",
+      "ratings": 3
+    },
+    {
+      "id": 41,
+      "title": "boAt Rockerz 450 Pro with Upto 70 Hours Playback Bluetooth",
+      "currentPrice": 1999,
+      "oldPrice": 3990,
+      "discount": "50% OFF",
+      "image": "assets/images/product/electric/product-41.webp",
+      "category": "headphones",
+      "ratings": 4
+    },
+    {
+      "id": 42,
+      "title": "boAt Rockerz 450 w/ 40mm Drivers, 15 HRS Playback, Soft Padded Earcups Bluetooth",
+      "currentPrice": 1499,
+      "oldPrice": 3990,
+      "discount": "62% OFF",
+      "image": "assets/images/product/electric/product-42.webp",
+      "category": "headphones",
+      "ratings": 5
+    },
+    {
+      "id": 43,
+      "title": "boAt Airdopes Supreme w/ 4 Mics AI ENx Tech, 50 HRS Playback,Multi Point Connectivity Bluetooth",
+      "currentPrice": 1299,
+      "oldPrice": 5990,
+      "discount": "78% OFF",
+      "image": "assets/images/product/electric/product-43.webp",
+      "category": "earbuds",
+      "ratings": 1
+    },
+    {
+      "id": 44,
+      "title": "realme Buds T110 (RMA2306) with AI ENC for calls, 38 hours of Playback and Deep Bass Bluetooth",
+      "currentPrice": 1299,
+      "oldPrice": 2999,
+      "discount": "57% OFF",
+      "image": "assets/images/product/electric/product-44.webp",
+      "category": "earbuds",
+      "ratings": 3
+    },
+    {
+      "id": 45,
+      "title": "Noise Buds VS102 Elite with 50Hr Playtime, ENC, Quad Mic, Chrome finish Flybird Design Bluetooth",
+      "currentPrice": 999,
+      "oldPrice": 3499,
+      "discount": "71% OFF",
+      "image": "assets/images/product/electric/product-45.webp",
+      "category": "earbuds",
+      "ratings": 4
+    },
+    {
+      "id": 46,
+      "title": "OnePlus Bullets Wireless Z2 Bluetooth",
+      "currentPrice": 1399,
+      "oldPrice": 2299,
+      "discount": "39% OFF",
+      "image": "assets/images/product/electric/product-46.webp",
+      "category": "earphones",
+      "ratings": 2
+    },
+    {
+      "id": 47,
+      "title": "Aroma NB120 Amaze Upto 50 Hours* Playtime, Fast Charging, Dual Pairing Neckband Bluetooth",
+      "currentPrice": 399,
+      "oldPrice": 2990,
+      "discount": "87% OFF",
+      "image": "assets/images/product/electric/product-47.webp",
+      "category": "earphones",
+      "ratings": 5
+    },
+    {
+      "id": 48,
+      "title": "TRIGGR Kraken X1 with Battery Display, 40ms Latency, Quad Mic ENC, 40 Hr, v5.3 Bluetooth",
+      "currentPrice": 799,
+      "oldPrice": 3990,
+      "discount": "80% OFF",
+      "image": "assets/images/product/electric/product-48.webp",
+      "category": "headphones",
+      "ratings": 3
+    },
+    {
+      "id": 49,
+      "title": "OnePlus Nord Buds 2r in Ear Earbuds with Dual Mic & AI Crystal Clear Call Bluetooth",
+      "currentPrice": 1699,
+      "oldPrice": 2299,
+      "discount": "26% OFF",
+      "image": "assets/images/product/electric/product-49.webp",
+      "category": "earbuds",
+      "ratings": 4
+    },
+    {
+      "id": 50,
+      "title": "CMF by Nothing Buds 42 dB Active Noise Cancellation, Ultra Bass Technology, 35.5 Hrs playtime Bluetooth",
+      "currentPrice": 1999,
+      "oldPrice": 2999,
+      "discount": "33% OFF",
+      "image": "assets/images/product/electric/product-50.webp",
+      "category": "earbuds",
+      "ratings": 2
+    },
+    {
+      "id": 51,
+      "title": "TRIGGR Trinity 1 with 40mm Drivers, Fast Charging, 50H Battery, Rubber Finish, v5.4 Bluetooth",
+      "currentPrice": 799,
+      "oldPrice": 2999,
+      "discount": "73% OFF",
+      "image": "assets/images/product/electric/product-51.webp",
+      "category": "headphones",
+      "ratings": 5
+    },
+    {
+      "id": 52,
+      "title": "Aroma NB140 Superstar Upto 55 Hours* Playtime Deep Bass Fast Charging Earbuds Bluetooth",
+      "currentPrice": 493,
+      "oldPrice": 2490,
+      "discount": "80% OFF",
+      "image": "assets/images/product/electric/product-52.webp",
+      "category": "earphones",
+      "ratings": 1
+    },
+    {
+      "id": 53,
+      "title": "boAt Rockerz 109 with Dual Pairing, 40 HRS Playback & ASAP Charge Bluetooth",
+      "currentPrice": 999,
+      "oldPrice": 2490,
+      "discount": "60% OFF",
+      "image": "assets/images/product/electric/product-53.webp",
+      "category": "earphones",
+      "ratings": 3
+    },
+    {
+      "id": 54,
+      "title": "OPPO Enco Buds 2 with 28 hours Battery life & Deep Noise Cancellation Bluetooth",
+      "currentPrice": 1399,
+      "oldPrice": 3999,
+      "discount": "65% OFF",
+      "image": "assets/images/product/electric/product-54.webp",
+      "category": "earbuds",
+      "ratings": 4
+    },
+    {
+      "id": 55,
+      "title": "boAt Airdopes 181 Pro w/ 100 HRS Playback, 4 Mics ENx Technology & ASAP Charge Bluetooth",
+      "currentPrice": 1199,
+      "oldPrice": 4990,
+      "discount": "76% OFF",
+      "image": "assets/images/product/electric/product-55.webp",
+      "category": "earbuds",
+      "ratings": 2
+    },
+    {
+      "id": 56,
+      "title": "Boult W40 with Quad Mic ENC, 48H Battery Life, Low Latency Gaming, Made in India, 5.3v Bluetooth Gaming",
+      "currentPrice": 999,
+      "oldPrice": 2999,
+      "discount": "67% OFF",
+      "image": "assets/images/product/electric/product-56.webp",
+      "category": "earbuds",
+      "ratings": 5
+    },
+    {
+      "id": 57,
+      "title": "realme TechLife Studio H1 with 43dB ANC, Hi-Res Audio, 40mm Driver and 70hrs Playback Bluetooth",
+      "currentPrice": 4999,
+      "oldPrice": 7999,
+      "discount": "38% OFF",
+      "image": "assets/images/product/electric/product-57.webp",
+      "category": "headphones",
+      "ratings": 1
+    },
+    {
+      "id": 58,
+      "title": "Aroma NB119 Care 48 Hours Playing Time Fast Charging Bluetooth Neckband Earphone Bluetooth Gaming",
+      "currentPrice": 300,
+      "oldPrice": 1999,
+      "discount": "85% OFF",
+      "image": "assets/images/product/electric/product-58.webp",
+      "category": "earphones",
+      "ratings": 3
+    },
+    {
+      "id": 59,
+      "title": "CMF by Nothing Neckband Pro 50dB Active Noise Cancellation, Smart Dial Design, 37 Hrs playtime Bluetooth",
+      "currentPrice": 1799,
+      "oldPrice": 2499,
+      "discount": "28% OFF",
+      "image": "assets/images/product/electric/product-59.webp",
+      "category": "earphones",
+      "ratings": 4
+    },
+    {
+      "id": 60,
+      "title": "Boult X1-Wired with Dual Dynamic Drivers, BoomX Rich Bass, In-line Control, IPX5 Wired",
+      "currentPrice": 349,
+      "oldPrice": 999,
+      "discount": "65% OFF",
+      "image": "assets/images/product/electric/product-60.webp",
+      "category": "earphones",
+      "ratings": 2
+    },
+    {
+      "id": 61,
+      "title": "Aroma NB119 Titanium - 48 Hours Playtime Neckband Bluetooth",
+      "currentPrice": 450,
+      "oldPrice": 2499,
+      "discount": "82% OFF",
+      "image": "assets/images/product/electric/product-61.webp",
+      "category": "earphones",
+      "ratings": 5
+    },
+    {
+      "id": 62,
+      "title": "Aroma NB140 Superstar Upto 55 Hours* Playtime Deep Bass Fast Charging Earbuds Bluetooth",
+      "currentPrice": 493,
+      "oldPrice": 2499,
+      "discount": "80% OFF",
+      "image": "assets/images/product/electric/product-62.webp",
+      "category": "earphones",
+      "ratings": 3
+    },
+    {
+      "id": 63,
+      "title": "realme Buds 2 Wired",
+      "currentPrice": 599,
+      "oldPrice": 799,
+      "discount": "25% OFF",
+      "image": "assets/images/product/electric/product-63.webp",
+      "category": "earphones",
+      "ratings": 4
+    },
+    {
+      "id": 64,
+      "title": "OnePlus Nord Buds 3 with up to 32dB ANC Bluetooth",
+      "currentPrice": 2099,
+      "oldPrice": 2799,
+      "discount": "25% OFF",
+      "image": "assets/images/product/electric/product-64.webp",
+      "category": "earbuds",
+      "ratings": 2
+    },
+    {
+      "id": 65,
+      "title": "boAt Nirvana Ion with 120 Hours Playback & Crystal Bionic Sound by Hifi DSP 5 Bluetooth",
+      "currentPrice": 899,
+      "oldPrice": 2499,
+      "discount": "64% OFF",
+      "image": "assets/images/product/electric/product-65.webp",
+      "category": "earbuds",
+      "ratings": 5
+    },
+    {
+      "id": 66,
+      "title": "boAt Nirvana Ion with 120 Hours Playback & Crystal Bionic Sound by Hifi DSP 5 Bluetooth",
+      "currentPrice": 1599,
+      "oldPrice": 7990,
+      "discount": "80% OFF",
+      "image": "assets/images/product/electric/product-66.webp",
+      "category": "earbuds",
+      "ratings": 3
+    },
+    {
+      "id": 67,
+      "title": "Aroma NB128 Happy 24 Hours Playting Time Deep Bass Made In India Bluetooth Neckband Bluetooth",
+      "currentPrice": 267,
+      "oldPrice": 1499,
+      "discount": "82% OFF",
+      "image": "assets/images/product/electric/product-67.webp",
+      "category": "earphones",
+      "ratings": 4
+    },
+    {
+      "id": 68,
+      "title": "realme TechLife Studio H1 with 43dB ANC, Hi-Res Audio, 40mm Driver and 70hrs Playback Bluetooth",
+      "currentPrice": 4999,
+      "oldPrice": 7999,
+      "discount": "38% OFF",
+      "image": "assets/images/product/electric/product-68.webp",
+      "category": "headphones",
+      "ratings": 2
+    },
+    {
+      "id": 69,
+      "title": "boAt Immortal 161 w/ Beast Mode(40ms Low Latency), 40 HRS Playback & 13mm Drivers Bluetooth",
+      "currentPrice": 579,
+      "oldPrice": 1999,
+      "discount": "71% OFF",
+      "image": "assets/images/product/electric/product-69.webp",
+      "category": "earbuds",
+      "ratings": 5
+    },
+    {
+      "id": 70,
+      "title": "Portronics Harmonics Z7 with 40Hrs Playback, Gaming Mode, Water Resistant, Fast Charging Bluetooth",
+      "currentPrice": 599,
+      "oldPrice": 2999,
+      "discount": "80% OFF",
+      "image": "assets/images/product/electric/product-70.webp",
+      "category": "earphones",
+      "ratings": 3
+    }
+  ]
+}
