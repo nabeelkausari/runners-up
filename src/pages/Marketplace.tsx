@@ -70,26 +70,31 @@ const Marketplace = () => {
   }, [category, sortOrder]);
 
   // Get unique categories from products
-  const categories = ['all', ...new Set(productsData.products.map(product => product.category))];
+  const categories = [
+    'all',
+    ...new Set(productsData.products.map((product) => product.category)),
+  ];
 
   return (
     <div className="min-h-screen bg-[#FAFAF8]">
       <Navbar />
-      
+
       <div className="container mx-auto px-4 pt-24 pb-12">
         <div className="flex justify-between items-center mb-8">
           <h1 className="text-2xl font-bold">
-            {category === 'all' ? 'All Products' : `${category.charAt(0).toUpperCase() + category.slice(1)}`}
+            {category === 'all'
+              ? 'All Products'
+              : `${category.charAt(0).toUpperCase() + category.slice(1)}`}
             <span className="text-gray-500 text-lg ml-2">
               ({filteredAndSortedProducts.length} items)
             </span>
           </h1>
-          
+
           <Select value={sortOrder} onValueChange={setSortOrder}>
             <SelectTrigger className="w-[180px] bg-white">
               <SelectValue placeholder="Sort by" />
             </SelectTrigger>
-            <SelectContent>
+            <SelectContent className="bg-white">
               <SelectItem value="newest">Newest</SelectItem>
               <SelectItem value="price-asc">Price: Low to High</SelectItem>
               <SelectItem value="price-desc">Price: High to Low</SelectItem>
@@ -118,15 +123,23 @@ const Marketplace = () => {
                 )}
               </div>
               <div className="p-4">
-                <h3 className="font-semibold text-sm mb-2 line-clamp-2">{product.title}</h3>
+                <h3 className="font-semibold text-sm mb-2 line-clamp-2">
+                  {product.title}
+                </h3>
                 <div className="flex items-center justify-between">
                   <div className="flex flex-col">
-                    <span className="text-primary font-medium">₹{product.currentPrice}</span>
-                    <span className="text-sm text-gray-500 line-through">₹{product.oldPrice}</span>
+                    <span className="text-primary font-medium">
+                      ₹{product.currentPrice}
+                    </span>
+                    <span className="text-sm text-gray-500 line-through">
+                      ₹{product.oldPrice}
+                    </span>
                   </div>
                   <div className="flex items-center gap-1">
                     <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                    <span className="text-sm text-gray-600">{product.ratings}</span>
+                    <span className="text-sm text-gray-600">
+                      {product.ratings}
+                    </span>
                   </div>
                 </div>
               </div>
@@ -134,7 +147,7 @@ const Marketplace = () => {
           ))}
         </div>
       </div>
-      
+
       <Footer />
     </div>
   );

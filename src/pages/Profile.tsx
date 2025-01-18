@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardHeader, CardContent, CardFooter } from "@/components/ui/card";
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 import { User } from 'lucide-react';
 
 const Profile = () => {
@@ -78,6 +79,8 @@ const Profile = () => {
           </CardFooter>
         </Card>
       </div>
+      
+      <Footer />
     </div>
   );
 };
