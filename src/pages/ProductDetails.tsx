@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import { Star } from 'lucide-react';
@@ -16,6 +16,7 @@ const ProductDetails = () => {
   const { id } = useParams();
   const { addToCart } = useCart();
   const navigate = useNavigate();
+  const [isInCart, setIsInCart] = useState(false);
 
   const product = useMemo(() => {
     const foundProduct = productsData.products.find(
@@ -28,17 +29,35 @@ const ProductDetails = () => {
     return foundProduct;
   }, [id, navigate]);
 
+  useEffect(() => {
+    if (product) {
+      const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+      setIsInCart(cart.some((item) => item.id === product.id));
+    }
+  }, [product]);
+
   if (!product) {
     return null;
   }
 
   const handleAddToCart = () => {
-    addToCart({
+    const cartItem = {
       id: product.id,
       name: product.title,
       price: product.currentPrice.toString(),
       image: `https://shop.forerunnercoltd.com/${product.image}`,
-    });
+    };
+
+    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    const updatedCart = [...cart, cartItem];
+    localStorage.setItem('cart', JSON.stringify(updatedCart));
+
+    addToCart(cartItem);
+    setIsInCart(true);
+  };
+
+  const handleViewCart = () => {
+    navigate('/cart');
   };
 
   return (
@@ -80,9 +99,29 @@ const ProductDetails = () => {
               </div>
             </div>
 
-            <Button className="w-full lg:w-auto" onClick={handleAddToCart}>
-              Add to Cart
-            </Button>
+            <div className="flex gap-4">
+              {!isInCart ? (
+                <Button className="w-full lg:w-auto" onClick={handleAddToCart}>
+                  Add to Cart
+                </Button>
+              ) : (
+                <>
+                  <Button
+                    className="w-full lg:w-auto"
+                    onClick={handleAddToCart}
+                  >
+                    Add Again
+                  </Button>
+                  <Button
+                    className="w-full lg:w-auto"
+                    variant="outline"
+                    onClick={handleViewCart}
+                  >
+                    View Cart
+                  </Button>
+                </>
+              )}
+            </div>
 
             <Accordion type="single" collapsible className="w-full">
               <AccordionItem value="description">

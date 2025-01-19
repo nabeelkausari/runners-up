@@ -17,7 +17,10 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (searchRef.current && !searchRef.current.contains(event.target as Node)) {
+      if (
+        searchRef.current &&
+        !searchRef.current.contains(event.target as Node)
+      ) {
         setIsSearchOpen(false);
       }
     };
@@ -59,30 +62,30 @@ const Navbar = () => {
         </Link>
 
         <div className="hidden md:flex items-center space-x-8">
+          <Link
+            to="/marketplace"
+            className={`nav-link ${
+              location.pathname === '/marketplace' && !location.search
+                ? 'text-gray-900 border-b-2 border-red-500 pb-1'
+                : ''
+            }`}
+          >
+            All Products
+          </Link>
           {categories.map((category) => (
             <button
               key={category}
               onClick={() => handleCategoryClick(category)}
-              className={`nav-link capitalize hover:text-accent transition-colors ${
+              className={`nav-link capitalize hover:text-accent transition-colors pb-1 ${
                 location.pathname === '/marketplace' &&
                 location.search === `?category=${category}`
-                  ? 'text-accent'
+                  ? 'text-gray-900 border-b-2 border-red-500'
                   : ''
               }`}
             >
               {category}
             </button>
           ))}
-          <Link
-            to="/marketplace"
-            className={`nav-link ${
-              location.pathname === '/marketplace' && !location.search
-                ? 'text-accent'
-                : ''
-            }`}
-          >
-            All Products
-          </Link>
         </div>
 
         <div className="flex items-center space-x-6">

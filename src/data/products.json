@@ -67,7 +67,7 @@
       "oldPrice": 3990,
       "discount": "74% OFF",
       "image": "assets/images/product/electric/product-07.webp",
-      "category": "earphones",
+      "category": "earbuds",
       "ratings": 5
     },
     {
@@ -77,7 +77,7 @@
       "oldPrice": 2999,
       "discount": "70% OFF",
       "image": "assets/images/product/electric/product-09.webp",
-      "category": "earbuds",
+      "category": "earphones",
       "ratings": 4
     },
     {
@@ -87,7 +87,7 @@
       "oldPrice": 3499,
       "discount": "71% OFF",
       "image": "assets/images/product/electric/product-10.webp",
-      "category": "earbuds",
+      "category": "earphones",
       "ratings": 2
     },
     {
@@ -107,7 +107,7 @@
       "oldPrice": 2999,
       "discount": "60% OFF",
       "image": "assets/images/product/electric/product-12.webp",
-      "category": "earbuds",
+      "category": "earphones",
       "ratings": 4
     },
     {
@@ -137,7 +137,7 @@
       "oldPrice": 2490,
       "discount": "64% OFF",
       "image": "assets/images/product/electric/product-15.webp",
-      "category": "earphones",
+      "category": "earbuds",
       "ratings": 3
     },
     {
@@ -157,7 +157,7 @@
       "oldPrice": 2999,
       "discount": "87% OFF",
       "image": "assets/images/product/electric/product-17.webp",
-      "category": "earphones",
+      "category": "earbuds",
       "ratings": 2
     },
     {
@@ -197,7 +197,7 @@
       "oldPrice": 3999,
       "discount": "78% OFF",
       "image": "assets/images/product/electric/product-21.webp",
-      "category": "headphones",
+      "category": "earbuds",
       "ratings": 5
     },
     {
@@ -207,7 +207,7 @@
       "oldPrice": 2499,
       "discount": "80% OFF",
       "image": "assets/images/product/electric/product-22.webp",
-      "category": "earphones",
+      "category": "earbuds",
       "ratings": 2
     },
     {
@@ -257,7 +257,7 @@
       "oldPrice": 1999,
       "discount": "85% OFF",
       "image": "assets/images/product/electric/product-27.webp",
-      "category": "earphones",
+      "category": "earbuds",
       "ratings": 3
     },
     {
@@ -267,7 +267,7 @@
       "oldPrice": 2499,
       "discount": "82% OFF",
       "image": "assets/images/product/electric/product-28.webp",
-      "category": "earphones",
+      "category": "earbuds",
       "ratings": 4
     },
     {
@@ -277,7 +277,7 @@
       "oldPrice": 1299,
       "discount": "72% OFF",
       "image": "assets/images/product/electric/product-29.webp",
-      "category": "earphones",
+      "category": "earbuds",
       "ratings": 2
     },
     {
@@ -287,7 +287,7 @@
       "oldPrice": 3490,
       "discount": "77% OFF",
       "image": "assets/images/product/electric/product-30.webp",
-      "category": "earbuds",
+      "category": "earphones",
       "ratings": 5
     },
     {
@@ -297,7 +297,7 @@
       "oldPrice": 2490,
       "discount": "80% OFF",
       "image": "assets/images/product/electric/product-31.webp",
-      "category": "earphones",
+      "category": "earbuds",
       "ratings": 1
     },
     {
@@ -307,7 +307,7 @@
       "oldPrice": 1499,
       "discount": "82% OFF",
       "image": "assets/images/product/electric/product-32.webp",
-      "category": "earphones",
+      "category": "headphones",
       "ratings": 3
     },
     {
@@ -327,7 +327,7 @@
       "oldPrice": 2499,
       "discount": "48% OFF",
       "image": "assets/images/product/electric/product-34.webp",
-      "category": "earphones",
+      "category": "earbuds",
       "ratings": 2
     },
     {
@@ -337,7 +337,7 @@
       "oldPrice": 2299,
       "discount": "73% OFF",
       "image": "assets/images/product/electric/product-35.webp",
-      "category": "earbuds",
+      "category": "earphones",
       "ratings": 5
     },
     {
@@ -347,7 +347,7 @@
       "oldPrice": 1199,
       "discount": "33% OFF",
       "image": "assets/images/product/electric/product-36.webp",
-      "category": "headphones",
+      "category": "earbuds",
       "ratings": 4
     },
     {
@@ -357,7 +357,7 @@
       "oldPrice": 5999,
       "discount": "83% OFF",
       "image": "assets/images/product/electric/product-37.webp",
-      "category": "earphones",
+      "category": "headphones",
       "ratings": 3
     },
     {
@@ -397,7 +397,7 @@
       "oldPrice": 3990,
       "discount": "50% OFF",
       "image": "assets/images/product/electric/product-41.webp",
-      "category": "headphones",
+      "category": "earphones",
       "ratings": 4
     },
     {
@@ -407,7 +407,7 @@
       "oldPrice": 3990,
       "discount": "62% OFF",
       "image": "assets/images/product/electric/product-42.webp",
-      "category": "headphones",
+      "category": "earbuds",
       "ratings": 5
     },
     {
@@ -417,7 +417,7 @@
       "oldPrice": 5990,
       "discount": "78% OFF",
       "image": "assets/images/product/electric/product-43.webp",
-      "category": "earbuds",
+      "category": "earphones",
       "ratings": 1
     },
     {
@@ -447,7 +447,7 @@
       "oldPrice": 2299,
       "discount": "39% OFF",
       "image": "assets/images/product/electric/product-46.webp",
-      "category": "earphones",
+      "category": "headphones",
       "ratings": 2
     },
     {
@@ -467,7 +467,7 @@
       "oldPrice": 3990,
       "discount": "80% OFF",
       "image": "assets/images/product/electric/product-48.webp",
-      "category": "headphones",
+      "category": "earbuds",
       "ratings": 3
     },
     {
@@ -507,7 +507,7 @@
       "oldPrice": 2490,
       "discount": "80% OFF",
       "image": "assets/images/product/electric/product-52.webp",
-      "category": "earphones",
+      "category": "headphones",
       "ratings": 1
     },
     {
@@ -517,7 +517,7 @@
       "oldPrice": 2490,
       "discount": "60% OFF",
       "image": "assets/images/product/electric/product-53.webp",
-      "category": "earphones",
+      "category": "earbuds",
       "ratings": 3
     },
     {
@@ -527,7 +527,7 @@
       "oldPrice": 3999,
       "discount": "65% OFF",
       "image": "assets/images/product/electric/product-54.webp",
-      "category": "earbuds",
+      "category": "earphones",
       "ratings": 4
     },
     {
@@ -537,7 +537,7 @@
       "oldPrice": 4990,
       "discount": "76% OFF",
       "image": "assets/images/product/electric/product-55.webp",
-      "category": "earbuds",
+      "category": "earphones",
       "ratings": 2
     },
     {
@@ -557,7 +557,7 @@
       "oldPrice": 7999,
       "discount": "38% OFF",
       "image": "assets/images/product/electric/product-57.webp",
-      "category": "headphones",
+      "category": "earbuds",
       "ratings": 1
     },
     {
@@ -567,7 +567,7 @@
       "oldPrice": 1999,
       "discount": "85% OFF",
       "image": "assets/images/product/electric/product-58.webp",
-      "category": "earphones",
+      "category": "earbuds",
       "ratings": 3
     },
     {
@@ -577,7 +577,7 @@
       "oldPrice": 2499,
       "discount": "28% OFF",
       "image": "assets/images/product/electric/product-59.webp",
-      "category": "earphones",
+      "category": "earbuds",
       "ratings": 4
     },
     {
@@ -587,7 +587,7 @@
       "oldPrice": 999,
       "discount": "65% OFF",
       "image": "assets/images/product/electric/product-60.webp",
-      "category": "earphones",
+      "category": "earbuds",
       "ratings": 2
     },
     {
@@ -597,7 +597,7 @@
       "oldPrice": 2499,
       "discount": "82% OFF",
       "image": "assets/images/product/electric/product-61.webp",
-      "category": "earphones",
+      "category": "headphones",
       "ratings": 5
     },
     {
@@ -607,7 +607,7 @@
       "oldPrice": 2499,
       "discount": "80% OFF",
       "image": "assets/images/product/electric/product-62.webp",
-      "category": "earphones",
+      "category": "earbuds",
       "ratings": 3
     },
     {
@@ -667,7 +667,7 @@
       "oldPrice": 7999,
       "discount": "38% OFF",
       "image": "assets/images/product/electric/product-68.webp",
-      "category": "headphones",
+      "category": "earbuds",
       "ratings": 2
     },
     {
@@ -687,7 +687,7 @@
       "oldPrice": 2999,
       "discount": "80% OFF",
       "image": "assets/images/product/electric/product-70.webp",
-      "category": "earphones",
+      "category": "earbuds",
       "ratings": 3
     }
   ]
