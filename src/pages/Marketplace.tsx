@@ -112,7 +112,7 @@ const Marketplace = () => {
             >
               <div className="aspect-square overflow-hidden relative">
                 <img
-                  src={`https://shop.forerunnercoltd.com/${product.image}`}
+                  src={`${product.image}`}
                   alt={product.title}
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                 />

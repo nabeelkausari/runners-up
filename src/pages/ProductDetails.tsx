@@ -45,7 +45,7 @@ const ProductDetails = () => {
       id: product.id,
       name: product.title,
       price: product.currentPrice.toString(),
-      image: `https://shop.forerunnercoltd.com/${product.image}`,
+      image: product.image,
     };
 
     const cart = JSON.parse(localStorage.getItem('cart') || '[]');
@@ -70,7 +70,7 @@ const ProductDetails = () => {
           <div className="space-y-4">
             <div className="overflow-hidden rounded-lg bg-white p-8">
               <img
-                src={`https://shop.forerunnercoltd.com/${product.image}`}
+                src={product.image}
                 alt={product.title}
                 className="w-full max-w-[400px] mx-auto h-auto object-contain"
               />

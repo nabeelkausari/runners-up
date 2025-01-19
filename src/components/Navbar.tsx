@@ -118,7 +118,7 @@ const Navbar = () => {
                           onClick={() => handleProductClick(product.id)}
                         >
                           <img
-                            src={`https://shop.forerunnercoltd.com/${product.image}`}
+                            src={`${product.image}`}
                             alt={product.title}
                             className="w-12 h-12 object-cover rounded"
                           />

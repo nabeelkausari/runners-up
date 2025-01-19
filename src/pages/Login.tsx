@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer'; // Add this line
 
@@ -26,7 +26,10 @@ const Login = () => {
             <h1 className="text-2xl font-bold mb-6">Login</h1>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label htmlFor="email" className="block text-sm font-medium mb-1">
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium mb-1"
+                >
                   Email/Username
                 </label>
                 <input
@@ -35,11 +38,13 @@ const Login = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="w-full p-2 border rounded-md"
-                  placeholder="Use: demo"
                 />
               </div>
               <div>
-                <label htmlFor="password" className="block text-sm font-medium mb-1">
+                <label
+                  htmlFor="password"
+                  className="block text-sm font-medium mb-1"
+                >
                   Password
                 </label>
                 <input
@@ -48,7 +53,6 @@ const Login = () => {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   className="w-full p-2 border rounded-md"
-                  placeholder="Use: demo"
                 />
               </div>
               <Button type="submit" className="w-full">
@@ -58,7 +62,7 @@ const Login = () => {
           </div>
         </div>
       </div>
-      
+
       <Footer />
     </div>
   );

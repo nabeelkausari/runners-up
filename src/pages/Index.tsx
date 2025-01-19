@@ -46,7 +46,7 @@ const Index = () => {
             <div className="absolute -z-10 top-0 right-0 w-64 h-64 bg-blue-200 rounded-full opacity-50 blur-3xl"></div>
             <div className="absolute -z-10 bottom-0 right-20 w-48 h-48 bg-purple-200 rounded-full opacity-30 blur-3xl"></div>
             <img
-              src={`https://shop.forerunnercoltd.com/${featuredProducts[0]?.image}`}
+              src={`${featuredProducts[0]?.image}`}
               alt="Featured Headphone"
               className="rounded-2xl shadow-lg relative z-10 w-full object-cover"
             />
@@ -69,7 +69,7 @@ const Index = () => {
               <div className="h-48 relative mb-4">
                 <div className="absolute inset-0 bg-blue-50 rounded-lg"></div>
                 <img
-                  src={`https://shop.forerunnercoltd.com/${
+                  src={`${
                     productsData.products.find((p) => p.category === 'earbuds')
                       ?.image
                   }`}
@@ -92,7 +92,7 @@ const Index = () => {
               <div className="h-48 relative mb-4">
                 <div className="absolute inset-0 bg-purple-50 rounded-lg"></div>
                 <img
-                  src={`https://shop.forerunnercoltd.com/${
+                  src={`${
                     productsData.products.find(
                       (p) => p.category === 'headphones'
                     )?.image
@@ -116,7 +116,7 @@ const Index = () => {
               <div className="h-48 relative mb-4">
                 <div className="absolute inset-0 bg-pink-50 rounded-lg"></div>
                 <img
-                  src={`https://shop.forerunnercoltd.com/${
+                  src={`${
                     productsData.products.find(
                       (p) => p.category === 'earphones'
                     )?.image
@@ -257,7 +257,7 @@ const Index = () => {
               >
                 <div className="aspect-square overflow-hidden relative">
                   <img
-                    src={`https://shop.forerunnercoltd.com/${product.image}`}
+                    src={`${product.image}`}
                     alt={product.title}
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                   />
@@ -310,7 +310,7 @@ const Index = () => {
               >
                 <div className="aspect-square overflow-hidden relative">
                   <img
-                    src={`https://shop.forerunnercoltd.com/${product.image}`}
+                    src={`${product.image}`}
                     alt={product.title}
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                   />
