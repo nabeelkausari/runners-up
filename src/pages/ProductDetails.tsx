@@ -11,6 +11,7 @@ import {
 } from '@/components/ui/accordion';
 import { Button } from '@/components/ui/button';
 import productsData from '../data/products.json';
+import Footer from '@/components/Footer';
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -155,6 +156,68 @@ const ProductDetails = () => {
               </AccordionItem>
             </Accordion>
 
+            <div className="space-y-4 mt-8">
+              <Accordion type="single" collapsible>
+                <AccordionItem value="description">
+                  <AccordionTrigger>Product Description</AccordionTrigger>
+                  <AccordionContent>
+                    <div className="prose prose-sm">
+                      <p>{product.title}</p>
+                      {product.category === 'smartphones' && (
+                        <ul className="list-disc pl-4 mt-2">
+                          <li>Latest generation processor</li>
+                          <li>High-resolution display</li>
+                          <li>Advanced camera system</li>
+                          <li>Fast charging capability</li>
+                        </ul>
+                      )}
+                      {product.category === 'laptops' && (
+                        <ul className="list-disc pl-4 mt-2">
+                          <li>Powerful performance</li>
+                          <li>High-quality display</li>
+                          <li>Long battery life</li>
+                          <li>Premium build quality</li>
+                        </ul>
+                      )}
+                      {product.category === 'headphones' && (
+                        <ul className="list-disc pl-4 mt-2">
+                          <li>Premium sound quality</li>
+                          <li>Active noise cancellation</li>
+                          <li>Comfortable fit</li>
+                          <li>Long battery life</li>
+                        </ul>
+                      )}
+                    </div>
+                  </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value="specifications">
+                  <AccordionTrigger>Technical Specifications</AccordionTrigger>
+                  <AccordionContent>
+                    <div className="grid grid-cols-2 gap-4 text-sm">
+                      <div>
+                        <span className="font-medium">Category:</span>
+                        <span className="ml-2 capitalize">{product.category}</span>
+                      </div>
+                      <div>
+                        <span className="font-medium">Warranty:</span>
+                        <span className="ml-2">1 Year</span>
+                      </div>
+                      <div>
+                        <span className="font-medium">In Stock:</span>
+                        <span className="ml-2">Yes</span>
+                      </div>
+                      <div>
+                        <span className="font-medium">Rating:</span>
+                        <span className="ml-2 flex items-center">
+                          {product.ratings} <Star className="w-4 h-4 ml-1 text-yellow-400" />
+                        </span>
+                      </div>
+                    </div>
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+            </div>
+
             {/* Shipping Info */}
             <div className="grid grid-cols-2 gap-4 pt-8">
               <div className="bg-muted p-4 rounded-lg">
@@ -181,6 +244,7 @@ const ProductDetails = () => {
           </div>
         </div>
       </main>
+      <Footer />
     </div>
   );
 };

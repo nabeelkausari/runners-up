@@ -25,14 +25,14 @@ const Index = () => {
         <div className="container mx-auto flex flex-col lg:flex-row items-center justify-between">
           <div className="lg:w-1/2 animate-fade-up">
             <p className="text-accent text-lg mb-4">
-              Experience Premium Sound 🎧
+              Your One-Stop Electronics Shop 🛍️
             </p>
             <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-8 text-primary">
-              Discover Your Perfect Audio Companion
+              Discover Premium Electronics
             </h1>
             <p className="text-gray-600 mb-8 text-lg">
-              From crystal-clear earbuds to immersive headphones, find your
-              ideal sound with our premium collection.
+              From cutting-edge smartphones to powerful laptops and premium audio gear,
+              find all your tech needs in one place.
             </p>
             <button
               onClick={() => navigate('/marketplace')}
@@ -58,77 +58,72 @@ const Index = () => {
       <section className="py-16 bg-gradient-to-b from-white to-[#FAFAF8]">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-12 text-center">
-            Our Collections
+            Featured Categories
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Earbuds */}
+            {/* Smartphones */}
             <a
-              href="/marketplace?category=earbuds"
+              href="/marketplace?category=smartphones"
               className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow"
             >
               <div className="h-48 relative mb-4">
                 <div className="absolute inset-0 bg-blue-50 rounded-lg"></div>
                 <img
                   src={`${
-                    productsData.products.find((p) => p.category === 'earbuds')
+                    productsData.products.find((p) => p.category === 'smartphones')
                       ?.image
                   }`}
-                  alt="Earbuds"
+                  alt="Smartphones"
                   className="absolute inset-0 w-full h-full object-contain p-4"
                 />
               </div>
-              <h3 className="text-xl font-semibold mb-2">Wireless Earbuds</h3>
+              <h3 className="text-xl font-semibold mb-2">Smartphones</h3>
               <p className="text-gray-600">
-                Experience true wireless freedom with our premium earbuds
-                collection.
+                Latest smartphones with cutting-edge features and technology.
               </p>
             </a>
 
-            {/* Headphones */}
+            {/* Laptops */}
             <a
-              href="/marketplace?category=headphones"
+              href="/marketplace?category=laptops"
               className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow"
             >
               <div className="h-48 relative mb-4">
                 <div className="absolute inset-0 bg-purple-50 rounded-lg"></div>
                 <img
                   src={`${
-                    productsData.products.find(
-                      (p) => p.category === 'headphones'
-                    )?.image
+                    productsData.products.find((p) => p.category === 'laptops')
+                      ?.image
                   }`}
-                  alt="Headphones"
+                  alt="Laptops"
                   className="absolute inset-0 w-full h-full object-contain p-4"
                 />
               </div>
-              <h3 className="text-xl font-semibold mb-2">Premium Headphones</h3>
+              <h3 className="text-xl font-semibold mb-2">Laptops</h3>
               <p className="text-gray-600">
-                Immerse yourself in superior sound quality with our headphone
-                range.
+                Powerful laptops for work, gaming, and everything in between.
               </p>
             </a>
 
-            {/* Earphones */}
+            {/* Audio */}
             <a
-              href="/marketplace?category=earphones"
+              href="/marketplace?category=headphones"
               className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow"
             >
               <div className="h-48 relative mb-4">
-                <div className="absolute inset-0 bg-pink-50 rounded-lg"></div>
+                <div className="absolute inset-0 bg-green-50 rounded-lg"></div>
                 <img
                   src={`${
-                    productsData.products.find(
-                      (p) => p.category === 'earphones'
-                    )?.image
+                    productsData.products.find((p) => p.category === 'headphones')
+                      ?.image
                   }`}
-                  alt="Earphones"
+                  alt="Audio Devices"
                   className="absolute inset-0 w-full h-full object-contain p-4"
                 />
               </div>
-              <h3 className="text-xl font-semibold mb-2">Wired Earphones</h3>
+              <h3 className="text-xl font-semibold mb-2">Audio Devices</h3>
               <p className="text-gray-600">
-                Classic reliability meets modern sound in our earphone
-                collection.
+                Premium headphones and earbuds for immersive sound experience.
               </p>
             </a>
           </div>

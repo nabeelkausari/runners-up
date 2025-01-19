@@ -13,29 +13,29 @@ const About = () => {
           <div className="prose max-w-none">
             <p className="mb-6">
               PROMETHORA FINTECH SOLUTIONS PVT LTD, operating under the brand
-              name E-THORA, is a leading provider of premium audio equipment in
+              name E-THORA, is a leading provider of premium electronics in
               India. We are dedicated to bringing you the finest selection of
-              audio products that deliver exceptional sound quality and user
-              experience.
+              smartphones, laptops, and audio equipment that deliver exceptional
+              quality and user experience.
             </p>
 
             <h2 className="text-xl font-semibold mt-8 mb-4">Our Mission</h2>
             <p className="mb-6">
-              At E-THORA, our mission is to make high-quality audio accessible
-              to everyone. We believe that great sound should not be a luxury,
-              but a standard feature in everyone's daily life.
+              At E-THORA, our mission is to make cutting-edge technology accessible
+              to everyone. We believe that premium electronics should not be a luxury,
+              but an essential tool for enhancing daily life.
             </p>
 
             <h2 className="text-xl font-semibold mt-8 mb-4">Our Values</h2>
             <ul className="list-disc pl-6 mb-6">
               <li className="mb-2">
                 <strong>Quality:</strong> We carefully curate our product
-                selection to ensure only the best audio equipment reaches our
+                selection to ensure only the best electronic devices reach our
                 customers.
               </li>
               <li className="mb-2">
-                <strong>Innovation:</strong> We stay at the forefront of audio
-                technology to bring you the latest and most innovative products.
+                <strong>Innovation:</strong> We stay at the forefront of technology
+                to bring you the latest and most innovative products.
               </li>
               <li className="mb-2">
                 <strong>Customer Service:</strong> We are committed to providing
