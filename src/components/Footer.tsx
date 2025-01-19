@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -14,7 +14,7 @@ const Footer = () => {
               Your trusted partner for premium audio products
             </p>
           </div>
-          
+
           <div>
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
@@ -24,12 +24,18 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="text-gray-600 hover:text-gray-900">
+                <Link
+                  to="/contact"
+                  className="text-gray-600 hover:text-gray-900"
+                >
                   Contact
                 </Link>
               </li>
               <li>
-                <Link to="/privacy" className="text-gray-600 hover:text-gray-900">
+                <Link
+                  to="/privacy"
+                  className="text-gray-600 hover:text-gray-900"
+                >
                   Privacy Policy
                 </Link>
               </li>
@@ -44,8 +50,8 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Contact</h3>
             <ul className="space-y-2 text-gray-600">
-              <li>Email: support@ethora.com</li>
-              <li>Phone: +91 (XXX) XXX-XXXX</li>
+              {/* <li>Email: support@ethora.com</li> */}
+              <li>Phone: +91 7200167611</li>
               <li>Address: Bangalore, India</li>
             </ul>
           </div>
@@ -68,7 +74,8 @@ const Footer = () => {
 
         <div className="mt-8 pt-8 border-t border-gray-200">
           <p className="text-center text-gray-600 text-sm">
-            {new Date().getFullYear()} PROMETHORA FINTECH SOLUTIONS PVT LTD. All rights reserved.
+            {new Date().getFullYear()} PROMETHORA FINTECH SOLUTIONS PVT LTD. All
+            rights reserved.
           </p>
         </div>
       </div>

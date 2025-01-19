@@ -26,12 +26,12 @@ const Contact = () => {
                     +91 7200167611
                   </a>
                 </div>
-                <div className="flex items-center gap-3">
+                {/* <div className="flex items-center gap-3">
                   <Mail className="w-5 h-5 text-primary" />
                   <a href="mailto:paytrekzap@gmail.com" className="text-gray-600 hover:text-primary">
                     paytrekzap@gmail.com
                   </a>
-                </div>
+                </div> */}
               </div>
             </div>
 
