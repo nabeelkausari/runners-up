@@ -1,76 +1,50 @@
+import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
 const Privacy = () => {
   return (
-    <div className="min-h-screen bg-[#FAFAF8]">
+    <div className="min-h-screen bg-background">
       <Navbar />
-      
-      <main className="container mx-auto px-4 pt-32 pb-16">
-        <h1 className="text-4xl font-bold mb-8">Privacy Policy</h1>
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-24">
+        <h1 className="text-3xl font-bold mb-8">Privacy Policy</h1>
         
         <div className="prose max-w-none">
-          <section className="mb-8">
-            <h2 className="text-2xl font-semibold mb-4">Information We Collect</h2>
-            <p className="text-gray-600 mb-4">
-              We collect information that you provide directly to us, including when you:
-            </p>
-            <ul className="list-disc pl-6 text-gray-600 space-y-2">
-              <li>Create an account</li>
-              <li>Make a purchase</li>
-              <li>Sign up for our newsletter</li>
-              <li>Contact us for support</li>
-            </ul>
-          </section>
+          <p className="mb-4">
+            This Privacy Policy describes how PROMETHORA FINTECH SOLUTIONS PVT LTD ("we", "our", or "us") 
+            collects, uses, and shares your personal information when you use our website E-THORA 
+            (the "Service").
+          </p>
 
-          <section className="mb-8">
-            <h2 className="text-2xl font-semibold mb-4">How We Use Your Information</h2>
-            <p className="text-gray-600 mb-4">
-              We use the information we collect to:
-            </p>
-            <ul className="list-disc pl-6 text-gray-600 space-y-2">
-              <li>Process your orders and payments</li>
-              <li>Send you order confirmations and updates</li>
-              <li>Respond to your comments and questions</li>
-              <li>Send you marketing communications (with your consent)</li>
-              <li>Improve our website and services</li>
-            </ul>
-          </section>
+          <h2 className="text-xl font-semibold mt-8 mb-4">Information We Collect</h2>
+          <p className="mb-4">
+            When you visit E-THORA, we automatically collect certain information about your device, 
+            including information about your web browser, IP address, time zone, and some of the cookies 
+            that are installed on your device.
+          </p>
 
-          <section className="mb-8">
-            <h2 className="text-2xl font-semibold mb-4">Information Security</h2>
-            <p className="text-gray-600 mb-4">
-              We implement appropriate technical and organizational security measures to protect
-              your personal information against unauthorized access, alteration, disclosure, or
-              destruction.
-            </p>
-          </section>
+          <h2 className="text-xl font-semibold mt-8 mb-4">How We Use Your Information</h2>
+          <p className="mb-4">
+            We use the information we collect to:
+          </p>
+          <ul className="list-disc pl-6 mb-4">
+            <li>Process your orders and maintain your account</li>
+            <li>Communicate with you about products, services, and promotions</li>
+            <li>Improve our website and customer service</li>
+            <li>Comply with legal obligations</li>
+          </ul>
 
-          <section className="mb-8">
-            <h2 className="text-2xl font-semibold mb-4">Your Rights</h2>
-            <p className="text-gray-600 mb-4">
-              You have the right to:
-            </p>
-            <ul className="list-disc pl-6 text-gray-600 space-y-2">
-              <li>Access your personal information</li>
-              <li>Correct inaccurate information</li>
-              <li>Request deletion of your information</li>
-              <li>Opt-out of marketing communications</li>
-            </ul>
-          </section>
-
-          <section className="mb-8">
-            <h2 className="text-2xl font-semibold mb-4">Contact Us</h2>
-            <p className="text-gray-600">
-              If you have any questions about this Privacy Policy, please contact us at{' '}
-              <a href="mailto:paytrekzap@gmail.com" className="text-primary hover:underline">
-                paytrekzap@gmail.com
-              </a>
-            </p>
-          </section>
+          <h2 className="text-xl font-semibold mt-8 mb-4">Contact Us</h2>
+          <p className="mb-4">
+            For any questions about this Privacy Policy, please contact us at:
+          </p>
+          <p className="mb-4">
+            PROMETHORA FINTECH SOLUTIONS PVT LTD<br />
+            Email: privacy@ethora.com<br />
+            Phone: +91 (XXX) XXX-XXXX
+          </p>
         </div>
-      </main>
-
+      </div>
       <Footer />
     </div>
   );
