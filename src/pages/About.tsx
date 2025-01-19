@@ -55,7 +55,7 @@ const About = () => {
             <p className="mb-2">
               PROMETHORA FINTECH SOLUTIONS PVT LTD
               <br />
-              Bangalore, India
+              21ST STAGE, 4TH BLOCK,HBR LAYOUT, Kalyananagar, Bangalore North, Bangalore- 560043, Karnataka
             </p>
             <p className="mb-2">
               {/* Email: contact@ethora.com

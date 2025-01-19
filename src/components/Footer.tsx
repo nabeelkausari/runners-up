@@ -72,7 +72,7 @@ const Footer = () => {
             <ul className="space-y-2 text-gray-600">
               {/* <li>Email: support@ethora.com</li> */}
               <li>Phone: +91 7200167611</li>
-              <li>Address: Bangalore, India</li>
+              <li>Address: 21ST STAGE, 4TH BLOCK,HBR LAYOUT, Kalyananagar, Bangalore North, Bangalore- 560043, Karnataka</li>
               <li className="pt-4">
                 <h4 className="text-sm font-semibold mb-2">Follow Us</h4>
                 <div className="flex space-x-4">
