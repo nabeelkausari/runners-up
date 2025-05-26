@@ -2,6 +2,7 @@ import React, { useMemo, useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import { Star } from 'lucide-react';
+import { formatINR } from '@/utils/currency';
 import { useCart } from '../contexts/CartContext';
 import {
   Accordion,
@@ -92,10 +93,10 @@ const ProductDetails = () => {
             <div className="flex items-center gap-4">
               <div className="space-y-1">
                 <span className="text-2xl font-semibold text-primary">
-                  ₹{product.currentPrice}
+                  {formatINR(product.currentPrice)}
                 </span>
                 <span className="block text-sm text-gray-500 line-through">
-                  ₹{product.oldPrice}
+                  {formatINR(product.oldPrice)}
                 </span>
               </div>
             </div>

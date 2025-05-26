@@ -11,7 +11,7 @@ const Terms = () => {
 
         <div className="prose max-w-none">
           <p className="mb-4">
-            Welcome to E-THORA. These Terms and Conditions outline the rules and
+            Welcome to Edu-Madi. These Terms and Conditions outline the rules and
             regulations for the use of PROMETHORA FINTECH SOLUTIONS PVT LTD's
             website.
           </p>
@@ -21,7 +21,7 @@ const Terms = () => {
           </h2>
           <p className="mb-4">
             By accessing this website, you accept these terms and conditions in
-            full. Do not continue to use E-THORA's website if you do not accept
+            full. Do not continue to use Edu-Madi's website if you do not accept
             all of the terms and conditions stated on this page.
           </p>
 
@@ -31,7 +31,7 @@ const Terms = () => {
           <p className="mb-4">
             Unless otherwise stated, PROMETHORA FINTECH SOLUTIONS PVT LTD and/or
             its licensors own the intellectual property rights for all material
-            on E-THORA. All intellectual property rights are reserved.
+            on Edu-Madi. All intellectual property rights are reserved.
           </p>
 
           <h2 className="text-xl font-semibold mt-8 mb-4">3. User Account</h2>

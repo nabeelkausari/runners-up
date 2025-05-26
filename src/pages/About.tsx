@@ -12,39 +12,39 @@ const About = () => {
 
           <div className="prose max-w-none">
             <p className="mb-6">
-              PROMETHORA FINTECH SOLUTIONS PVT LTD, operating under the brand
-              name E-THORA, is a leading provider of premium electronics in
+              Paymadi Technologies LLP, operating under the brand
+              name Edu-Madi, is a leading provider of the quality education in
               India. We are dedicated to bringing you the finest selection of
-              smartphones, laptops, and audio equipment that deliver exceptional
+              courses, faculties, and the digital infrastructure that delivers exceptional
               quality and user experience.
             </p>
 
             <h2 className="text-xl font-semibold mt-8 mb-4">Our Mission</h2>
             <p className="mb-6">
-              At E-THORA, our mission is to make cutting-edge technology accessible
-              to everyone. We believe that premium electronics should not be a luxury,
+              At Edu-Madi, our mission is to make quality education accessible
+              to everyone. We believe that quality education should not be a luxury,
               but an essential tool for enhancing daily life.
             </p>
 
             <h2 className="text-xl font-semibold mt-8 mb-4">Our Values</h2>
             <ul className="list-disc pl-6 mb-6">
               <li className="mb-2">
-                <strong>Quality:</strong> We carefully curate our product
-                selection to ensure only the best electronic devices reach our
+                <strong>Quality:</strong> We carefully curate our courses
+                selection to ensure only the best courses reach our
                 customers.
               </li>
               <li className="mb-2">
-                <strong>Innovation:</strong> We stay at the forefront of technology
-                to bring you the latest and most innovative products.
+                <strong>Innovation:</strong> We stay at the forefront of education
+                to bring you the latest and most innovative courses.
               </li>
               <li className="mb-2">
-                <strong>Customer Service:</strong> We are committed to providing
+                <strong>Customer Service:</strong> We are committed to providing 
                 exceptional customer service and support throughout your
-                shopping journey.
+                education journey.
               </li>
               <li className="mb-2">
                 <strong>Integrity:</strong> We maintain transparency in our
-                operations and pricing to build lasting relationships with our
+                operations and pricing to build long lasting relationships with our
                 customers.
               </li>
             </ul>
@@ -53,7 +53,7 @@ const About = () => {
               Contact Information
             </h2>
             <p className="mb-2">
-              PROMETHORA FINTECH SOLUTIONS PVT LTD
+              Paymadi Technologies LLP
               <br />
               21ST STAGE, 4TH BLOCK,HBR LAYOUT, Kalyananagar, Bangalore North, Bangalore- 560043, Karnataka
             </p>

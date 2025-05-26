@@ -1,27 +1,26 @@
-import { Search, User, ShoppingCart } from 'lucide-react';
+import { Search, User, BookOpen, Menu, X } from 'lucide-react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { useCart } from '../contexts/CartContext';
 import { useAuth } from '../contexts/AuthContext';
 import { useState, useEffect, useRef } from 'react';
-import productsData from '../data/products.json';
 
 const Navbar = () => {
-  const { items } = useCart();
   const { isAuthenticated } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const searchRef = useRef<HTMLDivElement>(null);
-  const itemCount = items.reduce((sum, item) => sum + item.quantity, 0);
+  const menuRef = useRef<HTMLDivElement>(null);
 
+  // Close menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (
-        searchRef.current &&
-        !searchRef.current.contains(event.target as Node)
-      ) {
+      if (searchRef.current && !searchRef.current.contains(event.target as Node)) {
         setIsSearchOpen(false);
+      }
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setIsMenuOpen(false);
       }
     };
 
@@ -32,134 +31,200 @@ const Navbar = () => {
   }, []);
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const query = e.target.value;
-    setSearchQuery(query);
+    setSearchQuery(e.target.value);
   };
 
-  const filteredProducts = productsData.products.filter((product) =>
-    product.title.toLowerCase().includes(searchQuery.toLowerCase())
-  );
-
-  const handleProductClick = (productId: number) => {
-    setIsSearchOpen(false);
-    setSearchQuery('');
-    navigate(`/product/${productId}`);
+  const handleSearchSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      navigate(`/courses?search=${encodeURIComponent(searchQuery)}`);
+      setIsSearchOpen(false);
+      setSearchQuery('');
+    }
   };
 
-  const handleCategoryClick = (category: string) => {
-    navigate(`/marketplace?category=${category}`);
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
   };
-
-  const categories = [
-    ...new Set(productsData.products.map((product) => product.category)),
-  ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-lg border-b border-gray-100">
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        <div className="flex items-center gap-4">
-          <Link to="/" className="text-xl font-bold">
-            E-THORA
+    <nav className="fixed top-0 left-0 right-0 bg-white shadow-sm z-50">
+      <div className="container mx-auto px-4 py-3">
+        <div className="flex items-center justify-between">
+          {/* Logo */}
+          <Link to="/" className="flex items-center">
+            <BookOpen className="h-8 w-8 text-indigo-600" />
+            <span className="ml-2 text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+              Edu-Madi
+            </span>
           </Link>
-        </div>
 
-        <div className="hidden md:flex items-center space-x-8">
-          <Link
-            to="/marketplace"
-            className={`nav-link ${
-              location.pathname === '/marketplace' && !location.search
-                ? 'text-gray-900 border-b-2 border-red-500 pb-1'
-                : ''
-            }`}
-          >
-            All Products
-          </Link>
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => handleCategoryClick(category)}
-              className={`nav-link capitalize hover:text-accent transition-colors pb-1 ${
-                location.pathname === '/marketplace' &&
-                location.search === `?category=${category}`
-                  ? 'text-gray-900 border-b-2 border-red-500'
-                  : ''
-              }`}
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-8">
+            <Link
+              to="/"
+              className={`${
+                location.pathname === '/' ? 'text-blue-600' : 'text-gray-700'
+              } hover:text-blue-600 transition-colors font-medium`}
             >
-              {category}
-            </button>
-          ))}
-        </div>
+              Home
+            </Link>
+            <Link
+              to="/courses"
+              className={`${
+                location.pathname === '/courses' ? 'text-blue-600' : 'text-gray-700'
+              } hover:text-blue-600 transition-colors font-medium`}
+            >
+              Courses
+            </Link>
+            <Link
+              to="/about"
+              className={`${
+                location.pathname === '/about' ? 'text-blue-600' : 'text-gray-700'
+              } hover:text-blue-600 transition-colors font-medium`}
+            >
+              About
+            </Link>
+            <Link
+              to="/contact"
+              className={`${
+                location.pathname === '/contact' ? 'text-blue-600' : 'text-gray-700'
+              } hover:text-blue-600 transition-colors font-medium`}
+            >
+              Contact
+            </Link>
+          </div>
 
-        <div className="flex items-center space-x-6">
-          <div className="relative" ref={searchRef}>
+          {/* Search and User Actions */}
+          <div className="flex items-center space-x-4">
             <button
-              className="p-2 hover:text-accent transition-colors"
               onClick={() => setIsSearchOpen(!isSearchOpen)}
+              className="p-2 text-gray-600 hover:text-blue-600 transition-colors"
+              aria-label="Search"
             >
-              <Search size={20} />
+              <Search className="h-5 w-5" />
             </button>
-            {isSearchOpen && (
-              <div className="fixed sm:absolute left-0 sm:left-auto right-0 sm:right-0 mt-2 mx-4 sm:mx-0 w-auto sm:w-96 bg-white rounded-lg shadow-lg border p-4">
-                <input
-                  type="text"
-                  placeholder="Search products..."
-                  className="w-full p-2 border rounded-md mb-2"
-                  value={searchQuery}
-                  onChange={handleSearch}
-                  autoFocus
-                />
-                {searchQuery && (
-                  <div className="max-h-96 overflow-y-auto">
-                    {filteredProducts.length > 0 ? (
-                      filteredProducts.map((product) => (
-                        <div
-                          key={product.id}
-                          className="flex items-center gap-3 p-2 hover:bg-gray-100 rounded-md cursor-pointer"
-                          onClick={() => handleProductClick(product.id)}
-                        >
-                          <img
-                            src={`${product.image}`}
-                            alt={product.title}
-                            className="w-12 h-12 object-cover rounded"
-                          />
-                          <div className="flex-1 min-w-0">
-                            <p className="text-sm font-medium line-clamp-1">
-                              {product.title}
-                            </p>
-                            <p className="text-sm text-primary">
-                              ₹{product.currentPrice}
-                            </p>
-                          </div>
-                        </div>
-                      ))
-                    ) : (
-                      <p className="text-center text-gray-500 py-4">
-                        No products found
-                      </p>
-                    )}
-                  </div>
-                )}
+
+            {isAuthenticated ? (
+              <Link
+                to="/dashboard"
+                className="p-2 text-gray-600 hover:text-blue-600 transition-colors"
+                aria-label="Dashboard"
+              >
+                <User className="h-5 w-5" />
+              </Link>
+            ) : (
+              <div className="hidden md:flex space-x-2">
+                <Link
+                  to="/login"
+                  className="px-4 py-2 text-blue-600 hover:bg-blue-50 rounded-lg font-medium transition-colors"
+                >
+                  Log in
+                </Link>
+                <Link
+                  to="/signup"
+                  className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-medium transition-colors"
+                >
+                  Sign up
+                </Link>
               </div>
             )}
+
+            {/* Mobile menu button */}
+            <button
+              onClick={toggleMenu}
+              className="md:hidden p-2 text-gray-600 hover:text-blue-600 transition-colors"
+              aria-label="Menu"
+            >
+              {isMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
+            </button>
           </div>
-          <Link
-            to={isAuthenticated ? '/profile' : '/login'}
-            className="p-2 hover:text-accent transition-colors"
-          >
-            <User size={20} />
-          </Link>
-          <Link
-            to="/cart"
-            className="p-2 hover:text-accent transition-colors relative"
-          >
-            <ShoppingCart size={20} />
-            {itemCount > 0 && (
-              <span className="absolute -top-1 -right-1 bg-primary text-white text-xs w-4 h-4 rounded-full flex items-center justify-center">
-                {itemCount}
-              </span>
-            )}
-          </Link>
         </div>
+
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <div className="md:hidden mt-4 pb-4">
+            <div className="flex flex-col space-y-4">
+              <Link
+                to="/"
+                onClick={() => setIsMenuOpen(false)}
+                className={`${
+                  location.pathname === '/' ? 'text-blue-600' : 'text-gray-700'
+                } hover:text-blue-600 transition-colors font-medium py-2`}
+              >
+                Home
+              </Link>
+              <Link
+                to="/courses"
+                onClick={() => setIsMenuOpen(false)}
+                className={`${
+                  location.pathname === '/courses' ? 'text-blue-600' : 'text-gray-700'
+                } hover:text-blue-600 transition-colors font-medium py-2`}
+              >
+                Courses
+              </Link>
+              <Link
+                to="/about"
+                onClick={() => setIsMenuOpen(false)}
+                className={`${
+                  location.pathname === '/about' ? 'text-blue-600' : 'text-gray-700'
+                } hover:text-blue-600 transition-colors font-medium py-2`}
+              >
+                About
+              </Link>
+              <Link
+                to="/contact"
+                onClick={() => setIsMenuOpen(false)}
+                className={`${
+                  location.pathname === '/contact' ? 'text-blue-600' : 'text-gray-700'
+                } hover:text-blue-600 transition-colors font-medium py-2`}
+              >
+                Contact
+              </Link>
+              {!isAuthenticated && (
+                <div className="flex flex-col space-y-2 pt-4 border-t border-gray-100">
+                  <Link
+                    to="/login"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="px-4 py-2 text-blue-600 hover:bg-blue-50 rounded-lg font-medium text-center transition-colors"
+                  >
+                    Log in
+                  </Link>
+                  <Link
+                    to="/signup"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-medium text-center transition-colors"
+                  >
+                    Sign up
+                  </Link>
+                </div>
+              )}
+            </div>
+          </div>
+        )}
+
+        {/* Search Bar */}
+        {isSearchOpen && (
+          <div className="mt-4 relative" ref={searchRef}>
+            <form onSubmit={handleSearchSubmit}>
+              <div className="relative">
+                <input
+                  type="text"
+                  placeholder="Search courses..."
+                  value={searchQuery}
+                  onChange={handleSearch}
+                  className="w-full px-4 py-3 pl-12 pr-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  autoFocus
+                />
+                <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+              </div>
+            </form>
+          </div>
+        )}
       </div>
     </nav>
   );

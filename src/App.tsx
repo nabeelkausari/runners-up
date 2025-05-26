@@ -17,6 +17,7 @@ import Contact from './pages/Contact';
 import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
 import Shipping from './pages/Shipping';
+import Courses from './pages/Courses';
 import Footer from './components/Footer';
 
 const queryClient = new QueryClient();
@@ -44,6 +45,7 @@ function App() {
                     <Route path="/privacy" element={<Privacy />} />
                     <Route path="/terms" element={<Terms />} />
                     <Route path="/shipping" element={<Shipping />} />
+                    <Route path="/courses" element={<Courses />} />
                   </Routes>
                 </BrowserRouter>
               </div>

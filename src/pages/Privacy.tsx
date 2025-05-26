@@ -13,14 +13,14 @@ const Privacy = () => {
           <p className="mb-4">
             This Privacy Policy describes how PROMETHORA FINTECH SOLUTIONS PVT
             LTD ("we", "our", or "us") collects, uses, and shares your personal
-            information when you use our website E-THORA (the "Service").
+            information when you use our website Edu-Madi (the "Service").
           </p>
 
           <h2 className="text-xl font-semibold mt-8 mb-4">
             Information We Collect
           </h2>
           <p className="mb-4">
-            When you visit E-THORA, we automatically collect certain information
+            When you visit Edu-Madi, we automatically collect certain information
             about your device, including information about your web browser, IP
             address, time zone, and some of the cookies that are installed on
             your device.
@@ -44,7 +44,7 @@ const Privacy = () => {
             For any questions about this Privacy Policy, please contact us at:
           </p>
           <p className="mb-4">
-            PROMETHORA FINTECH SOLUTIONS PVT LTD
+            Paymadi Technologies LLP
             <br />
             {/* Email: privacy@ethora.com
             <br /> */}

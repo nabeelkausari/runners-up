@@ -1,348 +1,371 @@
 import Navbar from '../components/Navbar';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Star } from 'lucide-react';
+import { ArrowRight, BookOpen, GraduationCap, Users, Star } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import productsData from '../data/products.json';
+import coursesData from '../data/courses.json';
 import Footer from '@/components/Footer';
+import { formatINR } from '@/utils/currency';
+
+interface Course {
+  id: number;
+  title: string;
+  description: string;
+  price: number;
+  rating: number;
+  image: string;
+  category?: string;
+  students?: number;
+  originalPrice?: number;
+}
 
 const Index = () => {
   const navigate = useNavigate();
 
-  // Get top-rated products (rating >= 4)
-  const featuredProducts = productsData.products
-    .filter((product) => product.ratings >= 4)
-    .slice(0, 4);
+  // Get featured courses (rating >= 4) and add missing properties
+  const featuredCourses = coursesData.courses
+    .filter((course) => course.rating >= 4)
+    .slice(0, 4)
+    .map(course => ({
+      ...course,
+      category: 'Course',
+      students: Math.floor(Math.random() * 1000) + 100, // Random number of students
+      originalPrice: Math.round(course.price * (1.2 + Math.random() * 0.3)) // Add 20-50% to price for original price
+    }));
 
-  // Get latest products
-  const newArrivals = productsData.products.slice(-4);
+  // Get latest courses and add missing properties
+  const newCourses = coursesData.courses
+    .slice(-4)
+    .map(course => ({
+      ...course,
+      category: 'New',
+      students: Math.floor(Math.random() * 500) + 50, // Random number of students
+      originalPrice: Math.round(course.price * (1.1 + Math.random() * 0.2)) // Add 10-30% to price for original price
+    }));
 
   return (
     <div className="min-h-screen bg-[#FAFAF8]">
       <Navbar />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-16 px-4">
+      <section className="pt-32 pb-16 px-4 bg-gradient-to-r from-blue-50 to-indigo-50">
         <div className="container mx-auto flex flex-col lg:flex-row items-center justify-between">
           <div className="lg:w-1/2 animate-fade-up">
-            <p className="text-accent text-lg mb-4">
-              Your One-Stop Electronics Shop 🛍️
+            <p className="text-blue-600 text-lg mb-4 font-medium">
+              Welcome to Edu-Madi 🎓
             </p>
-            <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-8 text-primary">
-              Discover Premium Electronics
+            <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-8 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">
+              Learn Without Limits
             </h1>
             <p className="text-gray-600 mb-8 text-lg">
-              From cutting-edge smartphones to powerful laptops and premium audio gear,
-              find all your tech needs in one place.
+              Access high-quality courses, expert instructors, and a supportive learning community.
+              Start your educational journey today and unlock your full potential.
             </p>
-            <button
-              onClick={() => navigate('/marketplace')}
-              className="bg-primary text-white px-8 py-3 rounded-full hover:bg-primary/90 transition-colors flex items-center gap-2"
-            >
-              Shop Now
-              <ArrowRight className="w-5 h-5" />
-            </button>
+            <div className="flex gap-4">
+              <Button
+                onClick={() => navigate('/courses')}
+                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-6 text-lg rounded-xl transition-colors flex items-center gap-2"
+              >
+                Explore Courses
+                <ArrowRight className="w-5 h-5" />
+              </Button>
+              <Button
+                variant="outline"
+                className="px-8 py-6 text-lg rounded-xl border-2 border-blue-600 text-blue-600 hover:bg-blue-50"
+              >
+                Learn More
+              </Button>
+            </div>
+            
+            <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6">
+              <div className="text-center">
+                <h3 className="text-3xl font-bold text-blue-600">500+</h3>
+                <p className="text-gray-600">Courses</p>
+              </div>
+              <div className="text-center">
+                <h3 className="text-3xl font-bold text-indigo-600">50K+</h3>
+                <p className="text-gray-600">Students</p>
+              </div>
+              <div className="text-center">
+                <h3 className="text-3xl font-bold text-purple-600">200+</h3>
+                <p className="text-gray-600">Instructors</p>
+              </div>
+              <div className="text-center">
+                <h3 className="text-3xl font-bold text-pink-600">24/7</h3>
+                <p className="text-gray-600">Support</p>
+              </div>
+            </div>
           </div>
           <div className="lg:w-1/2 mt-8 lg:mt-0 relative">
             <div className="absolute -z-10 top-0 right-0 w-64 h-64 bg-blue-200 rounded-full opacity-50 blur-3xl"></div>
-            <div className="absolute -z-10 bottom-0 right-20 w-48 h-48 bg-purple-200 rounded-full opacity-30 blur-3xl"></div>
+            <div className="absolute -z-10 bottom-0 right-20 w-48 h-48 bg-indigo-200 rounded-full opacity-30 blur-3xl"></div>
             <img
-              src={`${featuredProducts[0]?.image}`}
-              alt="Featured Headphone"
-              className="rounded-2xl shadow-lg relative z-10 w-full object-cover"
+              src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80"
+              alt="Students learning together"
+              className="rounded-2xl shadow-xl relative z-10 w-full object-cover h-[500px]"
             />
           </div>
         </div>
       </section>
 
-      {/* Categories Section */}
-      <section className="py-16 bg-gradient-to-b from-white to-[#FAFAF8]">
+      {/* Features Section */}
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-12 text-center">
-            Featured Categories
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Smartphones */}
-            <a
-              href="/marketplace?category=smartphones"
-              className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow"
-            >
-              <div className="h-48 relative mb-4">
-                <div className="absolute inset-0 bg-blue-50 rounded-lg"></div>
-                <img
-                  src={`${
-                    productsData.products.find((p) => p.category === 'smartphones')
-                      ?.image
-                  }`}
-                  alt="Smartphones"
-                  className="absolute inset-0 w-full h-full object-contain p-4"
-                />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Smartphones</h3>
-              <p className="text-gray-600">
-                Latest smartphones with cutting-edge features and technology.
-              </p>
-            </a>
-
-            {/* Laptops */}
-            <a
-              href="/marketplace?category=laptops"
-              className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow"
-            >
-              <div className="h-48 relative mb-4">
-                <div className="absolute inset-0 bg-purple-50 rounded-lg"></div>
-                <img
-                  src={`${
-                    productsData.products.find((p) => p.category === 'laptops')
-                      ?.image
-                  }`}
-                  alt="Laptops"
-                  className="absolute inset-0 w-full h-full object-contain p-4"
-                />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Laptops</h3>
-              <p className="text-gray-600">
-                Powerful laptops for work, gaming, and everything in between.
-              </p>
-            </a>
-
-            {/* Audio */}
-            <a
-              href="/marketplace?category=headphones"
-              className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow"
-            >
-              <div className="h-48 relative mb-4">
-                <div className="absolute inset-0 bg-green-50 rounded-lg"></div>
-                <img
-                  src={`${
-                    productsData.products.find((p) => p.category === 'headphones')
-                      ?.image
-                  }`}
-                  alt="Audio Devices"
-                  className="absolute inset-0 w-full h-full object-contain p-4"
-                />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Audio Devices</h3>
-              <p className="text-gray-600">
-                Premium headphones and earbuds for immersive sound experience.
-              </p>
-            </a>
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-4xl font-bold mb-6 text-gray-900">
+              Why Choose Edu-Madi?
+            </h2>
+            <p className="text-lg text-gray-600">
+              We provide the best learning experience with our innovative platform and expert instructors.
+            </p>
           </div>
-        </div>
-      </section>
 
-      {/* Benefits Section */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-12 text-center">
-            Why Choose Us
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* Premium Quality */}
-            <div className="text-center space-y-4">
-              <div className="bg-blue-50 w-16 h-16 mx-auto rounded-full flex items-center justify-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-8 w-8 text-blue-600"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
-                  />
-                </svg>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+              <div className="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
+                <BookOpen className="w-8 h-8 text-blue-600" />
               </div>
-              <h3 className="font-semibold text-lg">Premium Quality</h3>
-              <p className="text-gray-600 text-sm">
-                Crafted with premium materials and cutting-edge technology
-              </p>
+              <h3 className="text-xl font-semibold mb-3 text-gray-900">Expert Instructors</h3>
+              <p className="text-gray-600">Learn from industry experts with years of experience in their fields.</p>
             </div>
-
-            {/* Fast Delivery */}
-            <div className="text-center space-y-4">
-              <div className="bg-green-50 w-16 h-16 mx-auto rounded-full flex items-center justify-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-8 w-8 text-green-600"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M13 10V3L4 14h7v7l9-11h-7z"
-                  />
-                </svg>
+            
+            <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+              <div className="w-16 h-16 bg-indigo-100 rounded-xl flex items-center justify-center mb-6">
+                <GraduationCap className="w-8 h-8 text-indigo-600" />
               </div>
-              <h3 className="font-semibold text-lg">Fast Delivery</h3>
-              <p className="text-gray-600 text-sm">
-                Quick and reliable shipping to your doorstep
-              </p>
+              <h3 className="text-xl font-semibold mb-3 text-gray-900">Interactive Learning</h3>
+              <p className="text-gray-600">Engage with interactive content, quizzes, and hands-on projects.</p>
             </div>
-
-            {/* Best Prices */}
-            <div className="text-center space-y-4">
-              <div className="bg-yellow-50 w-16 h-16 mx-auto rounded-full flex items-center justify-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-8 w-8 text-yellow-600"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
+            
+            <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+              <div className="w-16 h-16 bg-purple-100 rounded-xl flex items-center justify-center mb-6">
+                <Users className="w-8 h-8 text-purple-600" />
               </div>
-              <h3 className="font-semibold text-lg">Best Prices</h3>
-              <p className="text-gray-600 text-sm">
-                Competitive prices with regular discounts and offers
-              </p>
-            </div>
-
-            {/* Warranty */}
-            <div className="text-center space-y-4">
-              <div className="bg-purple-50 w-16 h-16 mx-auto rounded-full flex items-center justify-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-8 w-8 text-purple-600"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-                  />
-                </svg>
-              </div>
-              <h3 className="font-semibold text-lg">1 Year Warranty</h3>
-              <p className="text-gray-600 text-sm">
-                Guaranteed protection and support for your purchase
-              </p>
+              <h3 className="text-xl font-semibold mb-3 text-gray-900">Community Support</h3>
+              <p className="text-gray-600">Join a community of learners and get support from peers and mentors.</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Featured Products Section */}
-      <section className="py-16 bg-white">
+      {/* Popular Courses */}
+      <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-2">Featured Products</h2>
-          <p className="text-gray-600 mb-8">
-            Top-rated audio gear loved by our customers
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {featuredProducts.map((product) => (
-              <div
-                key={product.id}
-                className="bg-white rounded-lg shadow-md overflow-hidden cursor-pointer hover:shadow-lg transition-shadow"
-                onClick={() => navigate(`/product/${product.id}`)}
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-3">Popular Courses</h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">Discover our most popular courses designed to help you grow your skills and advance your career.</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {featuredCourses.map((course) => (
+              <div 
+                key={course.id} 
+                className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col h-full"
               >
-                <div className="aspect-square overflow-hidden relative">
+                <div className="h-48 bg-gray-100 overflow-hidden relative">
                   <img
-                    src={`${product.image}`}
-                    alt={product.title}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    src={course.image || 'https://images.unsplash.com/photo-1498050108023-c5249f9dfcd4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80'}
+                    alt={course.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
-                  {product.discount && (
-                    <div className="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded-md text-sm">
-                      {product.discount}
-                    </div>
-                  )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                    <span className="bg-blue-600 text-white text-xs font-medium px-2.5 py-1 rounded-full">
+                      {course.category || 'Course'}
+                    </span>
+                  </div>
                 </div>
-                <div className="p-4">
-                  <h3 className="font-semibold text-sm mb-2 line-clamp-2">
-                    {product.title}
+                <div className="p-6 flex-1 flex flex-col">
+                  <div className="flex items-center mb-3">
+                    <div className="flex">
+                      {[...Array(5)].map((_, i) => (
+                        <Star
+                          key={i}
+                          className={`w-4 h-4 ${i < Math.floor(course.rating) ? 'text-yellow-400 fill-current' : 'text-gray-300'}`}
+                        />
+                      ))}
+                    </div>
+                    <span className="text-sm text-gray-500 ml-2">
+                      {course.rating.toFixed(1)} ({course.students || 100}+)
+                    </span>
+                  </div>
+                  <h3 className="font-bold text-lg text-gray-900 mb-3 line-clamp-2 leading-tight">
+                    {course.title}
                   </h3>
-                  <div className="flex items-center justify-between">
-                    <div className="flex flex-col">
-                      <span className="text-primary font-medium">
-                        ₹{product.currentPrice}
+                  <p className="text-gray-600 text-sm mb-4 line-clamp-2 flex-grow">
+                    {course.description || 'Comprehensive course covering all essential topics.'}
+                  </p>
+                  <div className="flex justify-between items-center mt-auto pt-4 border-t border-gray-100">
+                    <div>
+                      <span className="text-blue-600 font-bold text-lg">
+                        {formatINR(course.price)}
                       </span>
-                      <span className="text-sm text-gray-500 line-through">
-                        ₹{product.oldPrice}
-                      </span>
+                      {course.originalPrice && (
+                        <span className="text-sm text-gray-400 line-through ml-2">
+                          {formatINR(course.originalPrice)}
+                        </span>
+                      )}
                     </div>
-                    <div className="flex items-center gap-1">
-                      <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                      <span className="text-sm text-gray-600">
-                        {product.ratings}
-                      </span>
-                    </div>
+                    <Button 
+                      size="sm" 
+                      className="bg-blue-600 hover:bg-blue-700 transition-colors shadow-md hover:shadow-lg"
+                      onClick={() => navigate(`/courses/${course.id}`)}
+                    >
+                      Enroll Now
+                    </Button>
                   </div>
                 </div>
               </div>
             ))}
           </div>
+          
+          <div className="text-center mt-12">
+            <Button 
+              variant="outline"
+              className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 text-base font-medium rounded-lg transition-all"
+              onClick={() => navigate('/courses')}
+            >
+              View All Courses
+              <ArrowRight className="w-4 h-4 ml-2" />
+            </Button>
+          </div>
         </div>
       </section>
 
-      {/* New Arrivals Section */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-2">New Arrivals</h2>
-          <p className="text-gray-600 mb-8">
-            Latest additions to our collection
+      {/* CTA Section */}
+      <section className="py-20 bg-gradient-to-r from-blue-600 to-indigo-600 text-white">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-4xl font-bold mb-6">Start Learning Today</h2>
+          <p className="text-xl mb-8 max-w-2xl mx-auto">
+            Join thousands of students who are advancing their careers with our courses.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {newArrivals.map((product) => (
-              <div
-                key={product.id}
-                className="bg-white rounded-lg shadow-md overflow-hidden cursor-pointer hover:shadow-lg transition-shadow"
-                onClick={() => navigate(`/product/${product.id}`)}
-              >
-                <div className="aspect-square overflow-hidden relative">
-                  <img
-                    src={`${product.image}`}
-                    alt={product.title}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                  />
-                  {product.discount && (
-                    <div className="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded-md text-sm">
-                      {product.discount}
-                    </div>
-                  )}
-                </div>
-                <div className="p-4">
-                  <h3 className="font-semibold text-sm mb-2 line-clamp-2">
-                    {product.title}
-                  </h3>
-                  <div className="flex items-center justify-between">
-                    <div className="flex flex-col">
-                      <span className="text-primary font-medium">
-                        ₹{product.currentPrice}
-                      </span>
-                      <span className="text-sm text-gray-500 line-through">
-                        ₹{product.oldPrice}
-                      </span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                      <span className="text-sm text-gray-600">
-                        {product.ratings}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button
+              className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-6 text-lg font-medium rounded-xl"
+              onClick={() => navigate('/signup')}
+            >
+              Get Started for Free
+            </Button>
+            <Button
+              variant="outline"
+              className="border-white text-white hover:bg-blue-700 px-8 py-6 text-lg font-medium rounded-xl"
+              onClick={() => navigate('/courses')}
+            >
+              Browse Courses
+            </Button>
           </div>
         </div>
       </section>
 
       <Footer />
+
+      {/* New Arrivals Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="flex justify-between items-center mb-12">
+            <div>
+              <h2 className="text-3xl font-bold text-gray-900">New Arrivals</h2>
+              <p className="text-gray-600 mt-2">Check out our latest courses</p>
+            </div>
+            <Button
+              variant="outline"
+              className="border-blue-600 text-blue-600 hover:bg-blue-50"
+              onClick={() => navigate('/courses')}
+            >
+              View All Courses
+            </Button>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {newCourses.map((course) => (
+              <div key={course.id} className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+                <div className="h-48 bg-gray-200 overflow-hidden">
+                  <img
+                    src={course.image || 'https://images.unsplash.com/photo-1498050108023-c5249f9dfcd4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80'}
+                    alt={course.title}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="p-6">
+                  <div className="flex items-center mb-2">
+                    <span className="text-yellow-400 flex">
+                      {[...Array(5)].map((_, i) => (
+                        <Star
+                          key={i}
+                          className={`w-4 h-4 ${i < Math.floor(course.rating) ? 'fill-current' : ''}`}
+                        />
+                      ))}
+                    </span>
+                    <span className="text-sm text-gray-500 ml-2">
+                      ({course.rating.toFixed(1)})
+                    </span>
+                  </div>
+                  <h3 className="font-semibold text-lg mb-2 text-gray-900">{course.title}</h3>
+                  <p className="text-gray-600 text-sm mb-4 line-clamp-2">{course.description}</p>
+                  <div className="flex justify-between items-center">
+                    <span className="text-blue-600 font-semibold">${course.price}</span>
+                    <Button size="sm" className="bg-blue-600 hover:bg-blue-700">
+                      Enroll Now
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-4xl font-bold mb-6 text-gray-900">What Our Students Say</h2>
+            <p className="text-lg text-gray-600">Hear from our community of successful learners</p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                name: 'Alex Johnson',
+                role: 'Web Developer',
+                content: 'Edu-Madi transformed my career. The courses are well-structured and the instructors are top-notch!',
+                rating: 5
+              },
+              {
+                name: 'Sarah Williams',
+                role: 'UX Designer',
+                content: 'The hands-on projects helped me build a strong portfolio that got me hired within a month of completing the course.',
+                rating: 5
+              },
+              {
+                name: 'Michael Chen',
+                role: 'Data Scientist',
+                content: 'The community support and mentorship I received were invaluable. Highly recommend to anyone looking to upskill.',
+                rating: 5
+              }
+            ].map((testimonial, index) => (
+              <div key={index} className="bg-white p-8 rounded-xl shadow-md">
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold text-xl">
+                    {testimonial.name.charAt(0)}
+                  </div>
+                  <div className="ml-4">
+                    <h4 className="font-semibold text-gray-900">{testimonial.name}</h4>
+                    <p className="text-sm text-gray-600">{testimonial.role}</p>
+                  </div>
+                </div>
+                <p className="text-gray-600 mb-4">"{testimonial.content}"</p>
+                <div className="flex">
+                  {[...Array(5)].map((_, i) => (
+                    <Star
+                      key={i}
+                      className={`w-4 h-4 ${i < testimonial.rating ? 'text-yellow-400 fill-current' : 'text-gray-300'}`}
+                    />
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
