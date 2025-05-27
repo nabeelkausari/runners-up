@@ -60,12 +60,12 @@ const About = () => {
             <p className="mb-2">
               {/* Email: contact@ethora.com
               <br /> */}
-              Phone: +91 7200167611
+              Phone: +919900077752
             </p>
           </div>
         </div>
       </div>
-      <Footer />
+      
     </div>
   );
 };

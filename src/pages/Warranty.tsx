@@ -84,8 +84,8 @@ const Warranty = () => {
             <h2 className="text-2xl font-semibold mb-4">Contact Support</h2>
             <p className="text-gray-600">
               For warranty-related queries, please contact us at{' '}
-              <a href="tel:+917200167611" className="text-primary hover:underline">
-                +91 7200167611
+              <a href="tel:+919900077752" className="text-primary hover:underline">
+                +919900077752
               </a>
             </p>
           </section>

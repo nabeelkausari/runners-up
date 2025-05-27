@@ -157,9 +157,7 @@ const Courses = () => {
             )}
           </div>
         )}
-      </div>
-
-      <Footer />
+      </div>      
     </div>
   );
 };

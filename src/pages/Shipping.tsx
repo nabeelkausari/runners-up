@@ -82,10 +82,10 @@ const Shipping = () => {
               </a>
               {' '}or call us at{' '} */}
               <a
-                href="tel:+917200167611"
+                href="tel:+919900077752"
                 className="text-primary hover:underline"
               >
-                +91 7200167611
+                +919900077752
               </a>
             </p>
           </section>

@@ -1,9 +1,9 @@
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, BookOpen, GraduationCap, Users, Star } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import coursesData from '../data/courses.json';
-import Footer from '@/components/Footer';
 import { formatINR } from '@/utils/currency';
 
 interface Course {
@@ -43,8 +43,9 @@ const Index = () => {
     }));
 
   return (
-    <div className="min-h-screen bg-[#FAFAF8]">
+    <div className="min-h-screen bg-[#FAFAF8] flex flex-col">
       <Navbar />
+      <main className="flex-grow">
 
       {/* Hero Section */}
       <section className="pt-32 pb-16 px-4 bg-gradient-to-r from-blue-50 to-indigo-50">
@@ -68,12 +69,14 @@ const Index = () => {
                 Explore Courses
                 <ArrowRight className="w-5 h-5" />
               </Button>
-              <Button
-                variant="outline"
-                className="px-8 py-6 text-lg rounded-xl border-2 border-blue-600 text-blue-600 hover:bg-blue-50"
-              >
-                Learn More
-              </Button>
+              <Link to="/about">
+                <Button
+                  variant="outline"
+                  className="px-8 py-6 text-lg rounded-xl border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition-colors duration-200"
+                >
+                  Learn More
+                </Button>
+              </Link>
             </div>
             
             <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -196,9 +199,9 @@ const Index = () => {
                   <div className="flex justify-between items-center mt-auto pt-4 border-t border-gray-100">
                     <div>
                       <span className="text-blue-600 font-bold text-lg">
-                        {formatINR(course.price)}
+                        {course.price === 0 ? 'Free' : formatINR(course.price)}
                       </span>
-                      {course.originalPrice && (
+                      {course.originalPrice && course.originalPrice > 0 && (
                         <span className="text-sm text-gray-400 line-through ml-2">
                           {formatINR(course.originalPrice)}
                         </span>
@@ -220,7 +223,8 @@ const Index = () => {
           <div className="text-center mt-12">
             <Button 
               variant="outline"
-              className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 text-base font-medium rounded-lg transition-all"
+              // className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 text-base font-medium rounded-lg transition-all"
+              className="px-8 py-6 text-lg rounded-xl border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition-colors duration-200"
               onClick={() => navigate('/courses')}
             >
               View All Courses
@@ -240,13 +244,12 @@ const Index = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
               className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-6 text-lg font-medium rounded-xl"
-              onClick={() => navigate('/signup')}
+              onClick={() => navigate('/login')}
             >
               Get Started for Free
             </Button>
             <Button
-              variant="outline"
-              className="border-white text-white hover:bg-blue-700 px-8 py-6 text-lg font-medium rounded-xl"
+              className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-6 text-lg font-medium rounded-xl"
               onClick={() => navigate('/courses')}
             >
               Browse Courses
@@ -255,7 +258,7 @@ const Index = () => {
         </div>
       </section>
 
-      <Footer />
+      
 
       {/* New Arrivals Section */}
       <section className="py-20 bg-white">
@@ -267,7 +270,8 @@ const Index = () => {
             </div>
             <Button
               variant="outline"
-              className="border-blue-600 text-blue-600 hover:bg-blue-50"
+              // className="border-blue-600 text-blue-600 hover:bg-blue-50"
+              className="px-8 py-6 text-lg rounded-xl border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition-colors duration-200"
               onClick={() => navigate('/courses')}
             >
               View All Courses
@@ -301,7 +305,7 @@ const Index = () => {
                   <h3 className="font-semibold text-lg mb-2 text-gray-900">{course.title}</h3>
                   <p className="text-gray-600 text-sm mb-4 line-clamp-2">{course.description}</p>
                   <div className="flex justify-between items-center">
-                    <span className="text-blue-600 font-semibold">${course.price}</span>
+                    <span className="text-blue-600 font-semibold">₹{course.price}</span>
                     <Button size="sm" className="bg-blue-600 hover:bg-blue-700">
                       Enroll Now
                     </Button>
@@ -366,6 +370,7 @@ const Index = () => {
           </div>
         </div>
       </section>
+      </main>
     </div>
   );
 };

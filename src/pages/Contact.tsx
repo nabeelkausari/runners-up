@@ -22,8 +22,8 @@ const Contact = () => {
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
                   <Phone className="w-5 h-5 text-primary" />
-                  <a href="tel:+917200167611" className="text-gray-600 hover:text-primary">
-                    +91 7200167611
+                  <a href="tel:+919900077752" className="text-gray-600 hover:text-primary">
+                    +919900077752
                   </a>
                 </div>
                 {/* <div className="flex items-center gap-3">
@@ -99,9 +99,7 @@ const Contact = () => {
             </div>
           </div>
         </div>
-      </main>
-
-      <Footer />
+      </main>      
     </div>
   );
 };

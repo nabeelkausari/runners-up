@@ -1,10 +1,11 @@
-import { Search, User, BookOpen, Menu, X } from 'lucide-react';
+import { Search, BookOpen, Menu, X } from 'lucide-react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { useAuth } from '../contexts/AuthContext';
 import { useState, useEffect, useRef } from 'react';
+import { useUser, SignInButton, SignUpButton } from '@clerk/clerk-react';
+import UserButton from './auth/UserButton';
 
 const Navbar = () => {
-  const { isAuthenticated } = useAuth();
+  const { isSignedIn } = useUser();
   const navigate = useNavigate();
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -48,7 +49,8 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 bg-white shadow-sm z-50">
+    <>
+      <nav className="fixed top-0 left-0 right-0 bg-white shadow-sm z-50">
       <div className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
           {/* Logo */}
@@ -105,28 +107,22 @@ const Navbar = () => {
               <Search className="h-5 w-5" />
             </button>
 
-            {isAuthenticated ? (
-              <Link
-                to="/dashboard"
-                className="p-2 text-gray-600 hover:text-blue-600 transition-colors"
-                aria-label="Dashboard"
-              >
-                <User className="h-5 w-5" />
-              </Link>
+            {isSignedIn ? (
+              <div className="flex items-center">
+                <UserButton />
+              </div>
             ) : (
-              <div className="hidden md:flex space-x-2">
-                <Link
-                  to="/login"
-                  className="px-4 py-2 text-blue-600 hover:bg-blue-50 rounded-lg font-medium transition-colors"
-                >
-                  Log in
-                </Link>
-                <Link
-                  to="/signup"
-                  className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-medium transition-colors"
-                >
-                  Sign up
-                </Link>
+              <div className="hidden md:flex items-center space-x-4">
+                <SignInButton mode="modal">
+                  <button className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors">
+                    Sign in
+                  </button>
+                </SignInButton>
+                <SignUpButton mode="modal">
+                  <button className="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 transition-colors">
+                    Sign up
+                  </button>
+                </SignUpButton>
               </div>
             )}
 
@@ -185,22 +181,24 @@ const Navbar = () => {
               >
                 Contact
               </Link>
-              {!isAuthenticated && (
+              {!isSignedIn && (
                 <div className="flex flex-col space-y-2 pt-4 border-t border-gray-100">
-                  <Link
-                    to="/login"
-                    onClick={() => setIsMenuOpen(false)}
-                    className="px-4 py-2 text-blue-600 hover:bg-blue-50 rounded-lg font-medium text-center transition-colors"
-                  >
-                    Log in
-                  </Link>
-                  <Link
-                    to="/signup"
-                    onClick={() => setIsMenuOpen(false)}
-                    className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-medium text-center transition-colors"
-                  >
-                    Sign up
-                  </Link>
+                  <SignInButton mode="modal">
+                    <button 
+                      onClick={() => setIsMenuOpen(false)}
+                      className="w-full px-4 py-2 text-blue-600 hover:bg-blue-50 rounded-lg font-medium text-center transition-colors"
+                    >
+                      Sign in
+                    </button>
+                  </SignInButton>
+                  <SignUpButton mode="modal">
+                    <button 
+                      onClick={() => setIsMenuOpen(false)}
+                      className="w-full px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-medium text-center transition-colors"
+                    >
+                      Sign up
+                    </button>
+                  </SignUpButton>
                 </div>
               )}
             </div>
@@ -226,7 +224,8 @@ const Navbar = () => {
           </div>
         )}
       </div>
-    </nav>
+      </nav>
+    </>
   );
 };
 

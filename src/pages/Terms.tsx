@@ -63,7 +63,7 @@ const Terms = () => {
             <br />
             {/* Email: legal@ethora.com
             <br /> */}
-            Phone: +91 7200167611
+            Phone:+919900077752
           </p>
         </div>
       </div>

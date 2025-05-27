@@ -21,13 +21,20 @@ const ProductDetails = () => {
   const [isInCart, setIsInCart] = useState(false);
 
   const product = useMemo(() => {
-    const foundProduct = productsData.products.find(
-      (p) => p.id === parseInt(id || '1')
-    );
+    if (!id) {
+      navigate('/marketplace');
+      return null;
+    }
+    
+    // Convert both to string for comparison to avoid type issues
+    const productId = id.toString();
+    const foundProduct = productsData.products.find(p => p.id.toString() === productId);
+    
     if (!foundProduct) {
       navigate('/marketplace');
       return null;
     }
+    
     return foundProduct;
   }, [id, navigate]);
 

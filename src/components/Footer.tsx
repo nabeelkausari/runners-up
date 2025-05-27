@@ -1,73 +1,109 @@
 import { Link } from 'react-router-dom';
+import { BookOpen, Facebook, Twitter, Instagram } from 'lucide-react';
 
-const Footer = () => {
+interface FooterProps {
+  className?: string;
+}
+
+const Footer: React.FC<FooterProps> = ({ className = '' }) => {
+  const currentYear = new Date().getFullYear();
+
   return (
-    <footer className="bg-gray-100">
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <footer className={`bg-gray-50 border-t border-gray-200 ${className}`}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          {/* Brand Info */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold">Edu-Madi</h3>
-            <p className="text-sm text-gray-600">
+            <div className="flex items-center space-x-2">
+              <BookOpen className="h-8 w-8 text-indigo-600" />
+              <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+                Edu-Madi
+              </span>
+            </div>
+            <p className="text-sm text-gray-600 font-medium">
               Paymadi Technologies LLP
             </p>
-            <p className="text-sm text-gray-600">
+            <p className="text-sm text-gray-500">
               Your trusted destination for quality education
             </p>
           </div>
 
+          {/* Support Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Support</h3>
-            <ul className="space-y-2">
+            <h3 className="text-base font-semibold text-gray-900 mb-4">Support</h3>
+            <ul className="space-y-3">
               <li>
-                <Link to="/about" className="text-gray-600 hover:text-gray-900">
+                <Link to="/about" className="text-sm text-gray-600 hover:text-blue-600 transition-colors duration-200 ease-in-out">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="text-gray-600 hover:text-gray-900">
+                <Link to="/contact" className="text-sm text-gray-600 hover:text-blue-600 transition-colors duration-200 ease-in-out">
                   Contact
                 </Link>
-              </li>
-              <li>
-                <Link to="/shipping" className="text-gray-600 hover:text-gray-900">
-                  Shipping Info
-                </Link>
-              </li>
-              <li>
-                <Link to="/warranty" className="text-gray-600 hover:text-gray-900">
-                  Warranty Policy
-                </Link>
-              </li>
+              </li>              
             </ul>
           </div>
 
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Contact</h3>
-            <ul className="space-y-2 text-gray-600">
-              {/* <li>Email: support@ethora.com</li> */}
-              <li>Phone: +91 7200167611</li>
-              <li>Address: 21ST STAGE, 4TH BLOCK,HBR LAYOUT, Kalyananagar, Bangalore North, Bangalore- 560043, Karnataka</li>
-              <li className="pt-4">
-                <h4 className="text-sm font-semibold mb-2">Follow Us</h4>
+          {/* Contact Info */}
+          <div className="md:col-span-2">
+            <h3 className="text-base font-semibold text-gray-900 mb-4">Contact</h3>
+            <div className="space-y-3 text-sm text-gray-600">
+              <div className="flex items-start">
+                <span className="font-medium text-gray-700 w-16">Phone:</span>
+                <a href="tel:++919900077752" className="text-gray-600 hover:text-blue-600 transition-colors duration-200 ease-in-out">
+                +91 99000 77752
+                </a>
+              </div>
+              <div className="flex items-start">
+                <span className="font-medium text-gray-700 w-16">Address:</span>
+                <address className="not-italic">
+                  21ST STAGE, 4TH BLOCK, HBR LAYOUT,<br />
+                  Kalyananagar, Bangalore North,<br />
+                  Bangalore - 560043, Karnataka
+                </address>
+              </div>
+              
+              <div className="pt-2">
+                <h4 className="text-sm font-semibold text-gray-900 mb-3">Follow Us</h4>
                 <div className="flex space-x-4">
-                  <a href="#" className="text-gray-600 hover:text-gray-900">
-                    Twitter
+                  <a 
+                    href="https://twitter.com" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-gray-500 hover:text-blue-500 transition-colors duration-200 ease-in-out"
+                    aria-label="Twitter"
+                  >
+                    <Twitter className="h-5 w-5" />
                   </a>
-                  <a href="#" className="text-gray-600 hover:text-gray-900">
-                    Facebook
+                  <a 
+                    href="https://facebook.com" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-gray-500 hover:text-blue-500 transition-colors duration-200 ease-in-out"
+                    aria-label="Facebook"
+                  >
+                    <Facebook className="h-5 w-5" />
                   </a>
-                  <a href="#" className="text-gray-600 hover:text-gray-900">
-                    Instagram
+                  <a 
+                    href="https://instagram.com" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-gray-500 hover:text-pink-500 transition-colors duration-200 ease-in-out"
+                    aria-label="Instagram"
+                  >
+                    <Instagram className="h-5 w-5" />
                   </a>
                 </div>
-              </li>
-            </ul>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className="mt-8 pt-8 border-t border-gray-200">
-          <p className="text-center text-gray-600 text-sm">
-            {new Date().getFullYear()} Paymadi Technologies LLP. All rights reserved.
+        {/* Copyright */}
+        <div className="mt-12 pt-8 border-t border-gray-200">
+          <p className="text-center text-sm text-gray-500">
+            &copy; {currentYear} Paymadi Technologies LLP. All rights reserved.
           </p>
         </div>
       </div>

@@ -1,9 +1,13 @@
-import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react';
-import { toast } from "sonner";
+import React, { createContext, useContext, ReactNode } from 'react';
+import { useUser, useClerk } from '@clerk/clerk-react';
+import { toast } from 'sonner';
 
 interface User {
   email: string;
   name: string;
+  profileImage?: string;
+  phone?: string;
+  address?: string;
 }
 
 interface AuthContextType {
@@ -12,55 +16,54 @@ interface AuthContextType {
   signup: (email: string, password: string, name: string) => void;
   logout: () => void;
   isAuthenticated: boolean;
+  isLoaded: boolean;
+  isSignedIn: boolean;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export function AuthProvider({ children }: { children: ReactNode }) {
-  const [user, setUser] = useState<User | null>(() => {
-    const savedUser = localStorage.getItem('user');
-    return savedUser ? JSON.parse(savedUser) : null;
-  });
+  const { user: clerkUser, isSignedIn } = useUser();
+  const { signOut } = useClerk();
 
-  useEffect(() => {
-    if (user) {
-      localStorage.setItem('user', JSON.stringify(user));
-    } else {
-      localStorage.removeItem('user');
-    }
-  }, [user]);
+  // Map Clerk user to our app's user type
+  const user = isSignedIn && clerkUser ? {
+    email: clerkUser.primaryEmailAddress?.emailAddress || '',
+    name: clerkUser.fullName || 'User',
+    profileImage: clerkUser.imageUrl,
+    phone: clerkUser.phoneNumbers[0]?.phoneNumber,
+    address: clerkUser.unsafeMetadata?.address as string | undefined
+  } : null;
 
-  const login = (email: string, password: string) => {
-    console.log('Login attempt:', { email, password });
-    
-    if (email === 'demo' && password === 'demo') {
-      const newUser = { email: 'demo', name: 'Demo User' };
-      setUser(newUser);
-      toast.success('Successfully logged in!');
-    } else {
-      toast.error('Invalid credentials. Use demo/demo');
-    }
+  const login = async (email: string, password: string) => {
+    // This is a no-op since Clerk handles the login
+    // The actual login is handled by Clerk's <SignIn /> component
+    console.log('Login attempt handled by Clerk');
   };
 
   const signup = (email: string, password: string, name: string) => {
-    console.log('Signup attempt:', { email, password, name });
-    
-    if (email === 'demo' && password === 'demo') {
-      const newUser = { email, name };
-      setUser(newUser);
-      toast.success('Account created successfully!');
-    } else {
-      toast.error('Please use demo/demo credentials');
-    }
+    // This is a no-op since Clerk handles the signup
+    // The actual signup is handled by Clerk's <SignUp /> component
+    console.log('Signup attempt handled by Clerk');
   };
 
   const logout = () => {
-    setUser(null);
+    signOut();
     toast.success('Logged out successfully');
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, signup, logout, isAuthenticated: !!user }}>
+    <AuthContext.Provider 
+      value={{ 
+        user, 
+        login, 
+        signup, 
+        logout, 
+        isAuthenticated: !!user,
+        isLoaded: true, // Clerk's useUser hook is synchronous
+        isSignedIn: isSignedIn || false
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );
