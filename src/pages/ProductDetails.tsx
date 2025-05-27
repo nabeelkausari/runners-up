@@ -2,6 +2,7 @@ import React, { useMemo, useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import { Star } from 'lucide-react';
+import { formatINR } from '@/utils/currency';
 import { useCart } from '../contexts/CartContext';
 import {
   Accordion,
@@ -20,13 +21,20 @@ const ProductDetails = () => {
   const [isInCart, setIsInCart] = useState(false);
 
   const product = useMemo(() => {
-    const foundProduct = productsData.products.find(
-      (p) => p.id === parseInt(id || '1')
-    );
+    if (!id) {
+      navigate('/marketplace');
+      return null;
+    }
+    
+    // Convert both to string for comparison to avoid type issues
+    const productId = id.toString();
+    const foundProduct = productsData.products.find(p => p.id.toString() === productId);
+    
     if (!foundProduct) {
       navigate('/marketplace');
       return null;
     }
+    
     return foundProduct;
   }, [id, navigate]);
 
@@ -92,10 +100,10 @@ const ProductDetails = () => {
             <div className="flex items-center gap-4">
               <div className="space-y-1">
                 <span className="text-2xl font-semibold text-primary">
-                  ₹{product.currentPrice}
+                  {formatINR(product.currentPrice)}
                 </span>
                 <span className="block text-sm text-gray-500 line-through">
-                  ₹{product.oldPrice}
+                  {formatINR(product.oldPrice)}
                 </span>
               </div>
             </div>

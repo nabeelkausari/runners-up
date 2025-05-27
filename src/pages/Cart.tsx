@@ -9,6 +9,7 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { useNavigate } from 'react-router-dom';
 import { PaymentDialog } from '@/components/PaymentDialog';
+import { formatINR } from '@/utils/currency';
 import {
   Dialog,
   DialogContent,
@@ -130,7 +131,7 @@ const Cart = () => {
                     <div className="flex-1">
                       <div className="flex justify-between">
                         <h3 className="font-semibold">{item.name}</h3>
-                        <p className="font-semibold">₹{item.price}</p>
+                        <p className="font-semibold">{formatINR(parseFloat(item.price))}</p>
                       </div>
                       <div className="flex items-center gap-4 mt-4">
                         <div className="flex items-center gap-2">
@@ -320,11 +321,11 @@ const Cart = () => {
                 <div className="space-y-4">
                   <div className="flex justify-between">
                     <span>Item Total</span>
-                    <span>₹{total}</span>
+                    <span>{formatINR(parseFloat(total))}</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Delivery fees</span>
-                    <span>₹{deliveryFee}</span>
+                    <span>{formatINR(deliveryFee)}</span>
                   </div>
                   {couponDiscount > 0 && (
                     <div className="flex justify-between text-green-600">
@@ -337,13 +338,13 @@ const Cart = () => {
                           Remove
                         </button>
                       </div>
-                      <span>-₹{couponDiscount}</span>
+                      <span>-{formatINR(couponDiscount)}</span>
                     </div>
                   )}
                   <div className="pt-4 border-t">
                     <div className="flex justify-between font-semibold">
                       <span>Grand Total</span>
-                      <span>₹{grandTotal.toFixed(2)}</span>
+                      <span>{formatINR(grandTotal)}</span>
                     </div>
                   </div>
                 </div>
