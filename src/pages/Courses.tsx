@@ -3,15 +3,15 @@ import { Link } from 'react-router-dom';
 import { Star } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import coursesData from '../data/courses.json';
+import data from '../data/miniature.json';
 import { formatINR } from '@/utils/currency';
 
 interface Course {
   id: number;
   title: string;
   description: string;
-  price: number;
-  rating: number;
+  currentPrice: number;
+  ratings: number;
   image: string;
 }
 
@@ -24,7 +24,7 @@ const Courses = () => {
   useEffect(() => {
     // Simulate API call
     setTimeout(() => {
-      setCourses(coursesData.courses);
+      setCourses(data.products);
       setLoading(false);
     }, 500);
   }, []);
@@ -33,8 +33,8 @@ const Courses = () => {
     const matchesSearch = course.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
                         course.description.toLowerCase().includes(searchTerm.toLowerCase());
     
-    if (filter === 'free') return matchesSearch && course.price === 0;
-    if (filter === 'paid') return matchesSearch && course.price > 0;
+    if (filter === 'free') return matchesSearch && course.currentPrice === 0;
+    if (filter === 'paid') return matchesSearch && course.currentPrice > 0;
     return matchesSearch;
   });
 
@@ -131,12 +131,12 @@ const Courses = () => {
                     </p>
                     <div className="flex items-center justify-between">
                       <span className="text-2xl font-bold text-blue-600">
-                        {formatINR(course.price)}
+                        {formatINR(course.currentPrice)}
                       </span>
                       <div className="flex items-center">
                         <Star className="w-5 h-5 text-yellow-400 fill-current" />
                         <span className="ml-1 text-gray-700">
-                          {course.rating.toFixed(1)}
+                          {course.ratings.toFixed(1)}
                         </span>
                       </div>
                     </div>

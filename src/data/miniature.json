@@ -1,0 +1,284 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "image": "https://aisite.10web.io/73/wp-content/uploads/sites/175/2025/06/tenweb_media_r7xiav5rg.webp",
+      "title": "Minimalist Geometric Miniature",
+      "description": "A beautifully crafted geometric miniature featuring clean lines and modern design. Perfect for contemporary home decor and collectors who appreciate minimalist aesthetics.",
+      "currentPrice": 3320,
+      "ratings": 4.5,
+      "prices": [
+        { "size": "8 inch", "replica": "single", "price": 3320 },
+        { "size": "10 inch", "replica": "single", "price": 4565 },
+        { "size": "12 inch", "replica": "single", "price": 4150 },
+        { "size": "14 inch", "replica": "single", "price": 3735 },
+        { "size": "16 inch", "replica": "single", "price": 1245 },
+        { "size": "18 inch", "replica": "single", "price": 3320 }
+      ]
+    },
+    {
+      "id": 2,
+      "image": "https://aisite.10web.io/73/wp-content/uploads/sites/175/2025/06/tenweb_media_R790JIW49.webp",
+      "title": "Decorative Artistic Miniature",
+      "description": "An exquisite decorative piece that showcases intricate artistic details. This premium miniature combines traditional craftsmanship with contemporary design elements.",
+      "currentPrice": 4565,
+      "ratings": 4.8
+    },
+    {
+      "id": 3,
+      "image": "https://aisite.10web.io/73/wp-content/uploads/sites/175/2025/06/tenweb_media_RFYFQTZ8O.webp",
+      "title": "Modern Art Inspired Miniature",
+      "description": "Inspired by modern art movements, this unique miniature brings gallery-quality aesthetics to your collection. Features bold design elements and striking visual appeal.",
+      "currentPrice": 4150,
+      "ratings": 4.6
+    },
+    {
+      "id": 4,
+      "image": "https://aisite.10web.io/73/wp-content/uploads/sites/175/2025/06/tenweb_media_rxq5rucz7.webp",
+      "title": "Abstract Art Miniature Sculpture",
+      "description": "A stunning abstract sculpture that challenges perception and sparks imagination. This thought-provoking piece is perfect for art enthusiasts and creative spaces.",
+      "currentPrice": 3735,
+      "ratings": 4.4
+    },
+    {
+      "id": 5,
+      "image": "https://aisite.10web.io/73/wp-content/uploads/sites/175/2025/06/tenweb_media_r7kvkuti3.webp",
+      "title": "Miniature Coffee Mug",
+      "description": "An adorable miniature coffee mug with incredible attention to detail. Perfect for dollhouse enthusiasts, collectors, or as a charming desk accessory.",
+      "currentPrice": 1245,
+      "ratings": 4.2
+    },
+    {
+      "id": 6,
+      "image": "https://aisite.10web.io/73/wp-content/uploads/sites/175/2025/06/tenweb_media_rn9nkmlzg.webp",
+      "title": "Historical Soldier Miniature",
+      "description": "Meticulously detailed historical soldier figurine featuring authentic period uniforms and equipment. Ideal for history buffs, wargaming, and educational purposes.",
+      "currentPrice": 3320,
+      "ratings": 4.7
+    },
+    {
+      "id": 7,
+      "image": "https://aisite.10web.io/73/wp-content/uploads/sites/175/2025/06/tenweb_media_rb5d2bxhi.webp",
+      "title": "Miniature Cat Sculpture",
+      "description": "A delightful miniature cat sculpture capturing the playful essence and grace of our feline friends. Hand-crafted with love for cat lovers and collectors.",
+      "currentPrice": 2075,
+      "ratings": 4.6
+    },
+    {
+      "id": 8,
+      "image": "https://aisite.10web.io/73/wp-content/uploads/sites/175/2025/06/tenweb_media_ry3bq3pj4.webp",
+      "title": "Fantasy Warrior Miniature",
+      "description": "An epic fantasy warrior miniature featuring intricate armor details and dynamic pose. Perfect for tabletop gaming, fantasy collections, and RPG enthusiasts.",
+      "currentPrice": 3735,
+      "ratings": 4.8
+    },
+    {
+      "id": 9,
+      "image": "https://aisite.10web.io/73/wp-content/uploads/sites/175/2025/06/tenweb_media_rfanpua4l.webp",
+      "title": "Nature-Inspired 3D Printed Tree Model",
+      "description": "A beautifully detailed 3D printed tree model that brings nature indoors. Eco-friendly design with realistic bark texture and branching patterns.",
+      "currentPrice": 3320,
+      "ratings": 4.3
+    },
+    {
+      "id": 10,
+      "image": "https://aisite.10web.io/73/wp-content/uploads/sites/175/2025/06/tenweb_media_r0zvoezd3.webp",
+      "title": "Personalized 3D Printed Wedding Cake Topper",
+      "description": "Custom 3D printed wedding cake topper made to your specifications. Capture your special moment with this unique, personalized keepsake for your big day.",
+      "currentPrice": 2075,
+      "ratings": 4.9
+    },
+    {
+      "id": 11,
+      "image": "https://aisite.10web.io/73/wp-content/uploads/sites/175/2025/06/tenweb_media_r7xiav5rg.webp",
+      "title": "Minimalist Geometric Miniature",
+      "description": "A beautifully crafted geometric miniature featuring clean lines and modern design. Perfect for contemporary home decor and collectors who appreciate minimalist aesthetics.",
+      "currentPrice": 3320,
+      "ratings": 4.5
+    },
+    {
+      "id": 12,
+      "image": "https://aisite.10web.io/73/wp-content/uploads/sites/175/2025/06/tenweb_media_R790JIW49.webp",
+      "title": "Decorative Artistic Miniature",
+      "description": "An exquisite decorative piece that showcases intricate artistic details. This premium miniature combines traditional craftsmanship with contemporary design elements.",
+      "currentPrice": 4565,
+      "ratings": 4.8
+    },
+    {
+      "id": 13,
+      "image": "https://aisite.10web.io/73/wp-content/uploads/sites/175/2025/06/tenweb_media_RFYFQTZ8O.webp",
+      "title": "Modern Art Inspired Miniature",
+      "description": "Inspired by modern art movements, this unique miniature brings gallery-quality aesthetics to your collection. Features bold design elements and striking visual appeal.",
+      "currentPrice": 4150,
+      "ratings": 4.6
+    },
+    {
+      "id": 14,
+      "image": "https://aisite.10web.io/73/wp-content/uploads/sites/175/2025/06/tenweb_media_rxq5rucz7.webp",
+      "title": "Abstract Art Miniature Sculpture",
+      "description": "A stunning abstract sculpture that challenges perception and sparks imagination. This thought-provoking piece is perfect for art enthusiasts and creative spaces.",
+      "currentPrice": 3735,
+      "ratings": 4.4
+    },
+    {
+      "id": 15,
+      "image": "https://aisite.10web.io/73/wp-content/uploads/sites/175/2025/06/tenweb_media_r7kvkuti3.webp",
+      "title": "Miniature Coffee Mug",
+      "description": "An adorable miniature coffee mug with incredible attention to detail. Perfect for dollhouse enthusiasts, collectors, or as a charming desk accessory.",
+      "currentPrice": 1245,
+      "ratings": 4.2
+    },
+    {
+      "id": 16,
+      "image": "https://aisite.10web.io/73/wp-content/uploads/sites/175/2025/06/tenweb_media_rn9nkmlzg.webp",
+      "title": "Historical Soldier Miniature",
+      "description": "Meticulously detailed historical soldier figurine featuring authentic period uniforms and equipment. Ideal for history buffs, wargaming, and educational purposes.",
+      "currentPrice": 3320,
+      "ratings": 4.7
+    },
+    {
+      "id": 17,
+      "image": "https://aisite.10web.io/73/wp-content/uploads/sites/175/2025/06/tenweb_media_rb5d2bxhi.webp",
+      "title": "Miniature Cat Sculpture",
+      "description": "A delightful miniature cat sculpture capturing the playful essence and grace of our feline friends. Hand-crafted with love for cat lovers and collectors.",
+      "currentPrice": 2075,
+      "ratings": 4.6
+    },
+    {
+      "id": 18,
+      "image": "https://aisite.10web.io/73/wp-content/uploads/sites/175/2025/06/tenweb_media_ry3bq3pj4.webp",
+      "title": "Fantasy Warrior Miniature",
+      "description": "An epic fantasy warrior miniature featuring intricate armor details and dynamic pose. Perfect for tabletop gaming, fantasy collections, and RPG enthusiasts.",
+      "currentPrice": 3735,
+      "ratings": 4.8
+    },
+    {
+      "id": 19,
+      "image": "https://aisite.10web.io/73/wp-content/uploads/sites/175/2025/06/tenweb_media_rfanpua4l.webp",
+      "title": "Nature-Inspired 3D Printed Tree Model",
+      "description": "A beautifully detailed 3D printed tree model that brings nature indoors. Eco-friendly design with realistic bark texture and branching patterns.",
+      "currentPrice": 3320,
+      "ratings": 4.3
+    },
+    {
+      "id": 20,
+      "image": "https://aisite.10web.io/73/wp-content/uploads/sites/175/2025/06/tenweb_media_r0zvoezd3.webp",
+      "title": "Personalized 3D Printed Wedding Cake Topper",
+      "description": "Custom 3D printed wedding cake topper made to your specifications. Capture your special moment with this unique, personalized keepsake for your big day.",
+      "currentPrice": 2075,
+      "ratings": 4.9
+    },
+    {
+      "id": 21,
+      "image": "https://aisite.10web.io/73/wp-content/uploads/sites/175/2025/06/tenweb_media_r7xiav5rg.webp",
+      "title": "Minimalist Geometric Miniature",
+      "description": "A beautifully crafted geometric miniature featuring clean lines and modern design. Perfect for contemporary home decor and collectors who appreciate minimalist aesthetics.",
+      "currentPrice": 3320,
+      "ratings": 4.5
+    },
+    {
+      "id": 22,
+      "image": "https://aisite.10web.io/73/wp-content/uploads/sites/175/2025/06/tenweb_media_R790JIW49.webp",
+      "title": "Decorative Artistic Miniature",
+      "description": "An exquisite decorative piece that showcases intricate artistic details. This premium miniature combines traditional craftsmanship with contemporary design elements.",
+      "currentPrice": 4565,
+      "ratings": 4.8
+    },
+    {
+      "id": 23,
+      "image": "https://aisite.10web.io/73/wp-content/uploads/sites/175/2025/06/tenweb_media_RFYFQTZ8O.webp",
+      "title": "Modern Art Inspired Miniature",
+      "description": "Inspired by modern art movements, this unique miniature brings gallery-quality aesthetics to your collection. Features bold design elements and striking visual appeal.",
+      "currentPrice": 4150,
+      "ratings": 4.6
+    },
+    {
+      "id": 24,
+      "image": "https://aisite.10web.io/73/wp-content/uploads/sites/175/2025/06/tenweb_media_rxq5rucz7.webp",
+      "title": "Abstract Art Miniature Sculpture",
+      "description": "A stunning abstract sculpture that challenges perception and sparks imagination. This thought-provoking piece is perfect for art enthusiasts and creative spaces.",
+      "currentPrice": 3735,
+      "ratings": 4.4
+    },
+    {
+      "id": 25,
+      "image": "https://aisite.10web.io/73/wp-content/uploads/sites/175/2025/06/tenweb_media_r7kvkuti3.webp",
+      "title": "Miniature Coffee Mug",
+      "description": "An adorable miniature coffee mug with incredible attention to detail. Perfect for dollhouse enthusiasts, collectors, or as a charming desk accessory.",
+      "currentPrice": 1245,
+      "ratings": 4.2
+    },
+    {
+      "id": 26,
+      "image": "https://aisite.10web.io/73/wp-content/uploads/sites/175/2025/06/tenweb_media_rn9nkmlzg.webp",
+      "title": "Historical Soldier Miniature",
+      "description": "Meticulously detailed historical soldier figurine featuring authentic period uniforms and equipment. Ideal for history buffs, wargaming, and educational purposes.",
+      "currentPrice": 3320,
+      "ratings": 4.7
+    },
+    {
+      "id": 27,
+      "image": "https://aisite.10web.io/73/wp-content/uploads/sites/175/2025/06/tenweb_media_rb5d2bxhi.webp",
+      "title": "Miniature Cat Sculpture",
+      "description": "A delightful miniature cat sculpture capturing the playful essence and grace of our feline friends. Hand-crafted with love for cat lovers and collectors.",
+      "currentPrice": 2075,
+      "ratings": 4.6
+    },
+    {
+      "id": 28,
+      "image": "https://aisite.10web.io/73/wp-content/uploads/sites/175/2025/06/tenweb_media_ry3bq3pj4.webp",
+      "title": "Fantasy Warrior Miniature",
+      "description": "An epic fantasy warrior miniature featuring intricate armor details and dynamic pose. Perfect for tabletop gaming, fantasy collections, and RPG enthusiasts.",
+      "currentPrice": 3735,
+      "ratings": 4.8
+    },
+    {
+      "id": 29,
+      "image": "https://aisite.10web.io/73/wp-content/uploads/sites/175/2025/06/tenweb_media_rfanpua4l.webp",
+      "title": "Nature-Inspired 3D Printed Tree Model",
+      "description": "A beautifully detailed 3D printed tree model that brings nature indoors. Eco-friendly design with realistic bark texture and branching patterns.",
+      "currentPrice": 3320,
+      "ratings": 4.3
+    },
+    {
+      "id": 30,
+      "image": "https://aisite.10web.io/73/wp-content/uploads/sites/175/2025/06/tenweb_media_r0zvoezd3.webp",
+      "title": "Personalized 3D Printed Wedding Cake Topper",
+      "description": "Custom 3D printed wedding cake topper made to your specifications. Capture your special moment with this unique, personalized keepsake for your big day.",
+      "currentPrice": 2075,
+      "ratings": 4.9
+    },
+    {
+      "id": 31,
+      "image": "https://aisite.10web.io/73/wp-content/uploads/sites/175/2025/06/tenweb_media_r7xiav5rg.webp",
+      "title": "Minimalist Geometric Miniature",
+      "description": "A beautifully crafted geometric miniature featuring clean lines and modern design. Perfect for contemporary home decor and collectors who appreciate minimalist aesthetics.",
+      "currentPrice": 3320,
+      "ratings": 4.5
+    },
+    {
+      "id": 32,
+      "image": "https://aisite.10web.io/73/wp-content/uploads/sites/175/2025/06/tenweb_media_R790JIW49.webp",
+      "title": "Decorative Artistic Miniature",
+      "description": "An exquisite decorative piece that showcases intricate artistic details. This premium miniature combines traditional craftsmanship with contemporary design elements.",
+      "currentPrice": 4565,
+      "ratings": 4.8
+    },
+    {
+      "id": 33,
+      "image": "https://aisite.10web.io/73/wp-content/uploads/sites/175/2025/06/tenweb_media_RFYFQTZ8O.webp",
+      "title": "Modern Art Inspired Miniature",
+      "description": "Inspired by modern art movements, this unique miniature brings gallery-quality aesthetics to your collection. Features bold design elements and striking visual appeal.",
+      "currentPrice": 4150,
+      "ratings": 4.6
+    },
+    {
+      "id": 34,
+      "image": "https://aisite.10web.io/73/wp-content/uploads/sites/175/2025/06/tenweb_media_rxq5rucz7.webp",
+      "title": "Abstract Art Miniature Sculpture",
+      "description": "A stunning abstract sculpture that challenges perception and sparks imagination. This thought-provoking piece is perfect for art enthusiasts and creative spaces.",
+      "currentPrice": 3735,
+      "ratings": 4.4
+    }
+  ]
+}

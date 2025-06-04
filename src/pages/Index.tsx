@@ -3,7 +3,7 @@ import Footer from '../components/Footer';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, BookOpen, GraduationCap, Users, Star } from 'lucide-react';
 import { useNavigate, Link } from 'react-router-dom';
-import coursesData from '../data/courses.json';
+import data from '../data/miniature.json';
 import { formatINR } from '@/utils/currency';
 
 interface Course {
@@ -22,24 +22,24 @@ const Index = () => {
   const navigate = useNavigate();
 
   // Get featured courses (rating >= 4) and add missing properties
-  const featuredCourses = coursesData.courses
-    .filter((course) => course.rating >= 4)
+  const featuredCourses = data.products
+    .filter((course) => course.ratings >= 4)
     .slice(0, 4)
     .map(course => ({
       ...course,
       category: 'Course',
       students: Math.floor(Math.random() * 1000) + 100, // Random number of students
-      originalPrice: Math.round(course.price * (1.2 + Math.random() * 0.3)) // Add 20-50% to price for original price
+      originalPrice: Math.round(course.currentPrice * (1.2 + Math.random() * 0.3)) // Add 20-50% to price for original price
     }));
 
   // Get latest courses and add missing properties
-  const newCourses = coursesData.courses
+  const newCourses = data.products
     .slice(-4)
     .map(course => ({
       ...course,
       category: 'New',
       students: Math.floor(Math.random() * 500) + 50, // Random number of students
-      originalPrice: Math.round(course.price * (1.1 + Math.random() * 0.2)) // Add 10-30% to price for original price
+      originalPrice: Math.round(course.currentPrice * (1.1 + Math.random() * 0.2)) // Add 10-30% to price for original price
     }));
 
   return (
@@ -182,24 +182,24 @@ const Index = () => {
                       {[...Array(5)].map((_, i) => (
                         <Star
                           key={i}
-                          className={`w-4 h-4 ${i < Math.floor(course.rating) ? 'text-yellow-400 fill-current' : 'text-gray-300'}`}
+                          className={`w-4 h-4 ${i < Math.floor(course.ratings) ? 'text-yellow-400 fill-current' : 'text-gray-300'}`}
                         />
                       ))}
                     </div>
                     <span className="text-sm text-gray-500 ml-2">
-                      {course.rating.toFixed(1)} ({course.students || 100}+)
+                      {course.ratings.toFixed(1)} ({course.students || 100}+)
                     </span>
                   </div>
                   <h3 className="font-bold text-lg text-gray-900 mb-3 line-clamp-2 leading-tight">
                     {course.title}
                   </h3>
                   <p className="text-gray-600 text-sm mb-4 line-clamp-2 flex-grow">
-                    {course.description || 'Comprehensive course covering all essential topics.'}
+                    {course.title || 'Comprehensive course covering all essential topics.'}
                   </p>
                   <div className="flex justify-between items-center mt-auto pt-4 border-t border-gray-100">
                     <div>
                       <span className="text-blue-600 font-bold text-lg">
-                        {course.price === 0 ? 'Free' : formatINR(course.price)}
+                        {course.currentPrice === 0 ? 'Free' : formatINR(course.currentPrice)}
                       </span>
                       {course.originalPrice && course.originalPrice > 0 && (
                         <span className="text-sm text-gray-400 line-through ml-2">
@@ -212,7 +212,7 @@ const Index = () => {
                       className="bg-blue-600 hover:bg-blue-700 transition-colors shadow-md hover:shadow-lg"
                       onClick={() => navigate(`/courses/${course.id}`)}
                     >
-                      Enroll Now
+                      Buy Now
                     </Button>
                   </div>
                 </div>
@@ -294,20 +294,20 @@ const Index = () => {
                       {[...Array(5)].map((_, i) => (
                         <Star
                           key={i}
-                          className={`w-4 h-4 ${i < Math.floor(course.rating) ? 'fill-current' : ''}`}
+                          className={`w-4 h-4 ${i < Math.floor(course.ratings) ? 'fill-current' : ''}`}
                         />
                       ))}
                     </span>
                     <span className="text-sm text-gray-500 ml-2">
-                      ({course.rating.toFixed(1)})
+                      ({course.ratings.toFixed(1)})
                     </span>
                   </div>
                   <h3 className="font-semibold text-lg mb-2 text-gray-900">{course.title}</h3>
-                  <p className="text-gray-600 text-sm mb-4 line-clamp-2">{course.description}</p>
+                  <p className="text-gray-600 text-sm mb-4 line-clamp-2">{course.title}</p>
                   <div className="flex justify-between items-center">
-                    <span className="text-blue-600 font-semibold">₹{course.price}</span>
+                    <span className="text-blue-600 font-semibold">₹{course.currentPrice}</span>
                     <Button size="sm" className="bg-blue-600 hover:bg-blue-700">
-                      Enroll Now
+                      Buy Now
                     </Button>
                   </div>
                 </div>
