@@ -1,5 +1,12 @@
 import { Link } from 'react-router-dom';
-import { Facebook, Twitter, Instagram, Shield, FileText, Package } from 'lucide-react';
+import {
+  Facebook,
+  Twitter,
+  Instagram,
+  Shield,
+  FileText,
+  Package,
+} from 'lucide-react';
 
 interface FooterProps {
   className?: string;
@@ -15,7 +22,6 @@ const Footer: React.FC<FooterProps> = ({ className = '' }) => {
           {/* Brand Info */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
-              <Package className="h-8 w-8 text-amber-600" />
               <span className="text-2xl font-bold bg-gradient-to-r from-amber-600 to-amber-800 bg-clip-text text-transparent">
                 Pro Cineography
               </span>
@@ -36,23 +42,32 @@ const Footer: React.FC<FooterProps> = ({ className = '' }) => {
             </h3>
             <ul className="space-y-3">
               <li>
-                <Link to="/about" className="text-sm text-gray-600 hover:text-amber-600 transition-colors duration-200 ease-in-out flex items-center">
+                <Link
+                  to="/about"
+                  className="text-sm text-gray-600 hover:text-amber-600 transition-colors duration-200 ease-in-out flex items-center"
+                >
                   <span className="w-1 h-1 bg-amber-600 rounded-full mr-2"></span>
                   About Us
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="text-sm text-gray-600 hover:text-amber-600 transition-colors duration-200 ease-in-out flex items-center">
+                <Link
+                  to="/contact"
+                  className="text-sm text-gray-600 hover:text-amber-600 transition-colors duration-200 ease-in-out flex items-center"
+                >
                   <span className="w-1 h-1 bg-amber-600 rounded-full mr-2"></span>
                   Contact Us
                 </Link>
               </li>
               <li>
-                <Link to="/marketplace" className="text-sm text-gray-600 hover:text-amber-600 transition-colors duration-200 ease-in-out flex items-center">
+                <Link
+                  to="/marketplace"
+                  className="text-sm text-gray-600 hover:text-amber-600 transition-colors duration-200 ease-in-out flex items-center"
+                >
                   <span className="w-1 h-1 bg-amber-600 rounded-full mr-2"></span>
                   Shop Now
                 </Link>
-              </li>              
+              </li>
             </ul>
           </div>
 
@@ -64,25 +79,37 @@ const Footer: React.FC<FooterProps> = ({ className = '' }) => {
             </h3>
             <ul className="space-y-3">
               <li>
-                <Link to="/terms" className="text-sm text-gray-600 hover:text-amber-600 transition-colors duration-200 ease-in-out flex items-center">
+                <Link
+                  to="/terms"
+                  className="text-sm text-gray-600 hover:text-amber-600 transition-colors duration-200 ease-in-out flex items-center"
+                >
                   <span className="w-1 h-1 bg-amber-600 rounded-full mr-2"></span>
                   Terms & Conditions
                 </Link>
               </li>
               <li>
-                <Link to="/refund-policy" className="text-sm text-gray-600 hover:text-amber-600 transition-colors duration-200 ease-in-out flex items-center">
+                <Link
+                  to="/refund-policy"
+                  className="text-sm text-gray-600 hover:text-amber-600 transition-colors duration-200 ease-in-out flex items-center"
+                >
                   <span className="w-1 h-1 bg-amber-600 rounded-full mr-2"></span>
                   Refund Policy
                 </Link>
               </li>
               <li>
-                <Link to="/privacy" className="text-sm text-gray-600 hover:text-amber-600 transition-colors duration-200 ease-in-out flex items-center">
+                <Link
+                  to="/privacy"
+                  className="text-sm text-gray-600 hover:text-amber-600 transition-colors duration-200 ease-in-out flex items-center"
+                >
                   <span className="w-1 h-1 bg-amber-600 rounded-full mr-2"></span>
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link to="/shipping" className="text-sm text-gray-600 hover:text-amber-600 transition-colors duration-200 ease-in-out flex items-center">
+                <Link
+                  to="/shipping"
+                  className="text-sm text-gray-600 hover:text-amber-600 transition-colors duration-200 ease-in-out flex items-center"
+                >
                   <span className="w-1 h-1 bg-amber-600 rounded-full mr-2"></span>
                   Shipping Policy
                 </Link>
@@ -99,43 +126,50 @@ const Footer: React.FC<FooterProps> = ({ className = '' }) => {
             <div className="space-y-3 text-sm text-gray-600">
               <div className="flex items-start">
                 <span className="font-medium text-gray-700 w-16">Phone:</span>
-                <a href="tel:++919900077752" className="text-gray-600 hover:text-amber-600 transition-colors duration-200 ease-in-out">
+                <a
+                  href="tel:++919900077752"
+                  className="text-gray-600 hover:text-amber-600 transition-colors duration-200 ease-in-out"
+                >
                   +91 99000 77752
                 </a>
               </div>
               <div className="flex items-start">
                 <span className="font-medium text-gray-700 w-16">Address:</span>
                 <address className="not-italic">
-                  4TH FLOOR 50/A REGENT PLACE KOLKATA,<br />
-                  KOLKATA, WEST BENGAL,<br />
+                  4TH FLOOR 50/A REGENT PLACE KOLKATA,
+                  <br />
+                  KOLKATA, WEST BENGAL,
+                  <br />
                   700040
                 </address>
               </div>
-              
+
               <div className="pt-2">
-                <h4 className="text-sm font-semibold text-gray-900 mb-3">Follow Us</h4>
+                <h4 className="text-sm font-semibold text-gray-900 mb-3">
+                  Follow Us
+                </h4>
                 <div className="flex space-x-4">
-                  <a 
-                    href="https://twitter.com/procineography" 
-                    target="_blank" 
+                  <a
+                    href="https://twitter.com/procineography"
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="text-gray-500 hover:text-amber-500 transition-colors duration-200 ease-in-out"
                     aria-label="Twitter"
                   >
                     <Twitter className="h-5 w-5" />
                   </a>
-                  <a 
-                    href="https://facebook.com/procineography" 
-                    target="_blank" 
+                  <a
+                    href="https://facebook.com/procineography"
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="text-gray-500 hover:text-amber-500 transition-colors duration-200 ease-in-out"
                     aria-label="Facebook"
                   >
                     <Facebook className="h-5 w-5" />
                   </a>
-                  <a 
-                    href="https://instagram.com/procineography" 
-                    target="_blank" 
+                  <a
+                    href="https://instagram.com/procineography"
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="text-gray-500 hover:text-amber-500 transition-colors duration-200 ease-in-out"
                     aria-label="Instagram"

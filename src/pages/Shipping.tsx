@@ -91,8 +91,6 @@ const Shipping = () => {
           </section>
         </div>
       </main>
-
-      <Footer />
     </div>
   );
 };

@@ -1,8 +1,21 @@
-import { Search, Menu, X, Home, Info, Contact, ShoppingCart } from 'lucide-react';
+import {
+  Search,
+  Menu,
+  X,
+  Home,
+  Info,
+  Contact,
+  ShoppingCart,
+} from 'lucide-react';
 import Logo from '../procineographylogo.svg'; // Import SVG as React component
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
-import { useUser, SignInButton, SignUpButton, UserButton } from '@clerk/clerk-react';
+import {
+  useUser,
+  SignInButton,
+  SignUpButton,
+  UserButton,
+} from '@clerk/clerk-react';
 import { useCart } from '../contexts/CartContext'; // Import useCart hook
 
 const Navbar = () => {
@@ -20,7 +33,10 @@ const Navbar = () => {
   // Close menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (searchRef.current && !searchRef.current.contains(event.target as Node)) {
+      if (
+        searchRef.current &&
+        !searchRef.current.contains(event.target as Node)
+      ) {
         setIsSearchOpen(false);
       }
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
@@ -54,204 +70,218 @@ const Navbar = () => {
   return (
     <>
       <nav className="fixed top-0 left-0 right-0 bg-white shadow-sm z-50">
-      <div className="container mx-auto px-4 py-3">
-        <div className="flex items-center justify-between">
-          {/* Logo */}
-          <Link to="/" className="flex items-center">
-            <img src={Logo} alt="ProCineography Logo" className="h-10 w-auto" />
-          </Link>
-
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            <Link
-              to="/"
-              className={`${
-                location.pathname === '/' ? 'text-blue-600' : 'text-gray-700'
-              } hover:text-blue-600 transition-colors font-medium`}
-            >
-              <Home className="inline-block h-4 w-4 mr-1" /> Home
+        <div className="container mx-auto px-4 py-3">
+          <div className="flex items-center justify-between">
+            {/* Logo */}
+            <Link to="/" className="flex items-center">
+              <img
+                src={Logo}
+                alt="ProCineography Logo"
+                className="h-10 w-auto"
+              />
             </Link>
-            <Link
-              to="/marketplace"
-              className={`${
-                location.pathname === '/marketplace' ? 'text-amber-600' : 'text-gray-700'
-              } hover:text-amber-600 transition-colors font-medium flex items-center`}
-            >
-              <ShoppingCart className="inline-block h-4 w-4 mr-1" /> Shop
-            </Link>
-            {/* Cart Icon with Item Count */}
-            <Link
-              to="/cart" // Assuming a cart page exists at /cart
-              className={`${
-                location.pathname === '/cart' ? 'text-amber-600' : 'text-gray-700'
-              } hover:text-amber-600 transition-colors font-medium flex items-center relative`}
-            >
-              <ShoppingCart className="inline-block h-5 w-5" />
-              {items.length > 0 && (
-                <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
-                  {items.length}
-                </span>
-              )}
-            </Link>
-            
-            <Link
-              to="/about"
-              className={`${
-                location.pathname === '/about' ? 'text-amber-600' : 'text-gray-700'
-              } hover:text-amber-600 transition-colors font-medium flex items-center`}
-            >
-              <Info className="inline-block h-4 w-4 mr-1" /> About
-            </Link>
-            <Link
-              to="/contact"
-              className={`${
-                location.pathname === '/contact' ? 'text-amber-600' : 'text-gray-700'
-              } hover:text-amber-600 transition-colors font-medium flex items-center`}
-            >
-              <Contact className="inline-block h-4 w-4 mr-1" /> Contact
-            </Link>
-          </div>
 
-          {/* Search and User Actions */}
-          <div className="flex items-center space-x-4">
-            <button
-              onClick={() => setIsSearchOpen(!isSearchOpen)}
-              className="p-2 text-gray-600 hover:text-blue-600 transition-colors"
-              aria-label="Search"
-            >
-              <Search className="h-5 w-5" />
-            </button>
-
-            {isSignedIn ? (
-              <UserButton afterSignOutUrl="/" />
-            ) : (
-              <div className="hidden md:flex items-center space-x-4">
-                <SignInButton mode="modal" fallbackRedirectUrl="/">
-                  <button className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors">
-                    Sign in
-                  </button>
-                </SignInButton>
-                <SignUpButton mode="modal" fallbackRedirectUrl="/">
-                  <button className="px-4 py-2 text-sm font-medium text-white bg-amber-600 rounded-md hover:bg-amber-700 transition-colors">
-                    Sign up
-                  </button>
-                </SignUpButton>
-              </div>
-            )}
-
-            {/* Mobile menu button */}
-            <button
-              onClick={toggleMenu}
-              className="md:hidden p-2 text-gray-600 hover:text-blue-600 transition-colors"
-              aria-label="Menu"
-            >
-              {isMenuOpen ? (
-                <X className="h-6 w-6" />
-              ) : (
-                <Menu className="h-6 w-6" />
-              )}
-            </button>
-          </div>
-        </div>
-
-        {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className="md:hidden mt-4 pb-4">
-            <div className="flex flex-col space-y-4">
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center space-x-8">
               <Link
                 to="/"
-                onClick={() => setIsMenuOpen(false)}
                 className={`${
                   location.pathname === '/' ? 'text-blue-600' : 'text-gray-700'
-                } hover:text-blue-600 transition-colors font-medium py-2`}
+                } hover:text-blue-600 transition-colors font-medium`}
               >
-                <Home className="inline-block h-4 w-4 mr-2" /> Home
+                <Home className="inline-block h-4 w-4 mr-1" /> Home
+              </Link>
+
+              <Link
+                to="/about"
+                className={`${
+                  location.pathname === '/about'
+                    ? 'text-amber-600'
+                    : 'text-gray-700'
+                } hover:text-amber-600 transition-colors font-medium flex items-center`}
+              >
+                <Info className="inline-block h-4 w-4 mr-1" /> About
               </Link>
               <Link
-                to="/marketplace"
-                onClick={() => setIsMenuOpen(false)}
+                to="/contact"
                 className={`${
-                  location.pathname === '/marketplace' ? 'text-amber-600' : 'text-gray-700'
-                } hover:text-amber-600 transition-colors font-medium py-2 flex items-center`}
+                  location.pathname === '/contact'
+                    ? 'text-amber-600'
+                    : 'text-gray-700'
+                } hover:text-amber-600 transition-colors font-medium flex items-center`}
               >
-                <ShoppingCart className="inline-block h-4 w-4 mr-2" /> Shop
+                <Contact className="inline-block h-4 w-4 mr-1" /> Contact
               </Link>
-              {/* Cart Icon with Item Count (Mobile) */}
+            </div>
+
+            {/* Search and User Actions */}
+            <div className="flex items-center space-x-4">
+              {/* Cart Icon with Item Count */}
               <Link
-                to="/cart" // Assuming a cart page exists at /cart
-                onClick={() => setIsMenuOpen(false)}
+                to="/cart"
                 className={`${
-                  location.pathname === '/cart' ? 'text-amber-600' : 'text-gray-700'
-                } hover:text-amber-600 transition-colors font-medium py-2 flex items-center relative`}
+                  location.pathname === '/cart'
+                    ? 'text-amber-600'
+                    : 'text-gray-700'
+                } hover:text-amber-600 transition-colors p-2 relative`}
+                aria-label="Cart"
               >
-                <ShoppingCart className="inline-block h-4 w-4 mr-2" /> Cart
+                <ShoppingCart className="h-5 w-5" />
                 {items.length > 0 && (
-                  <span className="ml-2 bg-red-600 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
+                  <span className="absolute -top-1 -right-1 bg-red-600 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
                     {items.length}
                   </span>
                 )}
               </Link>
-              <Link
-                to="/about"
-                onClick={() => setIsMenuOpen(false)}
-                className={`${
-                  location.pathname === '/about' ? 'text-amber-600' : 'text-gray-700'
-                } hover:text-amber-600 transition-colors font-medium py-2 flex items-center`}
+
+              <button
+                onClick={() => setIsSearchOpen(!isSearchOpen)}
+                className="p-2 text-gray-600 hover:text-blue-600 transition-colors"
+                aria-label="Search"
               >
-                <Info className="inline-block h-4 w-4 mr-2" /> About
-              </Link>
-              <Link
-                to="/contact"
-                onClick={() => setIsMenuOpen(false)}
-                className={`${
-                  location.pathname === '/contact' ? 'text-amber-600' : 'text-gray-700'
-                } hover:text-amber-600 transition-colors font-medium py-2 flex items-center`}
-              >
-                <Contact className="inline-block h-4 w-4 mr-2" /> Contact
-              </Link>
-              {!isSignedIn && (
-                <div className="flex flex-col space-y-2 pt-4 border-t border-gray-100">
+                <Search className="h-5 w-5" />
+              </button>
+
+              {isSignedIn ? (
+                <UserButton afterSignOutUrl="/" />
+              ) : (
+                <div className="hidden md:flex items-center space-x-4">
                   <SignInButton mode="modal" fallbackRedirectUrl="/">
-                    <button 
-                      onClick={() => setIsMenuOpen(false)}
-                      className="w-full px-4 py-2 text-amber-600 hover:bg-amber-50 rounded-lg font-medium text-center transition-colors"
-                    >
+                    <button className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors">
                       Sign in
                     </button>
                   </SignInButton>
                   <SignUpButton mode="modal" fallbackRedirectUrl="/">
-                    <button 
-                      onClick={() => setIsMenuOpen(false)}
-                      className="w-full px-4 py-2 bg-amber-600 text-white rounded-lg hover:bg-amber-700 font-medium text-center transition-colors"
-                    >
+                    <button className="px-4 py-2 text-sm font-medium text-white bg-amber-600 rounded-md hover:bg-amber-700 transition-colors">
                       Sign up
                     </button>
                   </SignUpButton>
                 </div>
               )}
+
+              {/* Mobile menu button */}
+              <button
+                onClick={toggleMenu}
+                className="md:hidden p-2 text-gray-600 hover:text-blue-600 transition-colors"
+                aria-label="Menu"
+              >
+                {isMenuOpen ? (
+                  <X className="h-6 w-6" />
+                ) : (
+                  <Menu className="h-6 w-6" />
+                )}
+              </button>
             </div>
           </div>
-        )}
 
-        {/* Search Bar */}
-        {isSearchOpen && (
-          <div className="mt-4 relative" ref={searchRef}>
-            <form onSubmit={handleSearchSubmit}>
-              <div className="relative">
-                <input
-                  type="text"
-                  placeholder="Search courses..."
-                  value={searchQuery}
-                  onChange={handleSearch}
-                  className="w-full px-4 py-3 pl-12 pr-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  autoFocus
-                />
-                <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+          {/* Mobile Menu */}
+          {isMenuOpen && (
+            <div className="md:hidden mt-4 pb-4">
+              <div className="flex flex-col space-y-4">
+                <Link
+                  to="/"
+                  onClick={() => setIsMenuOpen(false)}
+                  className={`${
+                    location.pathname === '/'
+                      ? 'text-blue-600'
+                      : 'text-gray-700'
+                  } hover:text-blue-600 transition-colors font-medium py-2`}
+                >
+                  <Home className="inline-block h-4 w-4 mr-2" /> Home
+                </Link>
+                <Link
+                  to="/marketplace"
+                  onClick={() => setIsMenuOpen(false)}
+                  className={`${
+                    location.pathname === '/marketplace'
+                      ? 'text-amber-600'
+                      : 'text-gray-700'
+                  } hover:text-amber-600 transition-colors font-medium py-2 flex items-center`}
+                >
+                  <ShoppingCart className="inline-block h-4 w-4 mr-2" /> Shop
+                </Link>
+                {/* Cart Icon with Item Count (Mobile) */}
+                <Link
+                  to="/cart" // Assuming a cart page exists at /cart
+                  onClick={() => setIsMenuOpen(false)}
+                  className={`${
+                    location.pathname === '/cart'
+                      ? 'text-amber-600'
+                      : 'text-gray-700'
+                  } hover:text-amber-600 transition-colors font-medium py-2 flex items-center relative`}
+                >
+                  <ShoppingCart className="inline-block h-4 w-4 mr-2" /> Cart
+                  {items.length > 0 && (
+                    <span className="ml-2 bg-red-600 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
+                      {items.length}
+                    </span>
+                  )}
+                </Link>
+                <Link
+                  to="/about"
+                  onClick={() => setIsMenuOpen(false)}
+                  className={`${
+                    location.pathname === '/about'
+                      ? 'text-amber-600'
+                      : 'text-gray-700'
+                  } hover:text-amber-600 transition-colors font-medium py-2 flex items-center`}
+                >
+                  <Info className="inline-block h-4 w-4 mr-2" /> About
+                </Link>
+                <Link
+                  to="/contact"
+                  onClick={() => setIsMenuOpen(false)}
+                  className={`${
+                    location.pathname === '/contact'
+                      ? 'text-amber-600'
+                      : 'text-gray-700'
+                  } hover:text-amber-600 transition-colors font-medium py-2 flex items-center`}
+                >
+                  <Contact className="inline-block h-4 w-4 mr-2" /> Contact
+                </Link>
+                {!isSignedIn && (
+                  <div className="flex flex-col space-y-2 pt-4 border-t border-gray-100">
+                    <SignInButton mode="modal" fallbackRedirectUrl="/">
+                      <button
+                        onClick={() => setIsMenuOpen(false)}
+                        className="w-full px-4 py-2 text-amber-600 hover:bg-amber-50 rounded-lg font-medium text-center transition-colors"
+                      >
+                        Sign in
+                      </button>
+                    </SignInButton>
+                    <SignUpButton mode="modal" fallbackRedirectUrl="/">
+                      <button
+                        onClick={() => setIsMenuOpen(false)}
+                        className="w-full px-4 py-2 bg-amber-600 text-white rounded-lg hover:bg-amber-700 font-medium text-center transition-colors"
+                      >
+                        Sign up
+                      </button>
+                    </SignUpButton>
+                  </div>
+                )}
               </div>
-            </form>
-          </div>
-        )}
-      </div>
+            </div>
+          )}
+
+          {/* Search Bar */}
+          {isSearchOpen && (
+            <div className="mt-4 relative" ref={searchRef}>
+              <form onSubmit={handleSearchSubmit}>
+                <div className="relative">
+                  <input
+                    type="text"
+                    placeholder="Search courses..."
+                    value={searchQuery}
+                    onChange={handleSearch}
+                    className="w-full px-4 py-3 pl-12 pr-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    autoFocus
+                  />
+                  <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+                </div>
+              </form>
+            </div>
+          )}
+        </div>
       </nav>
     </>
   );

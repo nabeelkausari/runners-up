@@ -20,10 +20,10 @@ const Privacy = () => {
             Information We Collect
           </h2>
           <p className="mb-4">
-            When you visit Edu-Madi, we automatically collect certain information
-            about your device, including information about your web browser, IP
-            address, time zone, and some of the cookies that are installed on
-            your device.
+            When you visit Edu-Madi, we automatically collect certain
+            information about your device, including information about your web
+            browser, IP address, time zone, and some of the cookies that are
+            installed on your device.
           </p>
 
           <h2 className="text-xl font-semibold mt-8 mb-4">
@@ -52,7 +52,6 @@ const Privacy = () => {
           </p>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };
