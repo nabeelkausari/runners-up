@@ -1,4 +1,5 @@
-import { Search, BookOpen, Menu, X } from 'lucide-react';
+import { Search, Menu, X, Home, Info, Contact, ShoppingCart } from 'lucide-react';
+import Logo from '../procineographylogo.svg'; // Import SVG as React component
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
 import { useUser, SignInButton, SignUpButton } from '@clerk/clerk-react';
@@ -55,10 +56,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center">
-            <BookOpen className="h-8 w-8 text-indigo-600" />
-            <span className="ml-2 text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-              Edu-Madi
-            </span>
+            <img src={Logo} alt="ProCineography Logo" className="h-10 w-auto" />
           </Link>
 
           {/* Desktop Navigation */}
@@ -69,31 +67,39 @@ const Navbar = () => {
                 location.pathname === '/' ? 'text-blue-600' : 'text-gray-700'
               } hover:text-blue-600 transition-colors font-medium`}
             >
-              Home
+              <Home className="inline-block h-4 w-4 mr-1" /> Home
             </Link>
             <Link
-              to="/courses"
+              to="/shop"
               className={`${
-                location.pathname === '/courses' ? 'text-blue-600' : 'text-gray-700'
-              } hover:text-blue-600 transition-colors font-medium`}
+                location.pathname === '/shop' ? 'text-amber-600' : 'text-gray-700'
+              } hover:text-amber-600 transition-colors font-medium flex items-center`}
             >
-              Courses
+              <ShoppingCart className="inline-block h-4 w-4 mr-1" /> Shop
+            </Link>
+            <Link
+              to="/collections"
+              className={`${
+                location.pathname === '/collections' ? 'text-amber-600' : 'text-gray-700'
+              } hover:text-amber-600 transition-colors font-medium`}
+            >
+              Collections
             </Link>
             <Link
               to="/about"
               className={`${
-                location.pathname === '/about' ? 'text-blue-600' : 'text-gray-700'
-              } hover:text-blue-600 transition-colors font-medium`}
+                location.pathname === '/about' ? 'text-amber-600' : 'text-gray-700'
+              } hover:text-amber-600 transition-colors font-medium flex items-center`}
             >
-              About
+              <Info className="inline-block h-4 w-4 mr-1" /> About
             </Link>
             <Link
               to="/contact"
               className={`${
-                location.pathname === '/contact' ? 'text-blue-600' : 'text-gray-700'
-              } hover:text-blue-600 transition-colors font-medium`}
+                location.pathname === '/contact' ? 'text-amber-600' : 'text-gray-700'
+              } hover:text-amber-600 transition-colors font-medium flex items-center`}
             >
-              Contact
+              <Contact className="inline-block h-4 w-4 mr-1" /> Contact
             </Link>
           </div>
 
@@ -119,7 +125,7 @@ const Navbar = () => {
                   </button>
                 </SignInButton>
                 <SignUpButton mode="modal">
-                  <button className="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 transition-colors">
+                  <button className="px-4 py-2 text-sm font-medium text-white bg-amber-600 rounded-md hover:bg-amber-700 transition-colors">
                     Sign up
                   </button>
                 </SignUpButton>
@@ -152,41 +158,50 @@ const Navbar = () => {
                   location.pathname === '/' ? 'text-blue-600' : 'text-gray-700'
                 } hover:text-blue-600 transition-colors font-medium py-2`}
               >
-                Home
+                <Home className="inline-block h-4 w-4 mr-2" /> Home
               </Link>
               <Link
-                to="/courses"
+                to="/shop"
                 onClick={() => setIsMenuOpen(false)}
                 className={`${
-                  location.pathname === '/courses' ? 'text-blue-600' : 'text-gray-700'
-                } hover:text-blue-600 transition-colors font-medium py-2`}
+                  location.pathname === '/shop' ? 'text-amber-600' : 'text-gray-700'
+                } hover:text-amber-600 transition-colors font-medium py-2 flex items-center`}
               >
-                Courses
+                <ShoppingCart className="inline-block h-4 w-4 mr-2" /> Shop
+              </Link>
+              <Link
+                to="/collections"
+                onClick={() => setIsMenuOpen(false)}
+                className={`${
+                  location.pathname === '/collections' ? 'text-amber-600' : 'text-gray-700'
+                } hover:text-amber-600 transition-colors font-medium py-2`}
+              >
+                Collections
               </Link>
               <Link
                 to="/about"
                 onClick={() => setIsMenuOpen(false)}
                 className={`${
-                  location.pathname === '/about' ? 'text-blue-600' : 'text-gray-700'
-                } hover:text-blue-600 transition-colors font-medium py-2`}
+                  location.pathname === '/about' ? 'text-amber-600' : 'text-gray-700'
+                } hover:text-amber-600 transition-colors font-medium py-2 flex items-center`}
               >
-                About
+                <Info className="inline-block h-4 w-4 mr-2" /> About
               </Link>
               <Link
                 to="/contact"
                 onClick={() => setIsMenuOpen(false)}
                 className={`${
-                  location.pathname === '/contact' ? 'text-blue-600' : 'text-gray-700'
-                } hover:text-blue-600 transition-colors font-medium py-2`}
+                  location.pathname === '/contact' ? 'text-amber-600' : 'text-gray-700'
+                } hover:text-amber-600 transition-colors font-medium py-2 flex items-center`}
               >
-                Contact
+                <Contact className="inline-block h-4 w-4 mr-2" /> Contact
               </Link>
               {!isSignedIn && (
                 <div className="flex flex-col space-y-2 pt-4 border-t border-gray-100">
                   <SignInButton mode="modal">
                     <button 
                       onClick={() => setIsMenuOpen(false)}
-                      className="w-full px-4 py-2 text-blue-600 hover:bg-blue-50 rounded-lg font-medium text-center transition-colors"
+                      className="w-full px-4 py-2 text-amber-600 hover:bg-amber-50 rounded-lg font-medium text-center transition-colors"
                     >
                       Sign in
                     </button>
@@ -194,7 +209,7 @@ const Navbar = () => {
                   <SignUpButton mode="modal">
                     <button 
                       onClick={() => setIsMenuOpen(false)}
-                      className="w-full px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-medium text-center transition-colors"
+                      className="w-full px-4 py-2 bg-amber-600 text-white rounded-lg hover:bg-amber-700 font-medium text-center transition-colors"
                     >
                       Sign up
                     </button>
