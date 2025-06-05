@@ -17,6 +17,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { useUser } from '@clerk/clerk-react';
 
 interface AddressFormData {
   name: string;
@@ -39,6 +40,7 @@ const Cart = () => {
     couponDiscount
   } = useCart();
   
+  const { isSignedIn } = useUser();
   const navigate = useNavigate();
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [isPaymentDialogOpen, setIsPaymentDialogOpen] = useState(false);
@@ -86,6 +88,16 @@ const Cart = () => {
         setPromoCode('');
       }
     }
+  };
+
+  const handlePlaceOrder = () => {
+    console.log('Order Placed!', {
+      items,
+      deliveryAddress,
+      grandTotal,
+      paymentMethod: 'Cash on Delivery',
+    });
+    setIsPaymentDialogOpen(false);
   };
 
   if (items.length === 0) {
@@ -381,11 +393,23 @@ const Cart = () => {
               <Button
                 className="w-full"
                 size="lg"
-                disabled={!deliveryAddress}
-                onClick={() => setIsPaymentDialogOpen(true)}
+                onClick={() => {
+                  if (!isSignedIn) {
+                    navigate('/sign-in');
+                  } else {
+                    setIsPaymentDialogOpen(true);
+                  }
+                }}
+                disabled={!deliveryAddress || !isSignedIn}
               >
-                Pay Now
+                {isSignedIn ? 'Pay Now' : 'Sign in to Pay'}
               </Button>
+
+              {!isSignedIn && (
+                <p className="text-center text-sm text-red-500">
+                  You must be signed in to place an order.
+                </p>
+              )}
 
               <div className="flex items-center justify-center gap-2 text-sm text-gray-600">
                 <span>Secured</span>
@@ -401,6 +425,7 @@ const Cart = () => {
         open={isPaymentDialogOpen}
         onOpenChange={setIsPaymentDialogOpen}
         amount={grandTotal}
+        onPlaceOrder={handlePlaceOrder}
       />
     </div>
   );

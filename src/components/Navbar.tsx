@@ -2,8 +2,8 @@ import { Search, Menu, X, Home, Info, Contact, ShoppingCart } from 'lucide-react
 import Logo from '../procineographylogo.svg'; // Import SVG as React component
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
-import { useUser, SignInButton, SignUpButton } from '@clerk/clerk-react';
-import UserButton from './auth/UserButton';
+import { useUser, SignInButton, SignUpButton, UserButton } from '@clerk/clerk-react';
+import { useCart } from '../contexts/CartContext'; // Import useCart hook
 
 const Navbar = () => {
   const { isSignedIn } = useUser();
@@ -14,6 +14,8 @@ const Navbar = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const searchRef = useRef<HTMLDivElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
+
+  const { items } = useCart(); // Use the useCart hook to get cart items
 
   // Close menu when clicking outside
   useEffect(() => {
@@ -77,6 +79,20 @@ const Navbar = () => {
             >
               <ShoppingCart className="inline-block h-4 w-4 mr-1" /> Shop
             </Link>
+            {/* Cart Icon with Item Count */}
+            <Link
+              to="/cart" // Assuming a cart page exists at /cart
+              className={`${
+                location.pathname === '/cart' ? 'text-amber-600' : 'text-gray-700'
+              } hover:text-amber-600 transition-colors font-medium flex items-center relative`}
+            >
+              <ShoppingCart className="inline-block h-5 w-5" />
+              {items.length > 0 && (
+                <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
+                  {items.length}
+                </span>
+              )}
+            </Link>
             
             <Link
               to="/about"
@@ -107,17 +123,15 @@ const Navbar = () => {
             </button>
 
             {isSignedIn ? (
-              <div className="flex items-center">
-                <UserButton />
-              </div>
+              <UserButton afterSignOutUrl="/" />
             ) : (
               <div className="hidden md:flex items-center space-x-4">
-                <SignInButton mode="modal">
+                <SignInButton mode="modal" fallbackRedirectUrl="/">
                   <button className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors">
                     Sign in
                   </button>
                 </SignInButton>
-                <SignUpButton mode="modal">
+                <SignUpButton mode="modal" fallbackRedirectUrl="/">
                   <button className="px-4 py-2 text-sm font-medium text-white bg-amber-600 rounded-md hover:bg-amber-700 transition-colors">
                     Sign up
                   </button>
@@ -162,14 +176,20 @@ const Navbar = () => {
               >
                 <ShoppingCart className="inline-block h-4 w-4 mr-2" /> Shop
               </Link>
+              {/* Cart Icon with Item Count (Mobile) */}
               <Link
-                to="/collections"
+                to="/cart" // Assuming a cart page exists at /cart
                 onClick={() => setIsMenuOpen(false)}
                 className={`${
-                  location.pathname === '/collections' ? 'text-amber-600' : 'text-gray-700'
-                } hover:text-amber-600 transition-colors font-medium py-2`}
+                  location.pathname === '/cart' ? 'text-amber-600' : 'text-gray-700'
+                } hover:text-amber-600 transition-colors font-medium py-2 flex items-center relative`}
               >
-                Collections
+                <ShoppingCart className="inline-block h-4 w-4 mr-2" /> Cart
+                {items.length > 0 && (
+                  <span className="ml-2 bg-red-600 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
+                    {items.length}
+                  </span>
+                )}
               </Link>
               <Link
                 to="/about"
@@ -191,7 +211,7 @@ const Navbar = () => {
               </Link>
               {!isSignedIn && (
                 <div className="flex flex-col space-y-2 pt-4 border-t border-gray-100">
-                  <SignInButton mode="modal">
+                  <SignInButton mode="modal" fallbackRedirectUrl="/">
                     <button 
                       onClick={() => setIsMenuOpen(false)}
                       className="w-full px-4 py-2 text-amber-600 hover:bg-amber-50 rounded-lg font-medium text-center transition-colors"
@@ -199,7 +219,7 @@ const Navbar = () => {
                       Sign in
                     </button>
                   </SignInButton>
-                  <SignUpButton mode="modal">
+                  <SignUpButton mode="modal" fallbackRedirectUrl="/">
                     <button 
                       onClick={() => setIsMenuOpen(false)}
                       className="w-full px-4 py-2 bg-amber-600 text-white rounded-lg hover:bg-amber-700 font-medium text-center transition-colors"
