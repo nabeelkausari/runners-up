@@ -8,7 +8,7 @@ const Contact = () => {
       <Navbar />
       
       <main className="pt-32 pb-16">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 max-w-4xl mx-auto">
           <h1 className="text-4xl font-bold mb-8">Contact Us</h1>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -22,8 +22,8 @@ const Contact = () => {
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
                   <Phone className="w-5 h-5 text-primary" />
-                  <a href="tel:+919900077752" className="text-gray-600 hover:text-primary">
-                    +919900077752
+                  <a href="mailto:hello@procineography.store" className="text-gray-600 hover:text-primary">
+                    hello@procineography.store
                   </a>
                 </div>
                 {/* <div className="flex items-center gap-3">
@@ -35,7 +35,7 @@ const Contact = () => {
               </div>
             </div>
 
-            <div className="bg-white p-6 rounded-lg shadow-sm">
+            {/* <div className="bg-white p-6 rounded-lg shadow-sm">
               <form className="space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
@@ -96,7 +96,7 @@ const Contact = () => {
                   Send Message
                 </button>
               </form>
-            </div>
+            </div> */}
           </div>
         </div>
       </main>      

@@ -125,12 +125,12 @@ const Footer: React.FC<FooterProps> = ({ className = '' }) => {
             </h3>
             <div className="space-y-3 text-sm text-gray-600">
               <div className="flex items-start">
-                <span className="font-medium text-gray-700 w-16">Phone:</span>
+                <span className="font-medium text-gray-700 w-16">Email:</span>
                 <a
-                  href="tel:++919900077752"
+                  href="mailto:hello@procineography.store"
                   className="text-gray-600 hover:text-amber-600 transition-colors duration-200 ease-in-out"
                 >
-                  +91 99000 77752
+                  hello@procineography.store
                 </a>
               </div>
               <div className="flex items-start">
@@ -185,7 +185,7 @@ const Footer: React.FC<FooterProps> = ({ className = '' }) => {
         {/* Copyright */}
         <div className="mt-12 pt-8 border-t border-gray-200">
           <p className="text-center text-sm text-gray-500">
-            &copy; {currentYear} Pro Cineography. All rights reserved.
+            &copy; {currentYear} Pro Cineography Private Limited. All rights reserved.
             <span className="block mt-2 text-xs text-gray-400">
               Handcrafted with ❤️ in India
             </span>
