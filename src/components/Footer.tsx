@@ -106,9 +106,9 @@ const Footer: React.FC<FooterProps> = ({ className = '' }) => {
               <div className="flex items-start">
                 <span className="font-medium text-gray-700 w-16">Address:</span>
                 <address className="not-italic">
-                  21ST STAGE, 4TH BLOCK, HBR LAYOUT,<br />
-                  Kalyananagar, Bangalore North,<br />
-                  Bangalore - 560043, Karnataka
+                  4TH FLOOR 50/A REGENT PLACE KOLKATA,<br />
+                  KOLKATA, WEST BENGAL,<br />
+                  700040
                 </address>
               </div>
               

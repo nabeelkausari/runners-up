@@ -7,65 +7,50 @@ const About = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-24">
-        <div className="max-w-3xl mx-auto">
-          <h1 className="text-3xl font-bold mb-8">About Us</h1>
+        <div className="max-w-4xl mx-auto prose prose-lg max-w-none">
+          <h2>We Do What We Love.</h2>
+          <p>
+            At Pro Cineography, every creation is a reflection of our passion for storytelling through art. We're proud to say that our returning customers speak volumes—each one touched by the detail and emotion captured in the works we deliver.
+          </p>
 
-          <div className="prose max-w-none">
-            <p className="mb-6">
-              Paymadi Technologies LLP, operating under the brand
-              name Edu-Madi, is a leading provider of the quality education in
-              India. We are dedicated to bringing you the finest selection of
-              courses, faculties, and the digital infrastructure that delivers exceptional
-              quality and user experience.
-            </p>
+          <h2 className="mt-10">India's Premier Cinematic Art Studio</h2>
+          <p>
+            Pro Cineography is not just a brand—it's a space where imagination meets precision. We specialize in crafting 3D cinematic miniatures, personalized collectibles, and stylized art pieces that celebrate life's moments in unforgettable ways.
+          </p>
+          <p>
+            Blending the beauty of digital craftsmanship with the spirit of film and visual storytelling, we've built a growing community of collectors, artists, and cinephiles who trust us to turn their memories into masterpieces.
+          </p>
 
-            <h2 className="text-xl font-semibold mt-8 mb-4">Our Mission</h2>
-            <p className="mb-6">
-              At Edu-Madi, our mission is to make quality education accessible
-              to everyone. We believe that quality education should not be a luxury,
-              but an essential tool for enhancing daily life.
-            </p>
+          <h2 className="mt-10">Built by Creators, For Creators</h2>
+          <p>
+            Founded by a team of two passionate creators, Pro Cineography began as a humble idea—to give people cinematic keepsakes they could hold in their hands. What started in a small home studio has grown into an independent creative platform that delivers quality, emotion, and personalization with every order.
+          </p>
+          <p>
+            Our founders—working out of KOLKATA, WEST BENGAL—continue to lead with heart, overseeing everything from design to customer care.
+          </p>
 
-            <h2 className="text-xl font-semibold mt-8 mb-4">Our Values</h2>
-            <ul className="list-disc pl-6 mb-6">
-              <li className="mb-2">
-                <strong>Quality:</strong> We carefully curate our courses
-                selection to ensure only the best courses reach our
-                customers.
-              </li>
-              <li className="mb-2">
-                <strong>Innovation:</strong> We stay at the forefront of education
-                to bring you the latest and most innovative courses.
-              </li>
-              <li className="mb-2">
-                <strong>Customer Service:</strong> We are committed to providing 
-                exceptional customer service and support throughout your
-                education journey.
-              </li>
-              <li className="mb-2">
-                <strong>Integrity:</strong> We maintain transparency in our
-                operations and pricing to build long lasting relationships with our
-                customers.
-              </li>
-            </ul>
+          <h2 className="mt-10">What We Offer</h2>
+          <ul>
+            <li>Custom 3D Miniature Creations</li>
+            <li>Personalized Cinematic Collectibles</li>
+            <li>High-Quality Printing & Finishing</li>
+            <li>Order Fulfillment, Packaging & Delivery</li>
+          </ul>
+          <p>
+            Whether it's for a gift, a film fan, a personal memory, or an artistic tribute, we make sure every product that leaves our studio is as meaningful as the story behind it.
+          </p>
 
-            <h2 className="text-xl font-semibold mt-8 mb-4">
-              Contact Information
-            </h2>
-            <p className="mb-2">
-              Paymadi Technologies LLP
-              <br />
-              21ST STAGE, 4TH BLOCK,HBR LAYOUT, Kalyananagar, Bangalore North, Bangalore- 560043, Karnataka
-            </p>
-            <p className="mb-2">
-              {/* Email: contact@ethora.com
-              <br /> */}
-              Phone: +919900077752
-            </p>
-          </div>
+          <h2 className="mt-10">Empowering Creativity & Memories</h2>
+          <p>
+            Our goal has always been simple: to preserve emotions through the lens of cinematic art. We work closely with every client, ensuring their vision comes alive in the most stunning and personal way possible. At Pro Cineography, art isn't just created—it's curated, carefully, and passionately.
+          </p>
+
+          <h2 className="mt-10">Welcome to Pro Cineography.</h2>
+          <p>Where your stories take shape.</p>
+
         </div>
       </div>
-      
+      <Footer />
     </div>
   );
 };
