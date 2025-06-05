@@ -70,21 +70,14 @@ const Navbar = () => {
               <Home className="inline-block h-4 w-4 mr-1" /> Home
             </Link>
             <Link
-              to="/shop"
+              to="/marketplace"
               className={`${
-                location.pathname === '/shop' ? 'text-amber-600' : 'text-gray-700'
+                location.pathname === '/marketplace' ? 'text-amber-600' : 'text-gray-700'
               } hover:text-amber-600 transition-colors font-medium flex items-center`}
             >
               <ShoppingCart className="inline-block h-4 w-4 mr-1" /> Shop
             </Link>
-            <Link
-              to="/collections"
-              className={`${
-                location.pathname === '/collections' ? 'text-amber-600' : 'text-gray-700'
-              } hover:text-amber-600 transition-colors font-medium`}
-            >
-              Collections
-            </Link>
+            
             <Link
               to="/about"
               className={`${
@@ -161,10 +154,10 @@ const Navbar = () => {
                 <Home className="inline-block h-4 w-4 mr-2" /> Home
               </Link>
               <Link
-                to="/shop"
+                to="/marketplace"
                 onClick={() => setIsMenuOpen(false)}
                 className={`${
-                  location.pathname === '/shop' ? 'text-amber-600' : 'text-gray-700'
+                  location.pathname === '/marketplace' ? 'text-amber-600' : 'text-gray-700'
                 } hover:text-amber-600 transition-colors font-medium py-2 flex items-center`}
               >
                 <ShoppingCart className="inline-block h-4 w-4 mr-2" /> Shop

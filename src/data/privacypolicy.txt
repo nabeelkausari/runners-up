@@ -1,0 +1,61 @@
+PRIVACY POLICY.txt
+﻿Privacy Policy
+
+
+
+
+Who We Are
+Our website address is: https://procineography.store
+ At Pro Cineography, we are committed to protecting your privacy. This Privacy Policy outlines what information we collect, how we use it, and your rights regarding your personal data.
+________________
+
+
+Comments
+When visitors leave comments on the site, we collect the data shown in the comments form, as well as the visitor’s IP address and browser user agent string to help detect spam.
+An anonymized hash (a coded string) created from your email address may be shared with the Gravatar service to check if you are using it. You can read Gravatar’s privacy policy here: https://automattic.com/privacy/. Once your comment is approved, your profile picture may be visible to the public in the context of your comment.
+________________
+
+
+Media
+If you upload images to our website, please ensure that they do not include embedded location data (EXIF GPS). Visitors to the site may be able to download and extract location information from images.
+________________
+
+
+Cookies
+* If you leave a comment, you may opt-in to saving your name, email address, and website in cookies. These are for your convenience and will last for one year.
+
+* If you visit our login page, a temporary cookie will be set to determine if your browser accepts cookies. It contains no personal data and is discarded when you close your browser.
+
+* When you log in, we use cookies to store your login information and screen display preferences. Login cookies last two days; screen option cookies last one year. If you select "Remember Me", your login will persist for two weeks. Logging out will remove these cookies.
+
+* If you edit or publish an article, an additional cookie will be saved in your browser. It contains no personal data and simply stores the post ID of the content you edited. It expires after one day.
+
+________________
+
+
+Embedded Content from Other Websites
+Articles or content on this site may include embedded material (like videos, images, or articles). Embedded content from other websites behaves in the same way as if you visited that website directly.
+These websites may collect data about you, use cookies, embed third-party tracking, and monitor your interaction with that content—especially if you have an account and are logged in to that site.
+________________
+
+
+Who We Share Your Data With
+If you request a password reset, your IP address may be included in the reset email for security purposes.
+________________
+
+
+How Long We Retain Your Data
+   * Comments and their metadata are retained indefinitely. This allows us to recognize and approve future comments automatically.
+
+   * For users who register on our website (if applicable), we store the personal information they provide in their user profile. All users can see, edit, or delete their personal information at any time (except for their username). Website administrators can also view and edit that information.
+
+________________
+
+
+Your Data Rights
+If you have an account on this site or have left comments, you can request an exported file of the personal data we hold about you. You can also request that we erase any personal data, excluding any data we are obligated to keep for administrative, legal, or security reasons.
+________________
+
+
+Where We Send Your Data
+Visitor comments may be checked through an automated spam detection service to keep the platform secure.

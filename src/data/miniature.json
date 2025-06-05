@@ -3,17 +3,69 @@
     {
       "id": 1,
       "image": "https://aisite.10web.io/73/wp-content/uploads/sites/175/2025/06/tenweb_media_r7xiav5rg.webp",
-      "title": "Minimalist Geometric Miniature",
-      "description": "A beautifully crafted geometric miniature featuring clean lines and modern design. Perfect for contemporary home decor and collectors who appreciate minimalist aesthetics.",
-      "currentPrice": 3320,
-      "ratings": 4.5,
+      "title": "Personalized 3D Miniature – Full Body Figurine",
+      "description": "Crafted with precision and care, this full-body 3D miniature captures your likeness from head to toe. Made from durable, eco-friendly plastic, it's printed using advanced 3D technology for exceptional detail. Mounted on a sleek black base, this custom figurine is available in multiple sizes to perfectly suit your space.",
+      "currentPrice": 4999,
+      "ratings": 4.8,
+      "category": "Figurine",
+      "materials": ["Eco-friendly Plastic", "Wooden Base"],
+      "sizes": ["6-inch", "8-inch", "12-inch"],
+      "details": "Hand-painted with attention to detail, each piece is unique and made to order.",
       "prices": [
-        { "size": "8 inch", "replica": "single", "price": 3320 },
-        { "size": "10 inch", "replica": "single", "price": 4565 },
-        { "size": "12 inch", "replica": "single", "price": 4150 },
-        { "size": "14 inch", "replica": "single", "price": 3735 },
-        { "size": "16 inch", "replica": "single", "price": 1245 },
-        { "size": "18 inch", "replica": "single", "price": 3320 }
+        { "size": "6 inch", "replica": "single", "price": 4999 },
+        { "size": "8 inch", "replica": "single", "price": 6999 },
+        { "size": "12 inch", "replica": "single", "price": 9999 }
+      ]
+    },
+    {
+      "id": 2,
+      "image": "https://aisite.10web.io/73/wp-content/uploads/sites/175/2025/06/tenweb_media_R790JIW49.webp",
+      "title": "Personalized 3D Miniature – Half Bust Figurine",
+      "description": "Highlight your personality with this 3D half-bust miniature. Created using high-resolution 3D printing and sustainable plastic, it offers fine craftsmanship and a refined finish. The round base adds a touch of elegance, making it ideal for desks, shelves, or as a thoughtful gift.",
+      "currentPrice": 3999,
+      "ratings": 4.7,
+      "category": "Bust",
+      "materials": ["Eco-friendly Resin", "Wooden Base"],
+      "sizes": ["5-inch", "7-inch", "9-inch"],
+      "details": "Customizable with various finish options to match your style.",
+      "prices": [
+        { "size": "5 inch", "replica": "single", "price": 3999 },
+        { "size": "7 inch", "replica": "single", "price": 5499 },
+        { "size": "9 inch", "replica": "single", "price": 7499 }
+      ]
+    },
+    {
+      "id": 3,
+      "image": "https://aisite.10web.io/73/wp-content/uploads/sites/175/2025/06/tenweb_media_RFYFQTZ8O.webp",
+      "title": "Personalized 3D Half Bust with Portrait – Legacy Edition",
+      "description": "Celebrate a legacy with this exclusive half-bust miniature paired with a matching portrait. Made from eco-conscious materials and printed with cutting-edge 3D technology, each piece is detailed to perfection. A meaningful way to honor memories with timeless elegance.",
+      "currentPrice": 5999,
+      "ratings": 4.9,
+      "category": "Legacy Collection",
+      "materials": ["Premium Resin", "Wooden Base", "Glass Portrait"],
+      "sizes": ["6-inch", "8-inch", "10-inch"],
+      "details": "Includes a matching framed portrait and certificate of authenticity.",
+      "prices": [
+        { "size": "6 inch", "replica": "single", "price": 5999 },
+        { "size": "8 inch", "replica": "single", "price": 7999 },
+        { "size": "10 inch", "replica": "single", "price": 10999 }
+      ]
+    },
+    {
+      "id": 4,
+      "image": "https://aisite.10web.io/73/wp-content/uploads/sites/175/2025/06/tenweb_media_r7xiav5rg.webp",
+      "title": "Personalized 3D Miniature – Half Bust Figurine (Deluxe)",
+      "description": "Our deluxe half-bust figurine features enhanced details and premium finishing. Each piece is hand-painted by our master artisans, ensuring a museum-quality collectible that captures every nuance of your likeness.",
+      "currentPrice": 6999,
+      "ratings": 4.9,
+      "category": "Deluxe Collection",
+      "materials": ["High-Quality Resin", "Marble Base"],
+      "sizes": ["6-inch", "8-inch", "10-inch"],
+      "details": "Includes premium packaging and a display case.",
+      "prices": [
+        { "size": "6 inch", "replica": "single", "price": 6999 },
+        { "size": "8 inch", "replica": "single", "price": 8999 },
+        { "size": "10 inch", "replica": "single", "price": 11999 }
       ]
     },
     {

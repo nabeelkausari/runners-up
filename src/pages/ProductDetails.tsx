@@ -11,8 +11,15 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 import { Button } from '@/components/ui/button';
-import productsData from '../data/products.json';
+import { getProductImages } from '@/utils/productUtils';
 import Footer from '@/components/Footer';
+import { Image as ImageIcon } from 'lucide-react';
+
+const FALLBACK_IMAGES = [
+  'https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=2071&q=80',
+  'https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=2071&q=80',
+  'https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=2071&q=80'
+];
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -26,9 +33,10 @@ const ProductDetails = () => {
       return null;
     }
     
-    // Convert both to string for comparison to avoid type issues
-    const productId = id.toString();
-    const foundProduct = productsData.products.find(p => p.id.toString() === productId);
+    // Convert both to number for comparison
+    const productId = parseInt(id, 10);
+    const allProducts = getProductImages();
+    const foundProduct = allProducts.find(p => p.id === productId);
     
     if (!foundProduct) {
       navigate('/marketplace');
@@ -45,16 +53,46 @@ const ProductDetails = () => {
     }
   }, [product]);
 
+  const [currentImage, setCurrentImage] = useState(product?.url || '');
+  const [errorCount, setErrorCount] = useState(0);
+
+  // Update current image when product changes
+  useEffect(() => {
+    if (product?.url) {
+      setCurrentImage(product.url);
+      setErrorCount(0);
+    }
+  }, [product]);
+
+  const handleImageError = () => {
+    if (errorCount < FALLBACK_IMAGES.length) {
+      // Try the next fallback image
+      setCurrentImage(FALLBACK_IMAGES[errorCount]);
+      setErrorCount(prev => prev + 1);
+    }
+  };
+
   if (!product) {
-    return null;
+    return (
+      <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center py-12">
+            <div className="animate-pulse text-gray-400">
+              <ImageIcon className="w-16 h-16 mx-auto mb-4" />
+              <p>Loading product details...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
   }
 
   const handleAddToCart = () => {
     const cartItem = {
       id: product.id,
       name: product.title,
-      price: product.currentPrice.toString(),
-      image: product.image,
+      price: product.prices[0]?.price.toString() || '0',
+      image: product.url,
     };
 
     const cart = JSON.parse(localStorage.getItem('cart') || '[]');
@@ -77,12 +115,20 @@ const ProductDetails = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* Product Images */}
           <div className="space-y-4">
-            <div className="overflow-hidden rounded-lg bg-white p-8">
-              <img
-                src={product.image}
-                alt={product.title}
-                className="w-full max-w-[400px] mx-auto h-auto object-contain"
-              />
+            <div className="aspect-square w-full bg-gray-50 rounded-lg overflow-hidden flex items-center justify-center">
+              {currentImage ? (
+                <img
+                  src={currentImage}
+                  alt={product.title}
+                  onError={handleImageError}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              ) : (
+                <div className="w-full h-full flex items-center justify-center bg-gray-100">
+                  <ImageIcon className="w-12 h-12 text-gray-300" />
+                </div>
+              )}
             </div>
           </div>
 
@@ -90,9 +136,9 @@ const ProductDetails = () => {
           <div className="space-y-8 p-4">
             <div className="space-y-2">
               <h1 className="text-4xl font-bold">{product.title}</h1>
-              {product.discount && (
+              {product.prices[0]?.price < (product.originalPrice || Infinity) && (
                 <span className="inline-block bg-red-500 text-white px-3 py-1 rounded-md text-sm">
-                  {product.discount}
+                  Sale
                 </span>
               )}
             </div>
@@ -103,7 +149,7 @@ const ProductDetails = () => {
                   {formatINR(product.currentPrice)}
                 </span>
                 <span className="block text-sm text-gray-500 line-through">
-                  {formatINR(product.oldPrice)}
+                  {product.originalPrice ? formatINR(product.originalPrice) : ''}
                 </span>
               </div>
             </div>
@@ -230,7 +276,7 @@ const ProductDetails = () => {
             <div className="grid grid-cols-2 gap-4 pt-8">
               <div className="bg-muted p-4 rounded-lg">
                 <h3 className="font-semibold mb-2">Free shipping</h3>
-                <p className="text-sm text-accent">On orders over ₹5,000</p>
+                <p className="text-sm text-accent">On orders over ₹1,000</p>
               </div>
               <div className="bg-muted p-4 rounded-lg">
                 <h3 className="font-semibold mb-2">Very easy to return</h3>
@@ -252,7 +298,7 @@ const ProductDetails = () => {
           </div>
         </div>
       </main>
-      <Footer />
+      
     </div>
   );
 };
