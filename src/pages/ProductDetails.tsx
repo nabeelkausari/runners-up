@@ -26,6 +26,8 @@ const ProductDetails = () => {
   const { addToCart } = useCart();
   const navigate = useNavigate();
   const [isInCart, setIsInCart] = useState(false);
+  const [selectedSize, setSelectedSize] = useState<string | null>(null);
+  const [selectedPrice, setSelectedPrice] = useState<number>(0);
 
   const product = useMemo(() => {
     if (!id) {
@@ -47,10 +49,27 @@ const ProductDetails = () => {
   }, [id, navigate]);
 
   useEffect(() => {
-    if (product) {
-      const cart = JSON.parse(localStorage.getItem('cart') || '[]');
-      setIsInCart(cart.some((item) => item.id === product.id));
+    if (!product) return;
+    
+    let isMounted = true;
+    
+    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    // Check if any variant of this product is in the cart
+    const inCart = cart.some((item: any) => item.metadata?.productId === product.id);
+    
+    // Set default selected size and price
+    const defaultSize = product.prices?.[0]?.size || null;
+    const defaultPrice = product.prices?.[0]?.price || 0;
+    
+    if (isMounted) {
+      setIsInCart(inCart);
+      setSelectedSize(defaultSize);
+      setSelectedPrice(defaultPrice);
     }
+    
+    return () => {
+      isMounted = false;
+    };
   }, [product]);
 
   const [currentImage, setCurrentImage] = useState(product?.url || '');
@@ -88,24 +107,83 @@ const ProductDetails = () => {
   }
 
   const handleAddToCart = () => {
+    if (!selectedSize && product.prices?.length > 0) {
+      // Select first size by default if none selected
+      setSelectedSize(product.prices[0].size);
+      setSelectedPrice(product.prices[0].price);
+      return;
+    }
+
+    // Create a unique ID for the cart item
+    const cartItemId = Number(`${product.id}${selectedSize?.toString().replace(/\D/g, '')}`);
+    
     const cartItem = {
-      id: product.id,
-      name: product.title,
-      price: product.prices[0]?.price.toString() || '0',
+      id: cartItemId,
+      name: `${product.title} (${selectedSize})`,
+      price: selectedPrice.toString(),
       image: product.url,
+      quantity: 1,
+      // Store additional data in a separate field to maintain CartItem type
+      metadata: {
+        productId: product.id,
+        size: selectedSize,
+        originalPrice: product.originalPrice.toString(),
+      }
     };
 
     const cart = JSON.parse(localStorage.getItem('cart') || '[]');
-    const updatedCart = [...cart, cartItem];
-    localStorage.setItem('cart', JSON.stringify(updatedCart));
+    const existingItemIndex = cart.findIndex((item: any) => 
+      item.metadata?.productId === product.id && item.metadata?.size === selectedSize
+    );
 
-    addToCart(cartItem);
+    let updatedCart;
+    if (existingItemIndex >= 0) {
+      // Update quantity if item with same size already in cart
+      updatedCart = [...cart];
+      updatedCart[existingItemIndex] = {
+        ...updatedCart[existingItemIndex],
+        quantity: updatedCart[existingItemIndex].quantity + 1
+      };
+    } else {
+      // Add new item to cart
+      updatedCart = [...cart, cartItem];
+    }
+
+    localStorage.setItem('cart', JSON.stringify(updatedCart));
+    
+    // Call addToCart with the properly typed cart item
+    addToCart({
+      id: cartItem.id,
+      name: cartItem.name,
+      price: cartItem.price,
+      image: cartItem.image
+    });
+    
     setIsInCart(true);
   };
 
   const handleViewCart = () => {
     navigate('/cart');
   };
+
+  // Update isInCart when selected size changes
+  useEffect(() => {
+    if (!product || !selectedSize) return;
+    
+    let isMounted = true;
+    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    const inCart = cart.some((item: any) => 
+      item.productId === product.id && item.size === selectedSize
+    );
+    
+    if (isMounted) {
+      setIsInCart(inCart);
+    }
+    
+    return () => {
+      isMounted = false;
+    };
+  }, [selectedSize, product]);
 
   return (
     <div className="min-h-screen bg-background">
@@ -143,14 +221,42 @@ const ProductDetails = () => {
               )}
             </div>
 
+            {/* Size Selection */}
+            {product.prices?.length > 1 && (
+              <div className="space-y-2">
+                <h3 className="text-sm font-medium text-gray-700">Select Size</h3>
+                <div className="flex flex-wrap gap-2">
+                  {product.prices.map((priceOption) => (
+                    <button
+                      key={priceOption.size}
+                      type="button"
+                      onClick={() => {
+                        setSelectedSize(priceOption.size);
+                        setSelectedPrice(priceOption.price);
+                      }}
+                      className={`px-4 py-2 border rounded-md text-sm font-medium transition-colors ${
+                        selectedSize === priceOption.size
+                          ? 'bg-primary text-white border-primary'
+                          : 'border-gray-300 hover:border-primary hover:text-primary'
+                      }`}
+                    >
+                      {priceOption.size}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+
             <div className="flex items-center gap-4">
               <div className="space-y-1">
                 <span className="text-2xl font-semibold text-primary">
-                  {formatINR(product.currentPrice)}
+                  {formatINR(selectedPrice || product.currentPrice)}
                 </span>
-                <span className="block text-sm text-gray-500 line-through">
-                  {product.originalPrice ? formatINR(product.originalPrice) : ''}
-                </span>
+                {product.originalPrice > selectedPrice && (
+                  <span className="block text-sm text-gray-500 line-through">
+                    {formatINR(product.originalPrice)}
+                  </span>
+                )}
               </div>
             </div>
 
